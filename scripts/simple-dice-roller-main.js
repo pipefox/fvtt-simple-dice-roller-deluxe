@@ -6,7 +6,7 @@ export class SimpleDiceRoller {
     static CONFIG_ENABLE_D2 = "enableD2";
     static CONFIG_ENABLE_D100 = "enableD100";
     
-    static TEMPLATE_PATH = "modules/simple-dice-roller/templates/dice-table.hbs";
+    static TEMPLATE_PATH = `modules/${this.ID}/templates/dice-table.hbs`;
 
     static async Init(controls, html) {
         // TODO P0: add to main Handlebars template if possible

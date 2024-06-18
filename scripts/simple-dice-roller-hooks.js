@@ -56,7 +56,7 @@ function _registerGameSettings() {
         hint: game.i18n.localize("simpleDiceRoller.enableD100.hint"),
         scope: "world",
         config: true,
-        default: false,
+        default: true,
         type: Boolean
     });
     game.settings.register(SimpleDiceRoller.ID, SimpleDiceRoller.CONFIG_ENABLE_FUDGE, {
