@@ -1,0 +1,17 @@
+{{#each diceTypes}}
+<ul>
+    <li class="sdr-col1" data-dice-type="{{diceType}}" data-dice-roll="1">
+        {{#if (isFate diceType)}}
+        <i class="far fa-plus-square" data-dice-type="f" data-dice-roll="1"></i> Fudge
+        {{else if (isD100 diceType)}}
+        <i class="df-d10-10" data-dice-type="100" data-dice-roll="1"></i>
+        <i class="df-d10-10" data-dice-type="100" data-dice-roll="1"></i> d100
+        {{else}}
+        <i class="df-d{{diceType}}-{{diceType}}" data-dice-type="{{diceType}}" data-dice-roll="1"></i> d{{diceType}}
+        {{/if}}
+    </li>
+    {{#each diceRolls}}
+    <li data-dice-type="{{../diceType}}" data-dice-roll="{{this}}">{{this}}</li>
+    {{/each}}
+</ul>
+{{/each}}

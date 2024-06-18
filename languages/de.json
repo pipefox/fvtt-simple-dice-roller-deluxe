@@ -1,0 +1,24 @@
+{
+    "simpleDiceRoller": {
+        "maxDiceCount": {
+            "name": "Maximum dice thrown:",
+            "hint": "The largest number of dice you can throw with Simple Dice Roller. Min: 1. Max: 30. Default: 7."
+        },
+        "enableFirstColumn": {
+            "name": "Add extra column for 1 die rolls",
+            "hint": "Note that the dice-icon column is always clickable similar to other online tabletop platfroms."
+        },
+        "enableD2": {
+            "name": "Enable D2 dice rolls",
+            "hint": "If you want to see D2 dice rolls."
+        },
+        "enableD100": {
+            "name": "Enable D100 dice rolls",
+            "hint": "If you want to see 100 dice rolls."
+        },
+        "enableFudgeDice": {
+            "name": "Enable 'Fudge Dice'",
+            "hint": "For rolling 'Fudge Dice' (a.k.a. 'Fate Dice') for your Fate and Fudge games."
+        }
+    }
+}

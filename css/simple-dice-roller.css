@@ -17,10 +17,11 @@
     display: flex;
 }
 
+/* unused */
 .simple-dice-roller-popup .sdr-lastrow {
     border-bottom: none;
 }
-
+/* unused */
 .simple-dice-roller-popup .sdr-lastcol {
     border-right: none;
 }
