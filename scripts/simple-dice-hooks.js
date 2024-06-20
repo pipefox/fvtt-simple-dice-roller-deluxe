@@ -39,7 +39,7 @@ function _loadCustomDiceControl() {
         {
           name: SDR.MENU_GM_ROLL,
           title: game.i18n.localize("navigationSettings.makeGMRoll"),
-          icon: "fa-solid fa-eye",
+          icon: "fa-duotone fa-user-secret",
           toggle: true,
           onClick: () => {
             SDR.IS_GM_ROLL = !SDR.IS_GM_ROLL;
@@ -48,7 +48,7 @@ function _loadCustomDiceControl() {
         {
           name: SDR.MENU_EXPL_DICE,
           title: game.i18n.localize("navigationSettings.explodingDice"),
-          icon: "fa-solid fa-bomb",
+          icon: "fa-duotone fa-bomb",
           toggle: true,
           onClick: () => {
             SDR.IS_EXPLODING = !SDR.IS_EXPLODING;
