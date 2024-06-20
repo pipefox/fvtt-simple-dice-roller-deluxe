@@ -1,8 +1,9 @@
 {
-    "title": "Simple Dice Roller Deluxe",
+    "title": "Dice Roller",
     "navigationSettings": {
-        "explodingDice": "Toggle Exploding Dice",
-        "explodingOnceDice": "Toggle Exploding Once Dice"
+        "makeGMRoll": "Toggle Hidden Rolls for GM",
+        "explodingDice": "Toggle Exploding Dice"
+
     },
     "settings": {
         "maxDiceCount": {
@@ -25,9 +26,9 @@
             "name": "Enable 'Fudge Dice'",
             "hint": "For rolling 'Fudge Dice' (a.k.a. 'Fate Dice') for your Fate and Fudge games."
         },
-        "enableSpecialDiceButtons": {
-            "name": "Enable Special Dice Button(s)",
-            "hint": "Adds control button option(s) for Exploding dice on the highest roll. Unusable with coin flips, Fudge Dice and d100!"
+        "enableSpecialDiceToggles": {
+            "name": "Enable Special Dice Toggles",
+            "hint": "Add control options for Exploding dice on highest roll (not for coin flips, Fudge and d100) and hidden rolls to GM."
         }
     }
 }

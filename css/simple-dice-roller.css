@@ -1,60 +1,33 @@
-#controls .simple-dice-roller-popup.control-tool {
-    font-size: 18px !important;
-    width: auto !important;
-    height: auto !important;
-}
-
-.simple-dice-roller-popup:hover {
-    border: 1px solid #333 !important;
-    box-shadow: 0 0 10px #000 !important;
-}
-
-.simple-dice-roller-popup ul {
+.sdr-form .dice-rows {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid #333;
     display: flex;
 }
 
-/* TODO P1 fix: 2 styles below written cause border does not render left and top, lol */
-/* unused */
-.simple-dice-roller-popup .sdr-lastrow {
-    border-bottom: none;
-}
-/* unused */
-.simple-dice-roller-popup .sdr-lastcol {
-    border-right: none;
+.sdr-form .dice-1stcol {
+    width: 110px !important;
+    text-align: left !important;
+    padding-left: 8px;
 }
 
-.simple-dice-roller-popup .sdr-col1 {
-    width: 110px;
-    text-align: left;
-}
-
-.simple-dice-roller-popup li {
+.sdr-form .dice-col {
     display: inline-block;
     width: 48px;
-    text-align: center;
-    padding: 5px;
-    border-right: 1px solid #333;
     height: 48px;
+    text-align: center;
+    padding-top: 13px;
+    border: 1px solid #333;
     cursor: pointer;
 }
 
-.simple-dice-roller-popup li:hover {
-    color: #FFF;
+.sdr-form .dice-col:hover {
+    color: #9fff9f;
     border: 1px solid red;
-    border-bottom: 1px solid #ff6400;
     box-shadow: 0 0 10px #ff6400;
 }
 
-.simple-dice-roller-popup li i {
-    font-size: 24px;
+.sdr-form i {
+    font-size: 25px;
     vertical-align: middle;
-}
-
-.sdr-sub-controls {
-    position: absolute;
-    left: 4.2rem;
 }

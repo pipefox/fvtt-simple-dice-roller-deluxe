@@ -13,6 +13,7 @@ export class SDR {
     static ID = "simple-dice-roller-deluxe";
     static MENU_CONTROL = "simpledice";
     static MENU_EXPL_DICE = "expldice";
+    static MENU_GM_ROLL = "gmroll";
 
     static CONFIG_MAXDICE_COUNT = "maxDiceCount";
     static CONFIG_ENABLE_1ST_COLUMN = "enableColumnOne";
@@ -20,8 +21,15 @@ export class SDR {
     static CONFIG_ENABLE_COINS = "enableCoins";
     static CONFIG_ENABLE_FUDGE = "enableFudgeDice";
     static CONFIG_ENABLE_SPECIAL_DICE = "enableSpecialDice";
-    // TODO P4: refactor?
-    static IS_EXPLODING = false;
     
     static TEMPLATE_PATH = `modules/${this.ID}/templates/dice-table.hbs`;
+
+    // TODO P4: refactor?
+    static IS_EXPLODING = false;
+    static IS_GM_ROLL = false;
+
+    static resetSpecialToggles() {
+        this.IS_EXPLODING = false;
+        this.IS_GM_ROLL = false;
+    }
 }

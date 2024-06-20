@@ -15,8 +15,9 @@ export class DiceForm extends FormApplication {
         return foundry.utils.mergeObject(super.defaultOptions, {
             height: 'auto',
             width: 'auto',
+            top: 70,
+            left: 110,
             popOut: true,
-            minimizable: true,
             resizable: false,
             id: 'dice-form',
             template: SDR.TEMPLATE_PATH,
@@ -28,8 +29,6 @@ export class DiceForm extends FormApplication {
         const indexOffset = this.enableFirstColumn ? 0 : 1;
         const diceTypes = this._getDiceTypes(this.enableCoins, this.enableD100, this.enableFudge);
 
-        // TODO P1 fix: update CSS&li/ul; 
-        // when maxCount == 1, we should not render a second row :) or change min to 2 :)
         const diceData = {
             diceTypes: diceTypes.map(diceType => ({
                 diceType,
@@ -61,10 +60,12 @@ export class DiceForm extends FormApplication {
         }
        
         let r = new Roll(formula);
+        // TODO P1: fix gmrolls :)
+        let rollType = SDR.IS_GM_ROLL ? "gmroll" : "roll";
         r.toMessage({
-            user: game.user._id,
-        })
-        // TODO P5: closeOnSubmit option :)
+            user: game.user._id
+        }, rollType);
+        console.log(idk);
     }
     
     activateListeners(html) {
