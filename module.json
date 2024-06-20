@@ -2,11 +2,8 @@
   "id": "simple-dice-roller-deluxe",
   "title": "Simple Dice Roller Deluxe",
   "description": "A system agnostic module that allows for quick rolling of common dice.",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "authors": [
-    {
-      "name": "Jan Ole Peek (ChalkOne)"
-    },
     {
       "name": "Antony Sotirov (pipefox)", 
       "url": "https://sotirov.io"
@@ -39,8 +36,8 @@
     }
   ],
   "esmodules": [
-    "scripts/simple-dice-roller-main.js",
-    "scripts/simple-dice-roller-hooks.js"
+    "scripts/simple-dice-main.js",
+    "scripts/simple-dice-hooks.js"
   ],
   "styles": [
     "css/simple-dice-roller.css",

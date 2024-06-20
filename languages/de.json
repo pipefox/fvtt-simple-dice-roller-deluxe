@@ -1,24 +1,33 @@
 {
-    "simpleDiceRoller": {
+    "title": "Simple Dice Roller Deluxe",
+    "navigationSettings": {
+        "explodingDice": "Toggle Exploding Dice",
+        "explodingOnceDice": "Toggle Exploding Once Dice"
+    },
+    "settings": {
         "maxDiceCount": {
             "name": "Maximum dice thrown:",
-            "hint": "The largest number of dice you can throw with Simple Dice Roller. Min: 1. Max: 30. Default: 7."
+            "hint": "Largest number of dice you can throw in the Simple Dice Roller. Minimum: 1. Maximum: 30."
         },
         "enableFirstColumn": {
-            "name": "Add extra column for 1 die rolls",
-            "hint": "Note that the dice-icon column is always clickable similar to other online tabletop platfroms."
+            "name": "Add additional 1st column for 1 die",
+            "hint": "Note: the dice-icon column is always clickable similar to other online tabletop platfroms."
         },
-        "enableD2": {
-            "name": "Enable D2 dice rolls",
-            "hint": "If you want to see D2 dice rolls."
+        "enableCoins": {
+            "name": "Enable coin tosses",
+            "hint": "For making coin flips (similar to D2 dice rolls)."
         },
         "enableD100": {
             "name": "Enable D100 dice rolls",
-            "hint": "If you want to see 100 dice rolls."
+            "hint": "For making d100 dice rolls."
         },
         "enableFudgeDice": {
             "name": "Enable 'Fudge Dice'",
             "hint": "For rolling 'Fudge Dice' (a.k.a. 'Fate Dice') for your Fate and Fudge games."
+        },
+        "enableSpecialDiceButtons": {
+            "name": "Enable Special Dice Button(s)",
+            "hint": "Adds control button option(s) for Exploding dice on the highest roll. Unusable with coin flips, Fudge Dice and d100!"
         }
     }
 }

@@ -17,6 +17,7 @@
     display: flex;
 }
 
+/* TODO P1 fix: 2 styles below written cause border does not render left and top, lol */
 /* unused */
 .simple-dice-roller-popup .sdr-lastrow {
     border-bottom: none;
