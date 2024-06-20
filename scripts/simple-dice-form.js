@@ -60,12 +60,10 @@ export class DiceForm extends FormApplication {
         }
        
         let r = new Roll(formula);
-        // TODO P1: fix gmrolls :)
-        let rollType = SDR.IS_GM_ROLL ? "gmroll" : "roll";
-        r.toMessage({
-            user: game.user._id
-        }, rollType);
-        console.log(idk);
+        r.toMessage(
+          { speaker: game.user._id },
+          { rollMode: SDR.IS_GM_ROLL ? "gmroll" : "roll" }
+        );
     }
     
     activateListeners(html) {

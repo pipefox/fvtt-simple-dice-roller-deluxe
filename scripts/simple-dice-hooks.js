@@ -74,7 +74,6 @@ function _loadHandlebarTemplates() {
 }
 
 function _registerGameSettings() {
-    // TODO P1: add private/hidden roll setting
     // TODO P3: update localizations && look into localization best practices
     game.settings.register(SDR.ID, SDR.CONFIG_MAXDICE_COUNT, {
         name: game.i18n.localize("settings.maxDiceCount.name"),
