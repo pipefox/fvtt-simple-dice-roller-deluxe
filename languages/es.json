@@ -1,9 +1,9 @@
 {
     "title": "Dice Roller",
-    "navigationSettings": {
+    "navigation": {
         "makeGMRoll": "Toggle Hidden Rolls for GM",
-        "explodingDice": "Toggle Exploding Dice"
-
+        "explodingDice": "Toggle Exploding Dice",
+        "explodingDiceOnce": "Toggle Dice that Explode Once"
     },
     "settings": {
         "maxDiceCount": {
@@ -28,7 +28,7 @@
         },
         "enableSpecialDiceToggles": {
             "name": "Enable Special Dice Toggles",
-            "hint": "Add control options for Exploding dice on highest roll (not for coin flips, Fudge and d100) and hidden rolls to GM."
+            "hint": "Add control options for hidden rolls to GM plus various Exploding Dice on highest roll (not for coin flips, Fudge or d100)."
         }
     }
 }
