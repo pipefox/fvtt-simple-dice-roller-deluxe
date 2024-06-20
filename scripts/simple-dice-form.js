@@ -57,7 +57,7 @@ export class DiceForm extends FormApplication {
         let formula = diceRoll.concat(diceType);
         // configure exploding dice
         if (SDR.IS_EXPLODING && diceType !== "dc" && diceType !== "df" && diceType !== "d100") {
-            formula = formula.contat("x", diceType);
+            formula = formula.concat("x", diceType);
         }
        
         let r = new Roll(formula);
