@@ -1,34 +1,34 @@
 {
-    "title": "Dice Roller",
+    "title": "Lanceur de Dés",
     "navigation": {
-        "makeGMRoll": "Toggle Hidden Rolls for GM",
-        "explodingDice": "Toggle Exploding Dice",
-        "explodingDiceOnce": "Toggle Dice that Explode Once"
+        "makeGMRoll": "Basculer les Lancers Secrets des Joueurs vers le MJ",
+        "explodingDice": "Basculer les Dés Explosifs",
+        "explodingDiceOnce": "Basculer les Dés à Explosion Unique"
     },
     "settings": {
         "maxDiceCount": {
-            "name": "Maximum dice thrown:",
-            "hint": "Largest number of dice you can throw in the Simple Dice Roller. Minimum: 1. Maximum: 30."
+            "name": "Nombre maximum de dés lancés :",
+            "hint": "Nombre maximum de dés que vous pouvez lancer avec le Lanceur de Dés. Minimum : 1. Maximum : 30."
         },
         "enableFirstColumn": {
-            "name": "Add additional 1st column for 1 die",
-            "hint": "Note: the dice-icon column is always clickable similar to other online tabletop platfroms."
+            "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",
+            "hint": "Remarque : la colonne des icônes de dés est toujours cliquable, similaire à d'autres plateformes de jeu de rôle en ligne."
         },
         "enableCoins": {
-            "name": "Enable coin tosses",
-            "hint": "For making coin flips (similar to D2 dice rolls)."
+            "name": "Activer les lancés de pièces",
+            "hint": "Pour effectuer des lancés de pièces (similaire aux lancers de dés d2)."
         },
         "enableD100": {
-            "name": "Enable D100 dice rolls",
-            "hint": "For making d100 dice rolls."
+            "name": "Activer les lancés de dés d100",
+            "hint": "Pour effectuer des lancés de dés d100."
         },
         "enableFudgeDice": {
-            "name": "Enable 'Fudge Dice'",
-            "hint": "For rolling 'Fudge Dice' (a.k.a. 'Fate Dice') for your Fate and Fudge games."
+            "name": "Activer les 'Dés Fudge'",
+            "hint": "Pour lancer des 'Dés Fudge' (également appelés 'Dés Fate') pour vos jeux Fate et Fudge."
         },
         "enableSpecialDiceToggles": {
-            "name": "Enable Special Dice Toggles",
-            "hint": "Add control options for hidden rolls to GM plus various Exploding Dice on highest roll (not for coin flips, Fudge or d100)."
+            "name": "Activer les Boutons de Dés Spéciaux",
+            "hint": "Ajouter des options de contrôle pour les lancers secrets des joueurs vers le MJ. Ajoute Dés Explosifs mutuellement exclusifs au plus haut lancer (pas pour les lancés de pièces, les Dés Fudge ou les dés d100)."
         }
     }
 }

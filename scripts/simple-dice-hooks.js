@@ -18,7 +18,7 @@ Hooks.on("getSceneControlButtons", controls => {
 });
 
 Hooks.on('renderSceneControls', (controls, html) => {
-    // overwrite menu control default behaviour and add our form
+    // overwrite menu control default behaviour and add our dice form
     html.find(`li[data-control=${SDR.MENU_CONTROL}]`).click(event => {
         event.preventDefault();
         new DiceForm().render(true);
@@ -48,46 +48,42 @@ Hooks.on('renderSceneControls', (controls, html) => {
 
 function _loadCustomDiceControl() {
     return {
-      name: SDR.MENU_CONTROL,
-      title: game.i18n.localize("title"),
-      icon: "fa-solid fa-dice-d20",
-      layer: "dice",
-      tools: [
-        {
-          name: SDR.MENU_GM_ROLL,
-          title: game.i18n.localize("navigation.makeGMRoll"),
-          icon: "fa-duotone fa-user-secret",
-          toggle: true,
-          onClick: () => {
-            SDR.IS_GM_ROLL = !SDR.IS_GM_ROLL;
-          }
-        },
-        {
-          name: SDR.MENU_EXPL_DICE,
-          title: game.i18n.localize("navigation.explodingDice"),
-          icon: "fa-solid fa-bomb",
-          toggle: true,
-          onClick: () => {
-            SDR.IS_EXPLODING = !SDR.IS_EXPLODING;
-            if (SDR.IS_EXPLODING) {
-                SDR.IS_EXPLODING_ONCE = false;
+        name: SDR.MENU_CONTROL,
+        title: game.i18n.localize("title"),
+        icon: "fa-solid fa-dice-d20",
+        layer: "dice",
+        tools: [
+            {
+            name: SDR.MENU_GM_ROLL,
+            title: game.i18n.localize("navigation.makeGMRoll"),
+            icon: "fa-duotone fa-user-secret",
+            toggle: true,
+            onClick: () => {
+                SDR.IS_GM_ROLL = !SDR.IS_GM_ROLL;
             }
-          }
-        },
-        {
+            },
+            {
+            name: SDR.MENU_EXPL_DICE,
+            title: game.i18n.localize("navigation.explodingDice"),
+            icon: "fa-solid fa-bomb",
+            toggle: true,
+            onClick: () => {
+                SDR.IS_EXPLODING = !SDR.IS_EXPLODING;
+                if (SDR.IS_EXPLODING) SDR.IS_EXPLODING_ONCE = false;
+            }
+            },
+            {
             name: SDR.MENU_EXPL_DICE_ONCE,
             title: game.i18n.localize("navigation.explodingDiceOnce"),
             icon: "fa-light fa-bomb",
             toggle: true,
             onClick: () => {
                 SDR.IS_EXPLODING_ONCE = !SDR.IS_EXPLODING_ONCE;
-                if (SDR.IS_EXPLODING_ONCE) {
-                    SDR.IS_EXPLODING = false;
-                }
+                if (SDR.IS_EXPLODING_ONCE) SDR.IS_EXPLODING = false;
             }
-          }
-      ],
-      activeTool: "",
+            }
+        ],
+        activeTool: "",
     };
 }
 
@@ -105,18 +101,13 @@ function _loadHandlebarTemplates() {
 }
 
 function _registerGameSettings() {
-    // TODO P2: update localizations && look into localization best practices
     game.settings.register(SDR.ID, SDR.CONFIG_MAXDICE_COUNT, {
         name: game.i18n.localize("settings.maxDiceCount.name"),
         hint: game.i18n.localize("settings.maxDiceCount.hint"),
         scope: "world",
         config: true,
         default: 8,
-        range: {
-            min: 1,
-            step: 1,
-            max: 30
-        },
+        range: { min: 1, step: 1, max: 30 },
         type: Number,
         requiresReload: true
     });

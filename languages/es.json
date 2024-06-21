@@ -1,34 +1,34 @@
 {
-    "title": "Dice Roller",
+    "title": "Lanzador de Dados",
     "navigation": {
-        "makeGMRoll": "Toggle Hidden Rolls for GM",
-        "explodingDice": "Toggle Exploding Dice",
-        "explodingDiceOnce": "Toggle Dice that Explode Once"
+        "makeGMRoll": "Alternar Lanzamientos Secretos de Jugadores al GM",
+        "explodingDice": "Alternar Dados Explosivos",
+        "explodingDiceOnce": "Alternar Dados de Explosión Única"
     },
     "settings": {
         "maxDiceCount": {
-            "name": "Maximum dice thrown:",
-            "hint": "Largest number of dice you can throw in the Simple Dice Roller. Minimum: 1. Maximum: 30."
+            "name": "Número máximo de dados lanzados:",
+            "hint": "Número máximo de dados que puedes lanzar con el Lanzador de Dados. Mínimo: 1. Máximo: 30."
         },
         "enableFirstColumn": {
-            "name": "Add additional 1st column for 1 die",
-            "hint": "Note: the dice-icon column is always clickable similar to other online tabletop platfroms."
+            "name": "Agregar una columna adicional para lanzamientos de 1 dado",
+            "hint": "Nota: la columna de iconos de dados siempre es clickeable, similar a otras plataformas de juego de rol en línea."
         },
         "enableCoins": {
-            "name": "Enable coin tosses",
-            "hint": "For making coin flips (similar to D2 dice rolls)."
+            "name": "Habilitar lanzamientos de monedas",
+            "hint": "Para hacer lanzamientos de monedas (similar a lanzamientos de dados d2)."
         },
         "enableD100": {
-            "name": "Enable D100 dice rolls",
-            "hint": "For making d100 dice rolls."
+            "name": "Habilitar lanzamientos de dados d100",
+            "hint": "Para hacer lanzamientos de dados d100."
         },
         "enableFudgeDice": {
-            "name": "Enable 'Fudge Dice'",
-            "hint": "For rolling 'Fudge Dice' (a.k.a. 'Fate Dice') for your Fate and Fudge games."
+            "name": "Habilitar 'Dados Fudge'",
+            "hint": "Para lanzar 'Dados Fudge' (también conocidos como 'Dados Fate') para tus juegos de Fate y Fudge."
         },
         "enableSpecialDiceToggles": {
-            "name": "Enable Special Dice Toggles",
-            "hint": "Add control options for hidden rolls to GM plus various Exploding Dice on highest roll (not for coin flips, Fudge or d100)."
+            "name": "Habilitar Alternadores de Dados Especiales",
+            "hint": "Agregar opciones de control para lanzamientos secretos de jugadores al GM. Agrega Dados Explosivos mutuamente excluyentes en el lanzamiento más alto (no para lanzamientos de monedas, Dados Fudge o dados d100)."
         }
     }
 }

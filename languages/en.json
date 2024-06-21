@@ -1,18 +1,18 @@
 {
     "title": "Dice Roller",
     "navigation": {
-        "makeGMRoll": "Toggle Hidden Rolls for GM",
+        "makeGMRoll": "Toggle Player Secret Rolls to GM",
         "explodingDice": "Toggle Exploding Dice",
-        "explodingDiceOnce": "Toggle Dice that Explode Once"
+        "explodingDiceOnce": "Toggle Single Explosion Dice"
     },
     "settings": {
         "maxDiceCount": {
             "name": "Maximum dice thrown:",
-            "hint": "Largest number of dice you can throw in the Simple Dice Roller. Minimum: 1. Maximum: 30."
+            "hint": "Maximum number of dice you can throw using the Dice Roller. Minimum: 1. Maximum: 30."
         },
         "enableFirstColumn": {
-            "name": "Add additional 1st column for 1 die",
-            "hint": "Note: the dice-icon column is always clickable similar to other online tabletop platfroms."
+            "name": "Add additional 1st column for 1 die rolls",
+            "hint": "Note: the dice-icon column is always clickable, similar to other online tabletop platfroms."
         },
         "enableCoins": {
             "name": "Enable coin tosses",
@@ -24,11 +24,11 @@
         },
         "enableFudgeDice": {
             "name": "Enable 'Fudge Dice'",
-            "hint": "For rolling 'Fudge Dice' (a.k.a. 'Fate Dice') for your Fate and Fudge games."
+            "hint": "For rolling 'Fudge Dice' (also known as 'Fate Dice') for your Fate and Fudge games."
         },
         "enableSpecialDiceToggles": {
             "name": "Enable Special Dice Toggles",
-            "hint": "Add control options for hidden rolls to GM plus various Exploding Dice on highest roll (not for coin flips, Fudge or d100)."
+            "hint": "Add control options for player secret rolls to GM. Adds mutualy exclusive Exploding Dice on highest roll (not for coin flips, Fudge or d100 rolls)."
         }
     }
 }

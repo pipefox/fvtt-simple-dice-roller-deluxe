@@ -1,34 +1,34 @@
 {
-    "title": "Dice Roller",
+    "title": "Würfelroller",
     "navigation": {
-        "makeGMRoll": "Toggle Hidden Rolls for GM",
-        "explodingDice": "Toggle Exploding Dice",
-        "explodingDiceOnce": "Toggle Dice that Explode Once"
+        "makeGMRoll": "Versteckte Spielwürfe an GM umschalten",
+        "explodingDice": "Explosionswürfel umschalten",
+        "explodingDiceOnce": "Einmalige Explosionswürfel umschalten"
     },
     "settings": {
         "maxDiceCount": {
-            "name": "Maximum dice thrown:",
-            "hint": "Largest number of dice you can throw in the Simple Dice Roller. Minimum: 1. Maximum: 30."
+            "name": "Maximal geworfene Würfel:",
+            "hint": "Maximale Anzahl von Würfeln, die mit dem Würfelroller geworfen werden können. Minimum: 1. Maximum: 30.."
         },
         "enableFirstColumn": {
-            "name": "Add additional 1st column for 1 die",
-            "hint": "Note: the dice-icon column is always clickable similar to other online tabletop platfroms."
+            "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
+            "hint": "Hinweis: Spalte mit den Würfelsymbolen ist immer anklickbar, ähnlich wie bei anderen Online-Tabletop-Plattformen."
         },
         "enableCoins": {
-            "name": "Enable coin tosses",
-            "hint": "For making coin flips (similar to D2 dice rolls)."
+            "name": "Münzwürfe aktivieren",
+            "hint": "Zum Werfen von Münzen (ähnlich wie bei D2-Würfelwürfen)"
         },
         "enableD100": {
-            "name": "Enable D100 dice rolls",
-            "hint": "For making d100 dice rolls."
+            "name": "D100-Würfel aktivieren",
+            "hint": "Zum Würfeln von d100 Würfeln"
         },
         "enableFudgeDice": {
-            "name": "Enable 'Fudge Dice'",
-            "hint": "For rolling 'Fudge Dice' (a.k.a. 'Fate Dice') for your Fate and Fudge games."
+            "name": "'Fudge-Würfel' aktivieren",
+            "hint": "Zum Würfeln von 'Fudge-Würfeln' (auch bekannt als 'Fate-Würfel') für eure Fate- und Fudge-Spiele."
         },
         "enableSpecialDiceToggles": {
-            "name": "Enable Special Dice Toggles",
-            "hint": "Add control options for hidden rolls to GM plus various Exploding Dice on highest roll (not for coin flips, Fudge or d100)."
+            "name": "Spezielle Würfelknöpfe aktivieren",
+            "hint": "Kontrollmöglichkeiten für versteckte Spielerwürfe an den GM. Fügt gegenseitig ausschließende Explosionswürfel beim höchsten Wurf hinzu (nicht für Münzwürfe, Fudge- oder D100-Würfe)"
         }
     }
 }

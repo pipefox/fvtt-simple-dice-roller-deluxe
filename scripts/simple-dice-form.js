@@ -4,11 +4,11 @@ export class DiceForm extends FormApplication {
     constructor() {
         super();
         // TODO P3: refactor?
-        this.maxDiceCount = parseInt(game.settings.get(SDR.ID, SDR.CONFIG_MAXDICE_COUNT), 10);
-        this.enableFirstColumn = Boolean(game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_1ST_COLUMN));
-        this.enableCoins = Boolean(game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_COINS));
-        this.enableD100 = Boolean(game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_D100));
-        this.enableFudge = Boolean(game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_FUDGE));
+        this.maxDiceCount = game.settings.get(SDR.ID, SDR.CONFIG_MAXDICE_COUNT);
+        this.enableFirstColumn = game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_1ST_COLUMN);
+        this.enableCoins = game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_COINS);
+        this.enableD100 = game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_D100);
+        this.enableFudge = game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_FUDGE);
     }
 
     static get defaultOptions() {
