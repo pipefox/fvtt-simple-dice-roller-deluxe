@@ -5,17 +5,28 @@ The module provides options for secret rolls to the GM and exploding dice (enabl
 
 ![Screenshot_Dice-Roller](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/assets/15308352/08d55af1-71a1-43fd-ba71-779ecf3297a5)
 
+
 ### Installation Instructions
-*** UNDER CONSTRUCTION XD ***
+Manual installations:
+1. Click "Install Module" in the "Add-on Modules" tab in the Foundry "Configuration and Setup" screen
+3. Paste the following URL in the "Manifest URL" field:
+
+   `[https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/releases/latest/download/module.json]`
+5. Click on "Install" and wait for installation to complete
+6. Enable the module in your game once it's started ("Settings" -> "Manage Module")
+7. Check various settings in "Configure Settings" -> "Simple Dice Roller Deluxe"
+
 
 ### Planned Features
-* Add DCC Style Dice - d3, d5, d7, d14, d24, d30 (in a secondary table).
-* Add compounding and penetrating dice (if there's interest).
-* Add a setting to close the dice form on clicking a roll.
-* Make the dice form CSS fancier (transparency effects, no outer border).
+* Add DCC Style Dice - d3, d5, d7, d14, d24, d30 (in a secondary table)
+* Add compounding and penetrating dice (if there's interest)
+* Add a setting to close the dice form on clicking a roll
+* Make the dice form CSS fancier (transparency effects, no outer border)
+
 
 ### Known Issues
 None currently -> click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!
+
 
 ### Acknowledgements
 Inspired by the Dice Roller of Roll20. Originally a fork of JoPeek's repo [here](https://github.com/jopeek/fvtt-simple-dice-roller/), 
