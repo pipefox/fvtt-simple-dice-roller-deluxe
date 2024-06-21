@@ -3,6 +3,8 @@
 Simple Dice Roller Deluxe is a system agnostic module for Foundry VTT that allows for quick rolls of common RPG dice including coin flips and Fudge dice.
 The module provides options for secret rolls to the GM and exploding dice (enabled in the settings menu). The dice table renders in a separate window that can be repositioned freely in Foundry. 
 
+![Screenshot_Dice-Roller](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/assets/15308352/08d55af1-71a1-43fd-ba71-779ecf3297a5)
+
 ### Installation Instructions
 *** UNDER CONSTRUCTION XD ***
 
@@ -18,3 +20,4 @@ None currently -> click [HERE](https://github.com/pipefox/fvtt-simple-dice-rolle
 ### Acknowledgements
 Inspired by the Dice Roller of Roll20. Originally a fork of JoPeek's repo [here](https://github.com/jopeek/fvtt-simple-dice-roller/), 
 though only some of the original css remains as this module is a complete rewrite using the latest FoundryVTT components and design patterns. 
+
