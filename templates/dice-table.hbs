@@ -1,7 +1,7 @@
-<div class="app sdr-form">
+<div class="app sdrd-form">
     {{#each diceTypes}}
-    <ul class="dice-rows">
-        <li class="dice-col dice-1stcol rollable" data-dice-type="{{diceType}}" data-dice-roll="1">
+    <ul class="sdrd-dice-rows">
+        <li class="sdrd-dice-col sdrd-dice-1stcol rollable" data-dice-type="{{diceType}}" data-dice-roll="1">
             {{#if (isCoin diceType)}}
             <i class="fa-duotone fa-coin"></i>&nbsp coin
             {{else if (isD100 diceType)}}
@@ -13,7 +13,7 @@
             {{/if}}
         </li>
         {{#each diceRolls}}
-        <li class="dice-col rollable" data-dice-type="{{../diceType}}" data-dice-roll="{{this}}">{{this}}</li>
+        <li class="sdrd-dice-col rollable" data-dice-type="{{../diceType}}" data-dice-roll="{{this}}">{{this}}</li>
         {{/each}}
     </ul>
     {{/each}}

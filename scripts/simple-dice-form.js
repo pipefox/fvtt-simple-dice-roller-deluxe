@@ -1,13 +1,13 @@
-import { SDR } from "../scripts/simple-dice-const.js";
+import { SDRD } from "../scripts/simple-dice-const.js";
 
 export class DiceForm extends FormApplication {
     constructor() {
         super();
-        this.maxDiceCount = game.settings.get(SDR.ID, SDR.CONFIG_MAXDICE_COUNT);
-        this.enableFirstColumn = game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_1ST_COLUMN);
-        this.enableCoins = game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_COINS);
-        this.enableD100 = game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_D100);
-        this.enableFudge = game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_FUDGE);
+        this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
+        this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN);
+        this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_COINS);
+        this.enableD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_D100);
+        this.enableFudge = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_FUDGE);
     }
 
     static get defaultOptions() {
@@ -19,7 +19,7 @@ export class DiceForm extends FormApplication {
             popOut: true,
             resizable: false,
             id: 'dice-form',
-            template: SDR.TEMPLATE_PATH,
+            template: SDRD.TEMPLATE_PATH,
             title: game.i18n.localize('title'),
         });
     }
@@ -55,9 +55,9 @@ export class DiceForm extends FormApplication {
         let formula = diceRoll.concat(diceType);
         // configure various exploding dice
         if (diceType !== "dc" && diceType !== "df" && diceType !== "d100") {
-            if (SDR.IS_EXPLODING) {
+            if (SDRD.IS_EXPLODING) {
                 formula = formula.concat("x");
-            } else if (SDR.IS_EXPLODING_ONCE) {
+            } else if (SDRD.IS_EXPLODING_ONCE) {
                 formula = formula.concat("xo");
             }
         }
@@ -65,7 +65,7 @@ export class DiceForm extends FormApplication {
         let r = new Roll(formula);
         r.toMessage(
           { speaker: game.user._id },
-          { rollMode: SDR.IS_GM_ROLL ? "gmroll" : "roll" }
+          { rollMode: SDRD.IS_GM_ROLL ? "gmroll" : "roll" }
         );
     }
     

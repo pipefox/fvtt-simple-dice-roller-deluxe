@@ -1,17 +1,17 @@
-.sdr-form .dice-rows {
+.sdrd-form .sdrd-dice-rows {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
 
-.sdr-form .dice-1stcol {
+.sdrd-form .sdrd-dice-1stcol {
     width: 110px !important;
     text-align: left !important;
     padding-left: 8px;
 }
 
-.sdr-form .dice-col {
+.sdrd-form .sdrd-dice-col {
     display: inline-block;
     width: 48px;
     height: 48px;
@@ -21,13 +21,13 @@
     cursor: pointer;
 }
 
-.sdr-form .dice-col:hover {
+.sdrd-form .sdrd-dice-col:hover {
     color: #9fff9f;
     border: 1px solid red;
     box-shadow: 0 0 10px #ff6400;
 }
 
-.sdr-form i {
+.sdrd-form i {
     font-size: 25px;
     vertical-align: middle;
 }

@@ -9,7 +9,7 @@
 //    -> write getData() to link to Handlebar template :3
 // *********************************************************************
 
-export class SDR {
+export class SDRD {
     static ID = "simple-dice-roller-deluxe";
     static MENU_CONTROL = "simpledice";
     static MENU_EXPL_DICE = "expldice";
