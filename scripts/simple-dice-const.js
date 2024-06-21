@@ -25,7 +25,6 @@ export class SDR {
     
     static TEMPLATE_PATH = `modules/${this.ID}/templates/dice-table.hbs`;
 
-    // TODO P3: refactor?
     static IS_EXPLODING = false;
     static IS_EXPLODING_ONCE = false;
     static IS_GM_ROLL = false;

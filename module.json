@@ -2,7 +2,7 @@
   "id": "simple-dice-roller-deluxe",
   "title": "Simple Dice Roller Deluxe",
   "description": "A system agnostic module that allows for quick rolling of common dice.",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "authors": [
     {
       "name": "Antony Sotirov (pipefox)", 

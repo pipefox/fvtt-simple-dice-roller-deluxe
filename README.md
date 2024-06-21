@@ -9,10 +9,13 @@ The module provides options for secret rolls to the GM and exploding dice (enabl
 *** UNDER CONSTRUCTION XD ***
 
 ### Planned Features
+Roughly in order of priority:
+* Add option for Penalty / Bonus Dice (10s dice) for Call of Cthulhu games.
+* Add setting to close the dice-form on clicking a roll.
 * Add DCC Style Dice - d3, d5, d7, d14, d24, d30 (in a secondary table).
 * Add compounding and penetrating dice (if there's interest).
-* Add a setting to close the dice form on clicking a roll.
-* Make the dice form CSS fancier (transparency effects, no outer border).
+* Integrate toggle buttons (exploding dice, etc) into dice-form for UI consistency.
+* Make dice-form CSS fancier (transparency effects, no outer border).
 
 ### Known Issues
 None currently -> click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!

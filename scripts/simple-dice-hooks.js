@@ -1,7 +1,6 @@
 import { SDR } from "../scripts/simple-dice-const.js"
 import { DiceForm } from "../scripts/simple-dice-form.js";
 
-// TODO P4: check v10, v11 compatibility; test with other modules :)
 Hooks.once('init', () => {
     _loadHandlebarTemplates();
     _registerGameSettings();
@@ -75,7 +74,7 @@ function _loadCustomDiceControl() {
             {
             name: SDR.MENU_EXPL_DICE_ONCE,
             title: game.i18n.localize("navigation.explodingDiceOnce"),
-            icon: "fa-light fa-bomb",
+            icon: "fa-solid fa-land-mine-on",
             toggle: true,
             onClick: () => {
                 SDR.IS_EXPLODING_ONCE = !SDR.IS_EXPLODING_ONCE;

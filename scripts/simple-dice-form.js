@@ -3,7 +3,6 @@ import { SDR } from "../scripts/simple-dice-const.js";
 export class DiceForm extends FormApplication {
     constructor() {
         super();
-        // TODO P3: refactor?
         this.maxDiceCount = game.settings.get(SDR.ID, SDR.CONFIG_MAXDICE_COUNT);
         this.enableFirstColumn = game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_1ST_COLUMN);
         this.enableCoins = game.settings.get(SDR.ID, SDR.CONFIG_ENABLE_COINS);
@@ -57,9 +56,9 @@ export class DiceForm extends FormApplication {
         // configure various exploding dice
         if (diceType !== "dc" && diceType !== "df" && diceType !== "d100") {
             if (SDR.IS_EXPLODING) {
-                formula = formula.concat("x", diceType);
+                formula = formula.concat("x");
             } else if (SDR.IS_EXPLODING_ONCE) {
-                formula = formula.concat("xo", diceType);
+                formula = formula.concat("xo");
             }
         }
        
