@@ -8,7 +8,7 @@
     "settings": {
         "maxDiceCount": {
             "name": "Maximum dice thrown:",
-            "hint": "Maximum number of dice you can throw using the Dice Roller. Minimum: 1. Maximum: 30."
+            "hint": "Maximum number of dice you can throw using the Dice Roller. Minimum: 1. Maximum: 25."
         },
         "enableFirstColumn": {
             "name": "Add additional 1st column for 1 die rolls",

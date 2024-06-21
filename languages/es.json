@@ -8,7 +8,7 @@
     "settings": {
         "maxDiceCount": {
             "name": "Número máximo de dados lanzados:",
-            "hint": "Número máximo de dados que puedes lanzar con el Lanzador de Dados. Mínimo: 1. Máximo: 30."
+            "hint": "Número máximo de dados que puedes lanzar con el Lanzador de Dados. Mínimo: 1. Máximo: 25."
         },
         "enableFirstColumn": {
             "name": "Agregar una columna adicional para lanzamientos de 1 dado",

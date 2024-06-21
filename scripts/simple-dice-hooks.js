@@ -107,7 +107,7 @@ function _registerGameSettings() {
         scope: "world",
         config: true,
         default: 8,
-        range: { min: 1, step: 1, max: 30 },
+        range: { min: 1, step: 1, max: 25 },
         type: Number,
         requiresReload: true
     });
