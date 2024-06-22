@@ -3,7 +3,10 @@ import { SDRD } from "../scripts/simple-dice-const.js";
 export class DiceForm extends FormApplication {
     constructor() {
         super();
-        // TODO: get those dynamically or re-render on change? so we don't reload the app?
+        this._updateSettings();
+    }
+
+    _updateSettings() {
         this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
         this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN);
         this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_COINS);

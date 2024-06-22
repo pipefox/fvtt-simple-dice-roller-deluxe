@@ -20,7 +20,10 @@ Hooks.on('renderSceneControls', (controls, html) => {
     // overwrite menu control default behaviour and add our dice form
     html.find(`li[data-control=${SDRD.MENU_CONTROL}]`).click(event => {
         event.preventDefault();
-        new DiceForm().render(true);
+        if (!SDRD.DICE_FORM) {
+            SDRD.DICE_FORM = new DiceForm();
+        } 
+        SDRD.DICE_FORM.render(true);
         // TODO: don't get focus if extra buttons not enabled?
         // see how the E module does it :3
     });
@@ -120,65 +123,72 @@ function _registerGameSettings() {
     game.settings.register(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT, {
         name: game.i18n.localize(`settings.${SDRD.CONFIG_MAXDICE_COUNT}.name`),
         hint: game.i18n.localize(`settings.${SDRD.CONFIG_MAXDICE_COUNT}.hint`),
-        scope: "world",
+        scope: "client",
         config: true,
         default: 8,
         range: { min: 1, step: 1, max: 25 },
         type: Number,
         requiresReload: true
     });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN, {
-        name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_1ST_COLUMN}.name`),
-        hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_1ST_COLUMN}.hint`),
-        scope: "world",
-        config: true,
-        default: false,
-        type: Boolean,
-        requiresReload: true
-    });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL, {
-        name: game.i18n.localize(`settings.${SDRD.CONFIG_CLOSE_FORM_ON_ROLL}.name`),
-        hint: game.i18n.localize(`settings.${SDRD.CONFIG_CLOSE_FORM_ON_ROLL}.hint`),
-        scope: "world",
-        config: true,
-        default: false,
-        type: Boolean,
-        requiresReload: true
-    });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_D100, {
         name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_D100}.name`),
         hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_D100}.hint`),
-        scope: "world",
+        scope: "client",
         config: true,
         default: true,
         type: Boolean,
-        requiresReload: true
+        onChange: () => _updateForm()
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_COINS, {
         name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_COINS}.name`),
         hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_COINS}.hint`),
-        scope: "world",
+        scope: "client",
         config: true,
         default: false,
         type: Boolean,
-
+        onChange: () => _updateForm()
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_FUDGE, {
         name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_FUDGE}.name`),
         hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_FUDGE}.hint`),
-        scope: "world",
+        scope: "client",
         config: true,
         default: false,
         type: Boolean,
-        requiresReload: true
+        onChange: () => _updateForm()
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_SPECIAL_DICE, {
         name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_SPECIAL_DICE}.name`),
         hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_SPECIAL_DICE}.hint`),
-        scope: "world",
+        scope: "client",
         config: true,
         default: false,
         type: Boolean,
         requiresReload: true
     });
+    game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN, {
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_1ST_COLUMN}.name`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_1ST_COLUMN}.hint`),
+        scope: "client",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: () => _updateForm()
+    });
+    game.settings.register(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL, {
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_CLOSE_FORM_ON_ROLL}.name`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_CLOSE_FORM_ON_ROLL}.hint`),
+        scope: "client",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: () => _updateForm()
+    });
+
+    function _updateForm() {
+        if (SDRD.DICE_FORM) {
+            SDRD.DICE_FORM._updateSettings();
+            SDRD.DICE_FORM.render(false);
+        }
+    }
 }
