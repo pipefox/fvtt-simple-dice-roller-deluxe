@@ -14,6 +14,10 @@
             "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",
             "hint": "Remarque : la colonne des icônes de dés est toujours cliquable, similaire à d'autres plateformes de jeu de rôle en ligne."
         },
+        "closeFormOnRoll": {
+            "name": "Activer la fermeture du Lanceur de Dés après un lancer réussi",
+            "hint": "Si activé, le formulaire du Lanceur de Dés se fermera et le focus reviendra à l'option de menu des contrôles par défaut."
+        },
         "enableCoins": {
             "name": "Activer les lancés de pièces",
             "hint": "Pour effectuer des lancés de pièces (similaire aux lancers de dés d2)."

@@ -14,6 +14,10 @@
             "name": "Add additional 1st column for 1 die rolls",
             "hint": "Note: the dice-icon column is always clickable, similar to other online tabletop platfroms."
         },
+        "closeFormOnRoll": {
+            "name": "Enable closing Dice Roller on successful roll",
+            "hint": "If enabled, the Dice Roller form will close and focus will return to the default controls menu option."
+        },
         "enableCoins": {
             "name": "Enable coin tosses",
             "hint": "For making coin flips (similar to D2 dice rolls)."

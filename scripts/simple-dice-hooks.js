@@ -11,7 +11,7 @@ Hooks.once('init', () => {
 Hooks.on("getSceneControlButtons", controls => {
     const customDiceControl = _loadCustomDiceControl();
     if (!controls.includes(customDiceControl)) {
-        CONFIG.Canvas.layers.dice = { layerClass: InteractionLayer, group: 'interface' }
+        CONFIG.Canvas.layers.simpledice = { layerClass: InteractionLayer, group: 'interface' }
         controls.push(customDiceControl);
     }
 });
@@ -21,6 +21,8 @@ Hooks.on('renderSceneControls', (controls, html) => {
     html.find(`li[data-control=${SDRD.MENU_CONTROL}]`).click(event => {
         event.preventDefault();
         new DiceForm().render(true);
+        // TODO: don't get focus if extra buttons not enabled?
+        // see how the E module does it :3
     });
     // check if special buttons need rendering
     if (Boolean(!game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_SPECIAL_DICE))) {
@@ -43,6 +45,21 @@ Hooks.on('renderSceneControls', (controls, html) => {
             explodeOnceButton.removeClass('active');
         }
     }
+    // TODO: if closeOnClick thing enabled; close the form from the click event -> ok
+    // now we need to know that a signal is being sent -> so global variable?
+    // and then either A:
+            // let dice_control = html.find(`li[data-control=${SDRD.MENU_CONTROL}]`);
+            // if (dice_control.hasClass("active")) {
+            //     dice_control.removeClass("active");
+            //     let token_control = html.find("`li[data-control='token'");
+            //     if (token_control.length > 0) {
+            //          tocen_control[0] = addClass("active");
+            //     }
+            // }
+    // or B: ->
+    // controls. something something directly, but less clear how :( maybe not a viable option
+    //     console.log("AAAAAAAAAAAA CONTROLS: ", controls);
+    // or C -> expose form via a hook? Sounds most elegant. Would also allow to drop global variable IS_EXPLODING, etc.
 });
 
 function _loadCustomDiceControl() {
@@ -50,7 +67,7 @@ function _loadCustomDiceControl() {
         name: SDRD.MENU_CONTROL,
         title: game.i18n.localize("title"),
         icon: "fa-solid fa-dice-d20",
-        layer: "dice",
+        layer: SDRD.MENU_CONTROL,
         tools: [
             {
             name: SDRD.MENU_GM_ROLL,
@@ -101,8 +118,8 @@ function _loadHandlebarTemplates() {
 
 function _registerGameSettings() {
     game.settings.register(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT, {
-        name: game.i18n.localize("settings.maxDiceCount.name"),
-        hint: game.i18n.localize("settings.maxDiceCount.hint"),
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_MAXDICE_COUNT}.name`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_MAXDICE_COUNT}.hint`),
         scope: "world",
         config: true,
         default: 8,
@@ -111,8 +128,17 @@ function _registerGameSettings() {
         requiresReload: true
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN, {
-        name: game.i18n.localize("settings.enableFirstColumn.name"),
-        hint: game.i18n.localize("settings.enableFirstColumn.hint"),
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_1ST_COLUMN}.name`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_1ST_COLUMN}.hint`),
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+        requiresReload: true
+    });
+    game.settings.register(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL, {
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_CLOSE_FORM_ON_ROLL}.name`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_CLOSE_FORM_ON_ROLL}.hint`),
         scope: "world",
         config: true,
         default: false,
@@ -120,8 +146,8 @@ function _registerGameSettings() {
         requiresReload: true
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_D100, {
-        name: game.i18n.localize("settings.enableD100.name"),
-        hint: game.i18n.localize("settings.enableD100.hint"),
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_D100}.name`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_D100}.hint`),
         scope: "world",
         config: true,
         default: true,
@@ -129,8 +155,8 @@ function _registerGameSettings() {
         requiresReload: true
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_COINS, {
-        name: game.i18n.localize("settings.enableCoins.name"),
-        hint: game.i18n.localize("settings.enableCoins.hint"),
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_COINS}.name`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_COINS}.hint`),
         scope: "world",
         config: true,
         default: false,
@@ -138,8 +164,8 @@ function _registerGameSettings() {
 
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_FUDGE, {
-        name: game.i18n.localize("settings.enableFudgeDice.name"),
-        hint: game.i18n.localize("settings.enableFudgeDice.hint"),
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_FUDGE}.name`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_FUDGE}.hint`),
         scope: "world",
         config: true,
         default: false,
@@ -147,8 +173,8 @@ function _registerGameSettings() {
         requiresReload: true
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_SPECIAL_DICE, {
-        name: game.i18n.localize("settings.enableSpecialDiceToggles.name"),
-        hint: game.i18n.localize("settings.enableSpecialDiceToggles.hint"),
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_SPECIAL_DICE}.name`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_SPECIAL_DICE}.hint`),
         scope: "world",
         config: true,
         default: false,

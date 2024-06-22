@@ -14,6 +14,10 @@
             "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
             "hint": "Hinweis: Spalte mit den Würfelsymbolen ist immer anklickbar, ähnlich wie bei anderen Online-Tabletop-Plattformen."
         },
+        "closeFormOnRoll": {
+            "name": "'Würfelroller bei erfolgreichem Wurf schließen' aktivieren",
+            "hint": "Wenn aktiviert, wird das Würfelroller-Formular geschlossen und der Fokus kehrt zum Standardsteuerungsmenü zurück."
+        },
         "enableCoins": {
             "name": "Münzwürfe aktivieren",
             "hint": "Zum Werfen von Münzen (ähnlich wie bei D2-Würfelwürfen)"

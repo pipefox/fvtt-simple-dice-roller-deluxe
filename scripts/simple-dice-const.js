@@ -12,16 +12,17 @@
 export class SDRD {
     static ID = "simple-dice-roller-deluxe";
     static MENU_CONTROL = "simpledice";
-    static MENU_EXPL_DICE = "expldice";
-    static MENU_EXPL_DICE_ONCE = "exploncedice";
-    static MENU_GM_ROLL = "gmroll";
+    static MENU_EXPL_DICE = "explodingDice";
+    static MENU_EXPL_DICE_ONCE = "explodingDiceOnce";
+    static MENU_GM_ROLL = "makeGMRoll";
 
     static CONFIG_MAXDICE_COUNT = "maxDiceCount";
-    static CONFIG_ENABLE_1ST_COLUMN = "enableColumnOne";
-    static CONFIG_ENABLE_D100 = "enableD100";
+    static CONFIG_ENABLE_1ST_COLUMN = "enableFirstColumn";
+    static CONFIG_CLOSE_FORM_ON_ROLL = "closeFormOnRoll";
     static CONFIG_ENABLE_COINS = "enableCoins";
+    static CONFIG_ENABLE_D100 = "enableD100";
     static CONFIG_ENABLE_FUDGE = "enableFudgeDice";
-    static CONFIG_ENABLE_SPECIAL_DICE = "enableSpecialDice";
+    static CONFIG_ENABLE_SPECIAL_DICE = "enableSpecialDiceToggles";
     
     static TEMPLATE_PATH = `modules/${this.ID}/templates/dice-table.hbs`;
 

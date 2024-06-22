@@ -14,6 +14,10 @@
             "name": "Agregar una columna adicional para lanzamientos de 1 dado",
             "hint": "Nota: la columna de iconos de dados siempre es clickeable, similar a otras plataformas de juego de rol en línea."
         },
+        "closeFormOnRoll": {
+            "name": "Habilitar el cierre del Lanzador de Dados en lanzamiento exitoso",
+            "hint": "Si está habilitado, el formulario del Lanzador de Dados se cerrará y el enfoque volverá a la opción del menú de controles predeterminados."
+        },
         "enableCoins": {
             "name": "Habilitar lanzamientos de monedas",
             "hint": "Para hacer lanzamientos de monedas (similar a lanzamientos de dados d2)."
