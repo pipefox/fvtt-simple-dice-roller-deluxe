@@ -29,10 +29,4 @@ export class SDRD {
     static IS_EXPLODING = false;
     static IS_EXPLODING_ONCE = false;
     static IS_GM_ROLL = false;
-
-    static resetSpecialToggles() {
-        this.IS_EXPLODING = false;
-        this.IS_EXPLODING_ONCE = false;
-        this.IS_GM_ROLL = false;
-    }
 }

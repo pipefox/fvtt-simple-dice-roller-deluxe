@@ -1,10 +1,12 @@
 import { SDRD } from "../scripts/simple-dice-const.js"
 import { DiceForm } from "../scripts/simple-dice-form.js";
 
+let diceForm;
+
 Hooks.once('init', () => {
     _loadHandlebarTemplates();
     _registerGameSettings();
-    SDRD.resetSpecialToggles();
+    _resetSpecialToggles();
     console.log("'Simple Dice Roller Deluxe' module has loaded");
 });
 
@@ -20,16 +22,16 @@ Hooks.on('renderSceneControls', (controls, html) => {
     // overwrite menu control default behaviour and add our dice form
     html.find(`li[data-control=${SDRD.MENU_CONTROL}]`).click(event => {
         event.preventDefault();
-        if (!SDRD.DICE_FORM) {
-            SDRD.DICE_FORM = new DiceForm();
+        if (!diceForm) {
+            diceForm = new DiceForm();
         } 
-        SDRD.DICE_FORM.render(true);
+        diceForm.render(true);
         // TODO: don't get focus if extra buttons not enabled?
         // see how the E module does it :3
     });
     // check if special buttons need rendering
     if (Boolean(!game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_SPECIAL_DICE))) {
-        SDRD.resetSpecialToggles();
+        _resetSpecialToggles();
         html.find(`li[data-tool=${SDRD.MENU_GM_ROLL}]`).hide();
         html.find(`li[data-tool=${SDRD.MENU_EXPL_DICE}]`).hide();
         html.find(`li[data-tool=${SDRD.MENU_EXPL_DICE_ONCE}]`).hide();
@@ -186,9 +188,15 @@ function _registerGameSettings() {
     });
 
     function _updateForm() {
-        if (SDRD.DICE_FORM) {
-            SDRD.DICE_FORM._updateSettings();
-            SDRD.DICE_FORM.render(false);
+        if (diceForm) {
+            diceForm._updateSettings();
+            diceForm.render(false);
         }
     }
+}
+
+function _resetSpecialToggles() {
+    SDRD.IS_EXPLODING = false;
+    SDRD.IS_EXPLODING_ONCE = false;
+    SDRD.IS_GM_ROLL = false;
 }
