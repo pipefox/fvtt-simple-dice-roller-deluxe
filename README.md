@@ -24,8 +24,8 @@ Roughly in order of priority:
 * Add compounding and penetrating dice (if there's interest).
 
 ## Known Issues
-* Dice menu button does not lose focus when Dice Form is closed (will change with integration of toggle buttons in main form)
-Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!
+* Dice menu button does not lose focus when Dice Form is closed (will change with integration of toggle buttons in main form).<br/>
+**Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!**
 
 ## Why "Simple Dice Roller Deluxe"?
 * Foundry VTT systems and modules mostly focus on complex character sheets and incresing automation. This module covers a differen use case where the main Foudnry app is used for battle map tracking while the players have physical character sheets (or digital ones on their phones/tablets).
