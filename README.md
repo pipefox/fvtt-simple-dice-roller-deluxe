@@ -17,16 +17,20 @@ The module provides options for coin flips and Fate/Fudge dice, including additi
 
 ## Planned Features
 Roughly in order of priority:
+* Integrate toggle buttons (exploding dice, etc) into dice-form for UI consistency (and prevent focus on menu button on click).
+* Make dice-form CSS fancier (transparency effects, no outer border).
 * Add option for Penalty / Bonus Dice (10s dice) for Call of Cthulhu games.
-* Add setting to close the dice-form on clicking a roll.
 * Add DCC Style Dice - d3, d5, d7, d14, d24, d30 (in a secondary table).
 * Add compounding and penetrating dice (if there's interest).
-* Integrate toggle buttons (exploding dice, etc) into dice-form for UI consistency.
-* Make dice-form CSS fancier (transparency effects, no outer border).
 
 ## Known Issues
-None currently -> click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!
+* Dice menu button does not lose focus when Dice Form is closed (will change with integration of toggle buttons in main form)
+Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!
+
+## Why "Simple Dice Roller Deluxe"?
+* Foundry VTT systems and modules mostly focus on complex character sheets and incresing automation. This module covers a differen use case where the main Foudnry app is used for battle map tracking while the players have physical character sheets (or digital ones on their phones/tablets).
+Having a simple roll table with no modifiers can be handy in such cases.
+* This module is a complete rewrite of an existing module using the latest Foundry components / design patterns which should increase maintainability while keeping backwards compatibility (no ApplicationV2 as it's Foundry V12+ only).
 
 ## Acknowledgements
-Inspired by the Dice Roller of Roll20. Originally a fork of JoPeek's repo [here](https://github.com/jopeek/fvtt-simple-dice-roller/), 
-though only some of the original css remains as this module is a complete rewrite using the latest FoundryVTT components and design patterns.
+Inspired by the Dice Roller of Roll20. Originally a fork of JoPeek's repo [here](https://github.com/jopeek/fvtt-simple-dice-roller/), though only some of the original css remains.
