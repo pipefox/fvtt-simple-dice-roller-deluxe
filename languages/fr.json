@@ -10,14 +10,6 @@
             "name": "Nombre maximum de dés lancés :",
             "hint": "Nombre maximum de dés que vous pouvez lancer avec le Lanceur de Dés. Minimum : 1. Maximum : 25. Changements nécessitent un rechargement."
         },
-        "enableFirstColumn": {
-            "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",
-            "hint": "Remarque : la colonne des icônes de dés est toujours cliquable, similaire à d'autres plateformes de jeu de rôle en ligne."
-        },
-        "closeFormOnRoll": {
-            "name": "Activer la fermeture du Lanceur de Dés après un lancer réussi",
-            "hint": "Si activé, le formulaire du Lanceur de Dés se fermera et le focus reviendra à l'option de menu des contrôles par défaut."
-        },
         "enableCoins": {
             "name": "Activer les lancés de pièces",
             "hint": "Pour effectuer des lancés de pièces (similaire aux lancers de dés d2)."
@@ -33,6 +25,14 @@
         "enableSpecialDiceToggles": {
             "name": "Ajouter les Boutons de Dés Spéciaux",
             "hint": "Ajouter des options de contrôle pour les lancers secrets des joueurs vers le MJ. Ajoute Dés Explosifs mutuellement exclusifs au plus haut lancer (pas pour les lancés de pièces, les Dés Fudge ou les dés d100). Changements nécessitent un rechargement."
+        },
+        "enableFirstColumn": {
+            "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",
+            "hint": "Remarque : la colonne des icônes de dés est toujours cliquable, similaire à d'autres plateformes de jeu de rôle en ligne."
+        },
+        "closeFormOnRoll": {
+            "name": "Activer la fermeture du Lanceur de Dés après un lancer réussi",
+            "hint": "Si activé, le formulaire du Lanceur de Dés se fermera et le focus reviendra à l'option de menu des contrôles par défaut."
         }
     }
 }

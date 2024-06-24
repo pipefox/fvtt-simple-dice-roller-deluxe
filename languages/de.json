@@ -10,14 +10,6 @@
             "name": "Maximal geworfene Würfel:",
             "hint": "Maximale Anzahl von Würfeln, die mit dem Würfelroller geworfen werden können. Minimum: 1. Maximum: 25. Änderungen erfordernNeuladen."
         },
-        "enableFirstColumn": {
-            "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
-            "hint": "Hinweis: Spalte mit den Würfelsymbolen ist immer anklickbar, ähnlich wie bei anderen Online-Tabletop-Plattformen."
-        },
-        "closeFormOnRoll": {
-            "name": "'Würfelroller bei erfolgreichem Wurf schließen' aktivieren",
-            "hint": "Wenn aktiviert, wird das Würfelroller-Formular geschlossen und der Fokus kehrt zum Standardsteuerungsmenü zurück."
-        },
         "enableCoins": {
             "name": "Münzwürfe aktivieren",
             "hint": "Zum Werfen von Münzen (ähnlich wie bei D2-Würfelwürfen)"
@@ -33,6 +25,14 @@
         "enableSpecialDiceToggles": {
             "name": "Spezielle Würfelknöpfe hinzufügen",
             "hint": "Kontrollmöglichkeiten für versteckte Spielerwürfe an den GM. Fügt gegenseitig ausschließende Explosionswürfel beim höchsten Wurf hinzu (nicht für Münzwürfe, Fudge- oder D100-Würfe). Änderungen erfordern Neuladen."
+        },
+        "enableFirstColumn": {
+            "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
+            "hint": "Hinweis: Spalte mit den Würfelsymbolen ist immer anklickbar, ähnlich wie bei anderen Online-Tabletop-Plattformen."
+        },
+        "closeFormOnRoll": {
+            "name": "'Würfelroller bei erfolgreichem Wurf schließen' aktivieren",
+            "hint": "Wenn aktiviert, wird das Würfelroller-Formular geschlossen und der Fokus kehrt zum Standardsteuerungsmenü zurück."
         }
     }
 }

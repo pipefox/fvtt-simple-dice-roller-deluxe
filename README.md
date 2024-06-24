@@ -17,8 +17,9 @@ The module provides options for coin flips and Fate/Fudge dice, including additi
 
 ## Planned Features
 Roughly in order of priority:
-* Integrate toggle buttons (exploding dice, etc) into dice-form for UI consistency (and prevent focus on menu button on click).
+* Integrate toggle buttons (exploding dice, etc.) into Dice From for UI consistency (and prevent click focus on menu button).
 * Make dice-form CSS fancier (transparency effects, no outer border).
+* Move advanced less used settings (additional row column, close on click) in a separate Settings Form.
 * Add option for Penalty / Bonus Dice (10s dice) for Call of Cthulhu games.
 * Add DCC Style Dice - d3, d5, d7, d14, d24, d30 (in a secondary table).
 * Add compounding and penetrating dice (if there's interest).
@@ -28,9 +29,9 @@ Roughly in order of priority:
 **Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!**
 
 ## Why "Simple Dice Roller Deluxe"?
-* Foundry VTT systems and modules mostly focus on complex character sheets and incresing automation. This module covers a differen use case where the main Foudnry app is used for battle map tracking while the players have physical character sheets (or digital ones on their phones/tablets).
+* Foundry VTT systems and modules mostly focus on complex character sheets and increasing automation. This module covers a different use case where the Foudnry app is mainly used for battle maps tracking while the players have physical character sheets (or digital ones on their phones/tablets).
 Having a simple roll table with no modifiers can be handy in such cases.
-* This module is a complete rewrite of an existing module using the latest Foundry components / design patterns which should increase maintainability while keeping backwards compatibility (no ApplicationV2 as it's Foundry V12+ only).
+* Simple Dice Roller Deluxe is a complete rewrite of an existing module using the latest Foundry components / design patterns which should increase maintainability while keeping backwards compatibility (no ApplicationV2 as it's Foundry V12+ only).
 
 ## Acknowledgements
 Inspired by the Dice Roller of Roll20. Originally a fork of JoPeek's repo [here](https://github.com/jopeek/fvtt-simple-dice-roller/), though only some of the original css remains.
