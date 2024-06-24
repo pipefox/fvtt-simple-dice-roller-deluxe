@@ -1,6 +1,9 @@
 // *********************************************************************
 // 1] https://foundryvtt.com/api/classes/client.Hooks.html
 // ->'hook' to the event framework used by FoundryVTT
+//    -> init to register module settings + handlebar helper functions & template
+//    -> getSceneControls to hook new button
+//    -> renderSceneControls to prevent default focusing behavior
 // 
 // 2] https://foundryvtt.com/api/classes/client.FormApplication.html
 // -> build a Formapplication for the main dice popup

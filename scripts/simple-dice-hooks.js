@@ -6,7 +6,6 @@ let globalDiceForm;
 Hooks.once('init', () => {
     _loadHandlebarTemplates();
     _registerGameSettings();
-    _resetSpecialToggles();
     console.log("'Simple Dice Roller Deluxe' module has loaded");
 });
 
@@ -18,33 +17,16 @@ Hooks.on("getSceneControlButtons", controls => {
 });
 
 Hooks.on('renderSceneControls', (controls, html) => {
-    // overwrite menu control default behaviour and add our dice form
-    html.find(`li[data-control=${SDRD.MENU_CONTROL}]`).click(event => {
-        event.preventDefault();
-        if ( !globalDiceForm ) globalDiceForm = new DiceForm();
-        globalDiceForm.render(true);
-    });
-    // check if special btns need rendering; can't use 'visible:' in btn Control object, main bTn disappears as well :/
-    if (Boolean(!game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_SPECIAL_DICE))) {
-        _resetSpecialToggles();
-        html.find(`li[data-tool=${SDRD.MENU_GM_ROLL}]`).hide();
-        html.find(`li[data-tool=${SDRD.MENU_EXPL_DICE}]`).hide();
-        html.find(`li[data-tool=${SDRD.MENU_EXPL_DICE_ONCE}]`).hide();
-    // manage special buttons exclusive render state (only modify html after loading correct state)
-    } else {
-        let explodeButton = html.find(`li[data-tool=${SDRD.MENU_EXPL_DICE}]`);
-        let explodeOnceButton = html.find(`li[data-tool=${SDRD.MENU_EXPL_DICE_ONCE}]`);
-        if (SDRD.IS_EXPLODING) {
-            explodeButton.addClass('active');
-            explodeOnceButton.removeClass('active');
-        } else if (SDRD.IS_EXPLODING_ONCE) {
-            explodeButton.removeClass('active');
-            explodeOnceButton.addClass('active');
-        } else {
-            explodeButton.removeClass('active');
-            explodeOnceButton.removeClass('active');
+    // very hacky: cache private Foundry _onClickLayer method to execute after our custom control injection
+    const cachedOnClickLayer = ui.controls._onClickLayer.bind(ui.controls);
+    ui.controls._onClickLayer = function (event, ...rest) {
+        if (event.currentTarget.dataset.control === SDRD.MENU_CONTROL) {
+            if ( !globalDiceForm ) globalDiceForm = new DiceForm(); 
+            globalDiceForm.render(true);
+            return; // do not skip!
         }
-    }
+        cachedOnClickLayer(event, ...rest);
+    };
 });
 
 function _loadCustomDiceControl() {
@@ -55,34 +37,14 @@ function _loadCustomDiceControl() {
         layer: SDRD.MENU_CONTROL,
         tools: [
             {
-            name: SDRD.MENU_GM_ROLL,
-            title: game.i18n.localize("navigation.makeGMRoll"),
-            icon: "fa-duotone fa-user-secret",
-            toggle: true,
-            onClick: () => SDRD.IS_GM_ROLL = !SDRD.IS_GM_ROLL
+                name: SDRD.MENU_CONTROL,
+                title: game.i18n.localize("title"),
+                icon: "fa-solid fa-dice-d20",
+                onClick: () => ui.notifications.info("Oops! This buton should not be visible."),
+                button: true
             },
-            {
-            name: SDRD.MENU_EXPL_DICE,
-            title: game.i18n.localize("navigation.explodingDice"),
-            icon: "fa-solid fa-bomb",
-            toggle: true,
-            onClick: () => {
-                SDRD.IS_EXPLODING = !SDRD.IS_EXPLODING;
-                if ( SDRD.IS_EXPLODING ) SDRD.IS_EXPLODING_ONCE = false;
-            }
-            },
-            {
-            name: SDRD.MENU_EXPL_DICE_ONCE,
-            title: game.i18n.localize("navigation.explodingDiceOnce"),
-            icon: "fa-solid fa-land-mine-on",
-            toggle: true,
-            onClick: () => {
-                SDRD.IS_EXPLODING_ONCE = !SDRD.IS_EXPLODING_ONCE;
-                if ( SDRD.IS_EXPLODING_ONCE ) SDRD.IS_EXPLODING = false;
-            }
-            }
         ],
-        activeTool: "",
+        activeTool: ""
     };
 }
 
@@ -144,7 +106,7 @@ function _registerGameSettings() {
         config: true,
         default: false,
         type: Boolean,
-        requiresReload: true
+        onChange: () => _updateForm()
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN, {
         name: game.i18n.localize(`settings.${SDRD.CONFIG_ENABLE_1ST_COLUMN}.name`),
@@ -164,17 +126,12 @@ function _registerGameSettings() {
         type: Boolean,
         onChange: () => _updateForm()
     });
-
+    // TODO: test how it works with getData change
     function _updateForm() {
         if (globalDiceForm) {
             globalDiceForm._updateSettings();
+            globalDiceForm._resetDiceToggles();
             globalDiceForm.render(false);
         }
     }
-}
-
-function _resetSpecialToggles() {
-    SDRD.IS_EXPLODING = false;
-    SDRD.IS_EXPLODING_ONCE = false;
-    SDRD.IS_GM_ROLL = false;
 }

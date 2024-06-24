@@ -3,16 +3,6 @@ import { SDRD } from "../scripts/simple-dice-const.js";
 export class DiceForm extends FormApplication {
     constructor() {
         super();
-        this._updateSettings();
-    }
-
-    _updateSettings() {
-        this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
-        this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN);
-        this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_COINS);
-        this.enableD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_D100);
-        this.enableFudge = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_FUDGE);
-        this.closeOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL);
     }
 
     static get defaultOptions() {
@@ -29,18 +19,43 @@ export class DiceForm extends FormApplication {
         });
     }
 
+    // TODO P2: inspect settings app for proper binding; check if Radio is in documentation
+    // TODO P2: inspect main control app for proper highlighting, status = active, esp. css
     getData() {
+        this._resetDiceToggles();
+        this._updateSettings();
+
         const indexOffset = this.enableFirstColumn ? 0 : 1;
         const diceTypes = this._getDiceTypes(this.enableCoins, this.enableD100, this.enableFudge);
 
-        const diceData = {
+        const formData = {
             diceTypes: diceTypes.map(diceType => ({
                 diceType,
                 diceRolls: Array.from({ length: this.maxDiceCount - indexOffset }, (_, i) => i + indexOffset + 1)
             }))
         };
-        return diceData;
+        formData.activateToggles = this.enableSpecialToggles ? true : false;
+
+        return formData;
     }
+
+    _updateSettings() {
+        this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
+        this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_COINS);
+        this.enableD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_D100);
+        this.enableFudge = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_FUDGE);
+        this.enableSpecialToggles = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_SPECIAL_DICE);
+        this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN);
+        this.closeOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL);
+    }
+
+    _resetDiceToggles() {
+        SDRD.IS_GM_ROLL = false;
+        SDRD.IS_EXPLODING = false;
+        SDRD.IS_EXPLODING_ONCE = false;
+    }
+
+
 
     _getDiceTypes(enableCoins, enableD100, enableFudge) {
         const diceTypes = [];
@@ -52,10 +67,9 @@ export class DiceForm extends FormApplication {
     }
 
     async _rollDie(event) {
-        event.preventDefault();
-        const element = event.currentTarget;
-        const diceRoll = element.dataset.diceRoll;
-        const diceType = element.dataset.diceType;
+        event.preventDefault();  // TODO: test with and without
+        const diceRoll = event.currentTarget.dataset.diceRoll;
+        const diceType = event.currentTarget.dataset.diceType;
 
         let formula = diceRoll.concat(diceType);
         // configure various exploding dice
@@ -72,9 +86,39 @@ export class DiceForm extends FormApplication {
 
         if ( this.closeOnRoll && this.rendered && !this.closing ) this.close();
     }
+
+    async _setGMRoll(event) {
+        event.preventDefault();
+        let checkBox = event.currentTarget.querySelector('input[type="checkbox"]');
+        checkBox.checked = !checkBox.checked;
+        checkBox.checked = SDRD.IS_GM_ROLL;
+    }
+    
+    async _toggleExplodingDice(event) {
+        event.preventDefault();
+        let radioButton = event.currentTarget.querySelector('input[type="radio"]');
+        radioButton.checked = !radioButton.checked;
+
+        const explodingType = event.currentTarget.dataset.explodingType;
+        console.log(explodingType);
+        if ( radioButton.checked )  {
+            if (explodingType === SDRD.MENU_EXPL_DICE) {
+                SDRD.IS_EXPLODING = true;
+                SDRD.IS_EXPLODING_ONCE = false;
+            } else if (explodingType === SDRD.MENU_EXPL_DICE_ONCE) {
+                SDRD.IS_EXPLODING_ONCE = true;
+                SDRD.IS_EXPLODING = false;
+            }
+        } else {
+            SDRD.IS_EXPLODING = false;
+            SDRD.IS_EXPLODING_ONCE = false;
+        }
+    }
     
     activateListeners(html) {
         super.activateListeners(html);
+        html.on('click', '.gm-roll', this._setGMRoll.bind(this));
+        html.on('click', '.toggle-exploding-dice', this._toggleExplodingDice.bind(this));
         html.on('click', '.rollable', this._rollDie.bind(this));
     }
 }

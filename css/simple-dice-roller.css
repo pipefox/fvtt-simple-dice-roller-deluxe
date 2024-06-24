@@ -22,10 +22,34 @@
 }
 
 .sdrd-form .sdrd-dice-col:hover {
-    color: #9fff9f;
+    color: rgb(159, 255, 159);
     border: 1px solid red;
-    box-shadow: 0 0 10px #ff6400;
+    box-shadow: 0 0 10px rgb(255, 100, 0);;
 }
+
+.sdrd-dice-col.gm-roll input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sdrd-dice-col.gm-roll input[type="checkbox"]:checked + i {
+    color: rgb(227, 153, 153);
+}
+
+.sdrd-dice-col input[type="radio"] {
+    display: none;
+}
+
+.sdrd-dice-col.toggle-exploding-dice input[type="radio"]:checked + i {
+    color: rgb(255, 159, 188);
+}
+/* TODO: Style does not work */
+/* .sdrd-dice-col .toggle-exploding-dice input[type="radio"]:checked {
+    background: rgba(60, 0, 120, 0.75);
+    border: 1px solid #9b8dff;
+    box-shadow: 0 0 10px #9b8dff;
+} */
 
 .sdrd-form i {
     font-size: 25px;
