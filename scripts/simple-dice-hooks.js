@@ -11,10 +11,9 @@ Hooks.once('init', () => {
 });
 
 Hooks.on("getSceneControlButtons", controls => {
-    const customDiceControl = _loadCustomDiceControl();
-    if (!controls.includes(customDiceControl)) {
+    if (!controls.find(c => c.name === SDRD.MENU_CONTROL)) {
         CONFIG.Canvas.layers.simpledice = { layerClass: InteractionLayer, group: 'interface' }
-        controls.push(customDiceControl);
+        controls.push(_loadCustomDiceControl());
     }
 });
 
@@ -22,14 +21,10 @@ Hooks.on('renderSceneControls', (controls, html) => {
     // overwrite menu control default behaviour and add our dice form
     html.find(`li[data-control=${SDRD.MENU_CONTROL}]`).click(event => {
         event.preventDefault();
-        if (!diceForm) {
-            diceForm = new DiceForm();
-        } 
+        if ( !diceForm ) diceForm = new DiceForm();
         diceForm.render(true);
-        // TODO: don't get focus if extra buttons not enabled?
-        // see how the E module does it :3
     });
-    // check if special buttons need rendering
+    // check if special btns need rendering; can't use 'visible:' in btn Control object, main bTn disappears as well :/
     if (Boolean(!game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_SPECIAL_DICE))) {
         _resetSpecialToggles();
         html.find(`li[data-tool=${SDRD.MENU_GM_ROLL}]`).hide();
@@ -50,21 +45,6 @@ Hooks.on('renderSceneControls', (controls, html) => {
             explodeOnceButton.removeClass('active');
         }
     }
-    // TODO: if closeOnClick thing enabled; close the form from the click event -> ok
-    // now we need to know that a signal is being sent -> so global variable?
-    // and then either A:
-            // let dice_control = html.find(`li[data-control=${SDRD.MENU_CONTROL}]`);
-            // if (dice_control.hasClass("active")) {
-            //     dice_control.removeClass("active");
-            //     let token_control = html.find("`li[data-control='token'");
-            //     if (token_control.length > 0) {
-            //          tocen_control[0] = addClass("active");
-            //     }
-            // }
-    // or B: ->
-    // controls. something something directly, but less clear how :( maybe not a viable option
-    //     console.log("AAAAAAAAAAAA CONTROLS: ", controls);
-    // or C -> expose form via a hook? Sounds most elegant. Would also allow to drop global variable IS_EXPLODING, etc.
 });
 
 function _loadCustomDiceControl() {
@@ -72,16 +52,14 @@ function _loadCustomDiceControl() {
         name: SDRD.MENU_CONTROL,
         title: game.i18n.localize("title"),
         icon: "fa-solid fa-dice-d20",
-        layer: SDRD.MENU_CONTROL,
+        layer: "SDRD.MENU_CONTROL",
         tools: [
             {
             name: SDRD.MENU_GM_ROLL,
             title: game.i18n.localize("navigation.makeGMRoll"),
             icon: "fa-duotone fa-user-secret",
             toggle: true,
-            onClick: () => {
-                SDRD.IS_GM_ROLL = !SDRD.IS_GM_ROLL;
-            }
+            onClick: () => SDRD.IS_GM_ROLL = !SDRD.IS_GM_ROLL
             },
             {
             name: SDRD.MENU_EXPL_DICE,
@@ -90,7 +68,7 @@ function _loadCustomDiceControl() {
             toggle: true,
             onClick: () => {
                 SDRD.IS_EXPLODING = !SDRD.IS_EXPLODING;
-                if (SDRD.IS_EXPLODING) SDRD.IS_EXPLODING_ONCE = false;
+                if ( SDRD.IS_EXPLODING ) SDRD.IS_EXPLODING_ONCE = false;
             }
             },
             {
@@ -100,7 +78,7 @@ function _loadCustomDiceControl() {
             toggle: true,
             onClick: () => {
                 SDRD.IS_EXPLODING_ONCE = !SDRD.IS_EXPLODING_ONCE;
-                if (SDRD.IS_EXPLODING_ONCE) SDRD.IS_EXPLODING = false;
+                if ( SDRD.IS_EXPLODING_ONCE ) SDRD.IS_EXPLODING = false;
             }
             }
         ],

@@ -60,11 +60,8 @@ export class DiceForm extends FormApplication {
         let formula = diceRoll.concat(diceType);
         // configure various exploding dice
         if (diceType !== "dc" && diceType !== "df" && diceType !== "d100") {
-            if (SDRD.IS_EXPLODING) {
-                formula = formula.concat("x");
-            } else if (SDRD.IS_EXPLODING_ONCE) {
-                formula = formula.concat("xo");
-            }
+            if ( SDRD.IS_EXPLODING ) formula = formula.concat("x");
+            else if ( SDRD.IS_EXPLODING_ONCE ) formula = formula.concat("xo");
         }
        
         let r = new Roll(formula);
@@ -73,9 +70,7 @@ export class DiceForm extends FormApplication {
           { rollMode: SDRD.IS_GM_ROLL ? "gmroll" : "roll" }
         );
 
-        if (this.closeOnRoll && this.rendered && !this.closing) {
-            this.close();
-        }
+        if ( this.closeOnRoll && this.rendered && !this.closing ) this.close();
     }
     
     activateListeners(html) {
