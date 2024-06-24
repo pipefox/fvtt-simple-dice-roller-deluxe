@@ -8,7 +8,7 @@
     "settings": {
         "maxDiceCount": {
             "name": "Número máximo de dados lanzados:",
-            "hint": "Número máximo de dados que puedes lanzar con el Lanzador de Dados. Mínimo: 1. Máximo: 25."
+            "hint": "Número máximo de dados que puedes lanzar con el Lanzador de Dados. Mínimo: 1. Máximo: 25. El cambio requiere recargar."
         },
         "enableFirstColumn": {
             "name": "Agregar una columna adicional para lanzamientos de 1 dado",
@@ -32,7 +32,7 @@
         },
         "enableSpecialDiceToggles": {
             "name": "Habilitar Alternadores de Dados Especiales",
-            "hint": "Agregar opciones de control para lanzamientos secretos de jugadores al GM. Agrega Dados Explosivos mutuamente excluyentes en el lanzamiento más alto (no para lanzamientos de monedas, Dados Fudge o dados d100)."
+            "hint": "Agregar opciones de control para lanzamientos secretos de jugadores al GM. Agrega Dados Explosivos mutuamente excluyentes en el lanzamiento más alto (no para lanzamientos de monedas, Dados Fudge o dados d100). El cambio requiere recargar."
         }
     }
 }

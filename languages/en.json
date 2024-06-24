@@ -8,7 +8,7 @@
     "settings": {
         "maxDiceCount": {
             "name": "Maximum dice thrown:",
-            "hint": "Maximum number of dice you can throw using the Dice Roller. Minimum: 1. Maximum: 25."
+            "hint": "Maximum number of dice you can throw using the Dice Roller. Minimum: 1. Maximum: 25. Change requires reload."
         },
         "enableFirstColumn": {
             "name": "Add additional 1st column for 1 die rolls",
@@ -32,7 +32,7 @@
         },
         "enableSpecialDiceToggles": {
             "name": "Enable Special Dice Toggles",
-            "hint": "Add control options for player secret rolls to GM. Adds mutualy exclusive Exploding Dice on highest roll (not for coin flips, Fudge or d100 rolls)."
+            "hint": "Add control options for player secret rolls to GM. Adds mutualy exclusive Exploding Dice on highest roll (not for coin flips, Fudge or d100 rolls). Change requires reload."
         }
     }
 }

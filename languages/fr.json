@@ -8,7 +8,7 @@
     "settings": {
         "maxDiceCount": {
             "name": "Nombre maximum de dés lancés :",
-            "hint": "Nombre maximum de dés que vous pouvez lancer avec le Lanceur de Dés. Minimum : 1. Maximum : 25."
+            "hint": "Nombre maximum de dés que vous pouvez lancer avec le Lanceur de Dés. Minimum : 1. Maximum : 25. Changement nécessite un rechargement."
         },
         "enableFirstColumn": {
             "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",
@@ -32,7 +32,7 @@
         },
         "enableSpecialDiceToggles": {
             "name": "Activer les Boutons de Dés Spéciaux",
-            "hint": "Ajouter des options de contrôle pour les lancers secrets des joueurs vers le MJ. Ajoute Dés Explosifs mutuellement exclusifs au plus haut lancer (pas pour les lancés de pièces, les Dés Fudge ou les dés d100)."
+            "hint": "Ajouter des options de contrôle pour les lancers secrets des joueurs vers le MJ. Ajoute Dés Explosifs mutuellement exclusifs au plus haut lancer (pas pour les lancés de pièces, les Dés Fudge ou les dés d100). Changement nécessite un rechargement."
         }
     }
 }

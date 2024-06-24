@@ -8,7 +8,7 @@
     "settings": {
         "maxDiceCount": {
             "name": "Maximal geworfene Würfel:",
-            "hint": "Maximale Anzahl von Würfeln, die mit dem Würfelroller geworfen werden können. Minimum: 1. Maximum: 25."
+            "hint": "Maximale Anzahl von Würfeln, die mit dem Würfelroller geworfen werden können. Minimum: 1. Maximum: 25. Änderung erfordert Neuladen."
         },
         "enableFirstColumn": {
             "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
@@ -32,7 +32,7 @@
         },
         "enableSpecialDiceToggles": {
             "name": "Spezielle Würfelknöpfe aktivieren",
-            "hint": "Kontrollmöglichkeiten für versteckte Spielerwürfe an den GM. Fügt gegenseitig ausschließende Explosionswürfel beim höchsten Wurf hinzu (nicht für Münzwürfe, Fudge- oder D100-Würfe)"
+            "hint": "Kontrollmöglichkeiten für versteckte Spielerwürfe an den GM. Fügt gegenseitig ausschließende Explosionswürfel beim höchsten Wurf hinzu (nicht für Münzwürfe, Fudge- oder D100-Würfe). Änderung erfordert Neuladen."
         }
     }
 }

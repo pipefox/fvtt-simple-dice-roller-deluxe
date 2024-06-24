@@ -45,7 +45,7 @@ export class DiceForm extends FormApplication {
     _getDiceTypes(enableCoins, enableD100, enableFudge) {
         const diceTypes = [];
         if (enableCoins) diceTypes.push("dc");
-        diceTypes.push("d4", "d6", "d8", "d10", "d12", "d20");
+        diceTypes.push(...SDRD.STANDARD_DICE_TYPES);
         if (enableD100) diceTypes.push("d100");
         if (enableFudge) diceTypes.push("df");
         return diceTypes;
