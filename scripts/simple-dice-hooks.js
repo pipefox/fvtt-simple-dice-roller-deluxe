@@ -1,7 +1,7 @@
 import { SDRD } from "../scripts/simple-dice-const.js"
 import { DiceForm } from "../scripts/simple-dice-form.js";
 
-let diceForm;
+let globalDiceForm;
 
 Hooks.once('init', () => {
     _loadHandlebarTemplates();
@@ -21,8 +21,8 @@ Hooks.on('renderSceneControls', (controls, html) => {
     // overwrite menu control default behaviour and add our dice form
     html.find(`li[data-control=${SDRD.MENU_CONTROL}]`).click(event => {
         event.preventDefault();
-        if ( !diceForm ) diceForm = new DiceForm();
-        diceForm.render(true);
+        if ( !globalDiceForm ) globalDiceForm = new DiceForm();
+        globalDiceForm.render(true);
     });
     // check if special btns need rendering; can't use 'visible:' in btn Control object, main bTn disappears as well :/
     if (Boolean(!game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_SPECIAL_DICE))) {
@@ -166,9 +166,9 @@ function _registerGameSettings() {
     });
 
     function _updateForm() {
-        if (diceForm) {
-            diceForm._updateSettings();
-            diceForm.render(false);
+        if (globalDiceForm) {
+            globalDiceForm._updateSettings();
+            globalDiceForm.render(false);
         }
     }
 }
