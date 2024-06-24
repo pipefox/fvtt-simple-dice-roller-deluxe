@@ -17,15 +17,13 @@ The module provides options for coin flips and Fate/Fudge dice, including additi
 
 ## Planned Features
 Roughly in order of priority:
-* Integrate toggle buttons (exploding dice, etc.) into Dice From for UI consistency (and prevent click focus on menu button).
-* Make dice-form CSS fancier (transparency effects, no outer border).
-* Move advanced less used settings (additional row column, close on click) in a separate Settings Form.
+* Move less used settings (additional row column, close on click) in a separate Settings Form.
 * Add option for Penalty / Bonus Dice (10s dice) for Call of Cthulhu games.
 * Add DCC Style Dice - d3, d5, d7, d14, d24, d30 (in a secondary table).
 * Add compounding and penetrating dice (if there's interest).
+* Make dice-form CSS fancier (transparency effects, no outer border).
 
 ## Known Issues
-* Dice menu button does not lose focus when Dice Form is closed (will change with integration of toggle buttons in main form).<br/>
 **Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!**
 
 ## Why "Simple Dice Roller Deluxe"?
