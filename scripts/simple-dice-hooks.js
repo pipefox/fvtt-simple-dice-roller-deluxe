@@ -52,7 +52,7 @@ function _loadCustomDiceControl() {
         name: SDRD.MENU_CONTROL,
         title: game.i18n.localize("title"),
         icon: "fa-solid fa-dice-d20",
-        layer: "SDRD.MENU_CONTROL",
+        layer: SDRD.MENU_CONTROL,
         tools: [
             {
             name: SDRD.MENU_GM_ROLL,
