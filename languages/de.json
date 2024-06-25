@@ -1,9 +1,15 @@
 {
     "title": "Würfelroller",
     "navigation": {
-        "makeGMRoll": "Versteckte Spielwürfe an GM umschalten",
+        "makeGMRoll": "Privater Wurf an DM",
+        "makeBlindRoll": "Blinder Wurf an DM",
+        "makeSelfRoll": "Wurf an sich selbst",
         "explodingDice": "Explosionswürfel umschalten",
-        "explodingDiceOnce": "Einmalige Explosionswürfel umschalten"
+        "explodingDiceOnce": "Einmal explodierende Würfel umschalten"
+    },
+    "legend": {
+        "hiddenRolls": "Versteckte Würfe",
+        "explodingDice": "Explosionswürfel"
     },
     "settings": {
         "maxDiceCount": {
@@ -24,7 +30,7 @@
         },
         "enableSpecialDiceToggles": {
             "name": "Spezielle Würfelknöpfe hinzufügen",
-            "hint": "Kontrollmöglichkeiten für versteckte Spielerwürfe an den GM. Fügt gegenseitig ausschließende Explosionswürfel beim höchsten Wurf hinzu (nicht für Münzwürfe, Fudge- oder D100-Würfe). Änderungen erfordern Neuladen."
+            "hint": "Kontrollmöglichkeiten für versteckte Spielerwürf. Fügt gegenseitig ausschließende Explosionswürfel beim höchsten Wurf hinzu (nicht für Münzwürfe, Fudge- oder D100-Würfe). Änderungen erfordern Neuladen."
         },
         "enableFirstColumn": {
             "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",

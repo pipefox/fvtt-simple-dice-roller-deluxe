@@ -1,9 +1,15 @@
 {
     "title": "Lanceur de Dés",
     "navigation": {
-        "makeGMRoll": "Basculer les Lancers Secrets des Joueurs vers le MJ",
-        "explodingDice": "Basculer les Dés Explosifs",
-        "explodingDiceOnce": "Basculer les Dés à Explosion Unique"
+        "makeGMRoll": "Jet privé au MJ",
+        "makeBlindRoll": "Jet aveugle au MJ",
+        "makeSelfRoll": "Jet pour soi-même",
+        "explodingDice": "Basculer les dés explosifs",
+        "explodingDiceOnce": "Basculer les dés explosifs une fois"
+    },
+    "legend": {
+        "hiddenRolls": "Lancers cachés",
+        "explodingDice": "Dés explosifs"
     },
     "settings": {
         "maxDiceCount": {
@@ -24,7 +30,7 @@
         },
         "enableSpecialDiceToggles": {
             "name": "Ajouter les Boutons de Dés Spéciaux",
-            "hint": "Ajouter des options de contrôle pour les lancers secrets des joueurs vers le MJ. Ajoute Dés Explosifs mutuellement exclusifs au plus haut lancer (pas pour les lancés de pièces, les Dés Fudge ou les dés d100). Changements nécessitent un rechargement."
+            "hint": "Ajouter des options de contrôle pour les lancers cachés. Ajoute Dés Explosifs mutuellement exclusifs au plus haut lancer (pas pour les lancés de pièces, les Dés Fudge ou les dés d100). Changements nécessitent un rechargement."
         },
         "enableFirstColumn": {
             "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",

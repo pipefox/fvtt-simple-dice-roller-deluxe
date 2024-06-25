@@ -1,9 +1,15 @@
 {
     "title": "Dice Roller",
     "navigation": {
-        "makeGMRoll": "Toggle Player Secret Rolls to GM",
+        "makeGMRoll": "Private Roll to GM",
+        "makeBlindRoll": "Blind Roll to GM",
+        "makeSelfRoll": "Roll to Self",
         "explodingDice": "Toggle Exploding Dice",
-        "explodingDiceOnce": "Toggle Single Explosion Dice"
+        "explodingDiceOnce": "Toggle Once Exploding Dice"
+    },
+    "legend": {
+        "hiddenRolls": "Hidden Rolls",
+        "explodingDice": "Exploding Dice"
     },
     "settings": {
         "maxDiceCount": {
@@ -24,7 +30,7 @@
         },
         "enableSpecialDiceToggles": {
             "name": "Add Special Dice Toggles",
-            "hint": "Add control options for player secret rolls to GM. Adds mutualy exclusive Exploding Dice on highest roll (not for coin flips, Fudge or d100 rolls). Changes require reload."
+            "hint": "Add control options for hidden rolls. Adds mutualy exclusive Exploding Dice on highest roll (not for coin flips, Fudge or d100 rolls). Changes require reload."
         },
         "enableFirstColumn": {
             "name": "Add additional 1st column for 1 die rolls",

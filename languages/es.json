@@ -1,9 +1,15 @@
 {
     "title": "Lanzador de Dados",
     "navigation": {
-        "makeGMRoll": "Alternar Lanzamientos Secretos de Jugadores al GM",
-        "explodingDice": "Alternar Dados Explosivos",
-        "explodingDiceOnce": "Alternar Dados de Explosión Única"
+        "makeGMRoll": "Tirada privada al GM",
+        "makeBlindRoll": "Tirada ciega al GM",
+        "makeSelfRoll": "Tirada a uno mismo",
+        "explodingDice": "Alternar dados explosivos",
+        "explodingDiceOnce": "Alternar dados que explotan una vez"
+    },
+    "legend": {
+        "hiddenRolls": "Tiradas ocultas",
+        "explodingDice": "Dados explosivos"
     },
     "settings": {
         "maxDiceCount": {
@@ -24,7 +30,7 @@
         },
         "enableSpecialDiceToggles": {
             "name": "Agregar Alternadores de Dados Especiales",
-            "hint": "Agregar opciones de control para lanzamientos secretos de jugadores al GM. Agrega Dados Explosivos mutuamente excluyentes en el lanzamiento más alto (no para lanzamientos de monedas, Dados Fudge o dados d100). Cambios requieren recargar."
+            "hint": "Agregar opciones de control para dados ocultas. Agrega Dados Explosivos mutuamente excluyentes en el lanzamiento más alto (no para lanzamientos de monedas, Dados Fudge o dados d100). Cambios requieren recargar."
         },
         "enableFirstColumn": {
             "name": "Agregar una columna adicional para lanzamientos de 1 dado",

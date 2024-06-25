@@ -19,6 +19,7 @@ export class DiceForm extends FormApplication {
         });
     }
 
+    // TODO P3: figure out better way to do tooltips (copy Foudnry style)
     getData() {
         this._resetDiceToggles();
         this._updateSettings();
@@ -32,7 +33,18 @@ export class DiceForm extends FormApplication {
                 diceRolls: Array.from({ length: this.maxDiceCount - indexOffset }, (_, i) => i + indexOffset + 1)
             }))
         };
-        formData.activateToggles = this.enableSpecialToggles ? true : false;
+        // TODO P2: research if easier way to localize?
+        if (this.enableSpecialToggles) {
+            formData.activateToggles = this.enableSpecialToggles;
+            formData.legendHiddenRolls = game.i18n.localize(`legend.${SDRD.LEGEND_HIDDEN_ROLLS}`);
+            formData.legendExplodingeDice = game.i18n.localize(`legend.${SDRD.LEGEND_EXPLODING_DICE}`);
+            formData.privateRollTitle = game.i18n.localize(`navigation.${SDRD.MENU_GM_ROLL}`);
+            formData.blindRollTitle = game.i18n.localize(`navigation.${SDRD.MENU_BLIND_ROLL}`);
+            formData.selfRollTitle = game.i18n.localize(`navigation.${SDRD.MENU_SELF_ROLL}`);
+            formData.explodingDiceTitle = game.i18n.localize(`navigation.${SDRD.MENU_EXPL_DICE}`);
+            formData.explodingOnceDiceTitle = game.i18n.localize(`navigation.${SDRD.MENU_EXPL_DICE_ONCE}`);
+        }
+        console.log("AAAAAAAAAAAA", game.i18n.localize(`navigation.${SDRD.MENU_GM_ROLL}`));
 
         return formData;
     }
@@ -49,6 +61,8 @@ export class DiceForm extends FormApplication {
 
     _resetDiceToggles() {
         SDRD.IS_GM_ROLL = false;
+        SDRD.IS_BLIND_ROLL = false;
+        SDRD.IS_SELF_ROLL = false;
         SDRD.IS_EXPLODING = false;
         SDRD.IS_EXPLODING_ONCE = false;
     }
@@ -63,7 +77,7 @@ export class DiceForm extends FormApplication {
     }
 
     async _rollDie(event) {
-        event.preventDefault();  // TODO: test with and without
+        event.preventDefault();  // TODO P2: test with and without
         const diceRoll = event.currentTarget.dataset.diceRoll;
         const diceType = event.currentTarget.dataset.diceType;
 
@@ -76,45 +90,53 @@ export class DiceForm extends FormApplication {
        
         let r = new Roll(formula);
         r.toMessage(
-          { speaker: game.user._id },
-          { rollMode: SDRD.IS_GM_ROLL ? "gmroll" : "roll" }
+            { speaker: game.user._id },
+            { rollMode: SDRD.IS_GM_ROLL ? "gmroll" : 
+                        SDRD.IS_BLIND_ROLL ? "blindroll" : 
+                        SDRD.IS_SELF_ROLL ? "selfroll" : 
+                        "roll"
+            }
         );
 
         if ( this.closeOnRoll && this.rendered && !this.closing ) this.close();
     }
 
-    async _setGMRoll(event) {
+    async _setHiddenRoll(event) {
         event.preventDefault();
-        let radioButton = event.currentTarget.querySelector('input[type="radio"]');
-        // TODO: add blind roll to GM ans self-roll
-        radioButton.checked = !radioButton.checked;
-        SDRD.IS_GM_ROLL= radioButton.checked;
-    }
-    
-    async _toggleExplodingDice(event) {
-        event.preventDefault();
-        const explodingType = event.currentTarget.dataset.explodingType;
-        let radioButton = event.currentTarget.querySelector('input[type="radio"]');
+        const hiddenType = event.currentTarget.dataset.hiddenType;
+        const radioButton = event.currentTarget.querySelector('input[type="radio"]');
+
         radioButton.checked = !radioButton.checked;
 
+        SDRD.IS_GM_ROLL = false;
+        SDRD.IS_BLIND_ROLL = false;
+        SDRD.IS_SELF_ROLL = false;
         if ( radioButton.checked )  {
-            if (explodingType === SDRD.MENU_EXPL_DICE) {
-                SDRD.IS_EXPLODING = true;
-                SDRD.IS_EXPLODING_ONCE = false;
-            } else if (explodingType === SDRD.MENU_EXPL_DICE_ONCE) {
-                SDRD.IS_EXPLODING_ONCE = true;
-                SDRD.IS_EXPLODING = false;
-            }
-        } else {
-            SDRD.IS_EXPLODING = false;
-            SDRD.IS_EXPLODING_ONCE = false;
+            if ( hiddenType === SDRD.MENU_GM_ROLL ) SDRD.IS_GM_ROLL = true;
+            else if ( hiddenType === SDRD.MENU_BLIND_ROLL ) SDRD.IS_BLIND_ROLL = true;
+            else if ( hiddenType === SDRD.MENU_SELF_ROLL ) SDRD.IS_SELF_ROLL = true;
+        }
+    }
+    
+    async _setExplodingDiceRoll(event) {
+        event.preventDefault();
+        const explodingType = event.currentTarget.dataset.explodingType;
+        const radioButton = event.currentTarget.querySelector('input[type="radio"]');
+
+        radioButton.checked = !radioButton.checked;
+
+        SDRD.IS_EXPLODING = false;
+        SDRD.IS_EXPLODING_ONCE = false;
+        if ( radioButton.checked )  {
+            if ( explodingType === SDRD.MENU_EXPL_DICE ) SDRD.IS_EXPLODING = true;
+            else if (explodingType === SDRD.MENU_EXPL_DICE_ONCE) SDRD.IS_EXPLODING_ONCE = true;
         }
     }
     
     activateListeners(html) {
         super.activateListeners(html);
-        html.on('click', '.toggle-hidden-roll', this._setGMRoll.bind(this));
-        html.on('click', '.toggle-exploding-dice', this._toggleExplodingDice.bind(this));
+        html.on('click', '.toggle-hidden-roll', this._setHiddenRoll.bind(this));
+        html.on('click', '.toggle-exploding-dice', this._setExplodingDiceRoll.bind(this));
         html.on('click', '.rollable', this._rollDie.bind(this));
     }
 }

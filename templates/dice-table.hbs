@@ -1,19 +1,27 @@
 {{#if activateToggles}}
 <div class="app sdrd-toggle-box">
     <fieldset class="sdrd-field-set">
-        <legend>Hidden Rolls</legend>
-        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeGMRoll" title="Private Roll to GM">
-            <input type="radio" id="makeGMRoll" name="makeGMRoll"/>
+        <legend>{{legendHiddenRolls}}</legend>
+        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeGMRoll" title="{{privateRollTitle}}">
+            <input type="radio" id="makeGMRoll" name="makeHiddenRoll"/>
             <i class="fa-duotone fa-user-secret"></i>
+        </div>
+        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeBlindRoll" title="{{blindRollTitle}}">
+            <input type="radio" id="makeBlindRoll" name="makeHiddenRoll"/>
+            <i class="fa-duotone fa-block-question"></i>
+        </div>
+        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeSelfRoll" title="{{selfRollTitle}}">
+            <input type="radio" id="makeSelfRoll" name="makeHiddenRoll"/>
+            <i class="fa-duotone fa-image-user"></i>
         </div>
     </fieldset>
     <fieldset class="sdrd-field-set">
-        <legend>Exploding Dice</legend>
-        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDice" title="Toggle Exploding Dice">
+        <legend>{{legendExplodingeDice}}</legend>
+        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDice" title="{{explodingDiceTitle}}">
             <input type="radio" id="explodingDice" name="explodingDice"/>
             <i class="fa-duotone fa-bomb"></i>
         </div>
-        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDiceOnce" title="Toggle Exploding Dice Once">
+        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDiceOnce" title="{{explodingOnceDiceTitle}}">
             <input type="radio" id="explodingDiceOnce" name="explodingDice" />
             <i class="fa-duotone fa-land-mine-on"></i>
         </div>
