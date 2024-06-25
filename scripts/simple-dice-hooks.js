@@ -127,7 +127,7 @@ function _registerGameSettings() {
         type: Boolean,
         onChange: () => _updateForm()
     });
-    // TODO: test behavior with getData change
+
     function _updateForm() {
         if (globalDiceForm) {
             globalDiceForm._updateSettings();

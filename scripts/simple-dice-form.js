@@ -63,12 +63,12 @@ export class DiceForm extends FormApplication {
     }
 
     async _rollDie(event) {
-        event.preventDefault();  // TODO P2: test with and without
+        event.preventDefault();
         const diceRoll = event.currentTarget.dataset.diceRoll;
         const diceType = event.currentTarget.dataset.diceType;
 
         let formula = diceRoll.concat(diceType);
-        // configure various exploding dice
+        // configure exploding dice
         if (diceType !== "dc" && diceType !== "df" && diceType !== "d100") {
             if ( SDRD.IS_EXPLODING ) formula = formula.concat("x");
             else if ( SDRD.IS_EXPLODING_ONCE ) formula = formula.concat("xo");
@@ -77,6 +77,7 @@ export class DiceForm extends FormApplication {
         let r = new Roll(formula);
         r.toMessage(
             { speaker: game.user._id },
+            // configure hidden rolls
             { rollMode: SDRD.IS_GM_ROLL ? "gmroll" : 
                         SDRD.IS_BLIND_ROLL ? "blindroll" : 
                         SDRD.IS_SELF_ROLL ? "selfroll" : 
