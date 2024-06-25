@@ -1,15 +1,15 @@
 {
     "title": "Würfelroller",
-    "navigation": {
+    "legend": {
+        "hiddenRolls": "Versteckte Würfe",
+        "explodingDice": "Explosionswürfel"
+    },
+    "tooltip": {
         "makeGMRoll": "Privater Wurf an DM",
         "makeBlindRoll": "Blinder Wurf an DM",
         "makeSelfRoll": "Wurf an sich selbst",
         "explodingDice": "Explosionswürfel umschalten",
         "explodingDiceOnce": "Einmal explodierende Würfel umschalten"
-    },
-    "legend": {
-        "hiddenRolls": "Versteckte Würfe",
-        "explodingDice": "Explosionswürfel"
     },
     "settings": {
         "maxDiceCount": {

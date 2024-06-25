@@ -1,27 +1,27 @@
 {{#if activateToggles}}
 <div class="app sdrd-toggle-box">
     <fieldset class="sdrd-field-set">
-        <legend>{{legendHiddenRolls}}</legend>
-        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeGMRoll" title="{{privateRollTitle}}">
+        <legend>{{localize 'legend.hiddenRolls'}}</legend>
+        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeGMRoll" title="{{localize 'tooltip.makeGMRoll'}}">
             <input type="radio" id="makeGMRoll" name="makeHiddenRoll"/>
             <i class="fa-duotone fa-user-secret"></i>
         </div>
-        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeBlindRoll" title="{{blindRollTitle}}">
+        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeBlindRoll" title="{{localize 'tooltip.makeBlindRoll'}}">
             <input type="radio" id="makeBlindRoll" name="makeHiddenRoll"/>
             <i class="fa-duotone fa-question"></i>
         </div>
-        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeSelfRoll" title="{{selfRollTitle}}">
+        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeSelfRoll" title="{{localize 'tooltip.makeSelfRoll'}}">
             <input type="radio" id="makeSelfRoll" name="makeHiddenRoll"/>
             <i class="fa-duotone fa-user"></i>
         </div>
     </fieldset>
     <fieldset class="sdrd-field-set">
-        <legend>{{legendExplodingeDice}}</legend>
-        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDice" title="{{explodingDiceTitle}}">
+        <legend>{{localize 'legend.explodingDice'}}</legend>
+        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDice" title="{{localize 'tooltip.explodingDice'}}">
             <input type="radio" id="explodingDice" name="explodingDice"/>
             <i class="fa-duotone fa-bomb"></i>
         </div>
-        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDiceOnce" title="{{explodingOnceDiceTitle}}">
+        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDiceOnce" title="{{localize 'tooltip.explodingDiceOnce'}}">
             <input type="radio" id="explodingDiceOnce" name="explodingDice" />
             <i class="fa-duotone fa-land-mine-on"></i>
         </div>

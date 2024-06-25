@@ -1,15 +1,15 @@
 {
     "title": "Lanzador de Dados",
-    "navigation": {
+    "legend": {
+        "hiddenRolls": "Tiradas ocultas",
+        "explodingDice": "Dados explosivos"
+    },
+    "tooltip": {
         "makeGMRoll": "Tirada privada al GM",
         "makeBlindRoll": "Tirada ciega al GM",
         "makeSelfRoll": "Tirada a uno mismo",
         "explodingDice": "Alternar dados explosivos",
         "explodingDiceOnce": "Alternar dados que explotan una vez"
-    },
-    "legend": {
-        "hiddenRolls": "Tiradas ocultas",
-        "explodingDice": "Dados explosivos"
     },
     "settings": {
         "maxDiceCount": {

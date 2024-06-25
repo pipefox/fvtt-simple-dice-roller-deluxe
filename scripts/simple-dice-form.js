@@ -19,7 +19,6 @@ export class DiceForm extends FormApplication {
         });
     }
 
-    // TODO P3: figure out better way to do tooltips (copy Foudnry style)
     getData() {
         this._resetDiceToggles();
         this._updateSettings();
@@ -28,22 +27,12 @@ export class DiceForm extends FormApplication {
         const diceTypes = this._getDiceTypes(this.enableCoins, this.enableD100, this.enableFudge);
 
         const formData = {
+            activateToggles: this.enableSpecialToggles,
             diceTypes: diceTypes.map(diceType => ({
                 diceType,
                 diceRolls: Array.from({ length: this.maxDiceCount - indexOffset }, (_, i) => i + indexOffset + 1)
             }))
         };
-        // TODO P2: research if easier way to localize?
-        if (this.enableSpecialToggles) {
-            formData.activateToggles = this.enableSpecialToggles;
-            formData.legendHiddenRolls = game.i18n.localize(`legend.${SDRD.LEGEND_HIDDEN_ROLLS}`);
-            formData.legendExplodingeDice = game.i18n.localize(`legend.${SDRD.LEGEND_EXPLODING_DICE}`);
-            formData.privateRollTitle = game.i18n.localize(`navigation.${SDRD.MENU_GM_ROLL}`);
-            formData.blindRollTitle = game.i18n.localize(`navigation.${SDRD.MENU_BLIND_ROLL}`);
-            formData.selfRollTitle = game.i18n.localize(`navigation.${SDRD.MENU_SELF_ROLL}`);
-            formData.explodingDiceTitle = game.i18n.localize(`navigation.${SDRD.MENU_EXPL_DICE}`);
-            formData.explodingOnceDiceTitle = game.i18n.localize(`navigation.${SDRD.MENU_EXPL_DICE_ONCE}`);
-        }
 
         return formData;
     }
@@ -111,9 +100,9 @@ export class DiceForm extends FormApplication {
         SDRD.IS_BLIND_ROLL = false;
         SDRD.IS_SELF_ROLL = false;
         if ( radioButton.checked )  {
-            if ( hiddenType === SDRD.MENU_GM_ROLL ) SDRD.IS_GM_ROLL = true;
-            else if ( hiddenType === SDRD.MENU_BLIND_ROLL ) SDRD.IS_BLIND_ROLL = true;
-            else if ( hiddenType === SDRD.MENU_SELF_ROLL ) SDRD.IS_SELF_ROLL = true;
+            if ( hiddenType === SDRD.GM_ROLL ) SDRD.IS_GM_ROLL = true;
+            else if ( hiddenType === SDRD.BLIND_ROLL ) SDRD.IS_BLIND_ROLL = true;
+            else if ( hiddenType === SDRD.SELF_ROLL ) SDRD.IS_SELF_ROLL = true;
         }
     }
     
@@ -127,8 +116,8 @@ export class DiceForm extends FormApplication {
         SDRD.IS_EXPLODING = false;
         SDRD.IS_EXPLODING_ONCE = false;
         if ( radioButton.checked )  {
-            if ( explodingType === SDRD.MENU_EXPL_DICE ) SDRD.IS_EXPLODING = true;
-            else if (explodingType === SDRD.MENU_EXPL_DICE_ONCE) SDRD.IS_EXPLODING_ONCE = true;
+            if ( explodingType === SDRD.EXPLODING_DICE ) SDRD.IS_EXPLODING = true;
+            else if (explodingType === SDRD.EXPLODING_DICE_ONCE) SDRD.IS_EXPLODING_ONCE = true;
         }
     }
     

@@ -1,15 +1,15 @@
 {
     "title": "Dice Roller",
-    "navigation": {
+    "legend": {
+        "hiddenRolls": "Hidden Rolls",
+        "explodingDice": "Exploding Dice"
+    },
+    "tooltip": {
         "makeGMRoll": "Private Roll to GM",
         "makeBlindRoll": "Blind Roll to GM",
         "makeSelfRoll": "Roll to Self",
         "explodingDice": "Toggle Exploding Dice",
         "explodingDiceOnce": "Toggle Once Exploding Dice"
-    },
-    "legend": {
-        "hiddenRolls": "Hidden Rolls",
-        "explodingDice": "Exploding Dice"
     },
     "settings": {
         "maxDiceCount": {

@@ -16,13 +16,6 @@
 export const SDRD = {
     ID: "simple-dice-roller-deluxe",
     MENU_CONTROL: "simpledice",
-    MENU_GM_ROLL: "makeGMRoll",
-    MENU_BLIND_ROLL: "makeBlindRoll",
-    MENU_SELF_ROLL: "makeSelfRoll",
-    MENU_EXPL_DICE: "explodingDice",
-    MENU_EXPL_DICE_ONCE: "explodingDiceOnce",
-    LEGEND_HIDDEN_ROLLS: "hiddenRolls",
-    LEGEND_EXPLODING_DICE: "explodingDice",
 
     CONFIG_MAXDICE_COUNT: "maxDiceCount",
     CONFIG_ENABLE_1ST_COLUMN: "enableFirstColumn",
@@ -35,6 +28,12 @@ export const SDRD = {
     TEMPLATE_PATH: "modules/simple-dice-roller-deluxe/templates/dice-table.hbs",
     STANDARD_DICE_TYPES: ["d4", "d6", "d8", "d10", "d12", "d20"],
    
+    GM_ROLL: "makeGMRoll",
+    BLIND_ROLL: "makeBlindRoll",
+    SELF_ROLL: "makeSelfRoll",
+    EXPLODING_DICE: "explodingDice",
+    EXPLODING_DICE_ONCE: "explodingDiceOnce",
+
     IS_GM_ROLL: false,
     IS_BLIND_ROLL: false,
     IS_SELF_ROLL: false,

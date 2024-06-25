@@ -1,15 +1,15 @@
 {
     "title": "Lanceur de Dés",
-    "navigation": {
+    "legend": {
+        "hiddenRolls": "Lancers cachés",
+        "explodingDice": "Dés explosifs"
+    },
+    "tooltip": {
         "makeGMRoll": "Jet privé au MJ",
         "makeBlindRoll": "Jet aveugle au MJ",
         "makeSelfRoll": "Jet pour soi-même",
         "explodingDice": "Basculer les dés explosifs",
         "explodingDiceOnce": "Basculer les dés explosifs une fois"
-    },
-    "legend": {
-        "hiddenRolls": "Lancers cachés",
-        "explodingDice": "Dés explosifs"
     },
     "settings": {
         "maxDiceCount": {
