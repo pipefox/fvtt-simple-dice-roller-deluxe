@@ -37,10 +37,11 @@ function _loadCustomDiceControl() {
         layer: SDRD.MENU_CONTROL,
         tools: [
             {
+                // hidden button needed otherwise main menu control won't render
                 name: SDRD.MENU_CONTROL,
                 title: game.i18n.localize("title"),
                 icon: "fa-solid fa-dice-d20",
-                onClick: () => ui.notifications.info("Oops! This buton should not be visible."),
+                onClick: () => ui.notifications.info("Oops! This buton should not be visible!"),
                 button: true
             },
         ],
@@ -126,7 +127,7 @@ function _registerGameSettings() {
         type: Boolean,
         onChange: () => _updateForm()
     });
-    // TODO: test how it works with getData change
+    // TODO: test behavior with getData change
     function _updateForm() {
         if (globalDiceForm) {
             globalDiceForm._updateSettings();

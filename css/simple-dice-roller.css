@@ -1,57 +1,76 @@
-.sdrd-form .sdrd-dice-rows {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+/* Main Dice Form: */
+.sdrd-form .sdrd-rows {
     display: flex;
+    min-width: 270px;
 }
-
-.sdrd-form .sdrd-dice-1stcol {
-    width: 110px !important;
-    text-align: left !important;
-    padding-left: 8px;
-}
-
-.sdrd-form .sdrd-dice-col {
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    text-align: center;
-    padding-top: 13px;
-    border: 1px solid #333;
-    cursor: pointer;
-}
-
-.sdrd-form .sdrd-dice-col:hover {
-    color: rgb(159, 255, 159);
-    border: 1px solid red;
-    box-shadow: 0 0 10px rgb(255, 100, 0);;
-}
-
-.sdrd-dice-col.gm-roll input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.sdrd-dice-col.gm-roll input[type="checkbox"]:checked + i {
-    color: rgb(227, 153, 153);
-}
-
-.sdrd-dice-col input[type="radio"] {
-    display: none;
-}
-
-.sdrd-dice-col.toggle-exploding-dice input[type="radio"]:checked + i {
-    color: rgb(255, 159, 188);
-}
-/* TODO: Style does not work */
-/* .sdrd-dice-col .toggle-exploding-dice input[type="radio"]:checked {
-    background: rgba(60, 0, 120, 0.75);
-    border: 1px solid #9b8dff;
-    box-shadow: 0 0 10px #9b8dff;
-} */
 
 .sdrd-form i {
     font-size: 25px;
     vertical-align: middle;
+}
+
+.sdrd-form .sdrd-1stcol {
+    min-width: 110px !important;
+    padding-left: 10px !important;
+    justify-content: left !important;
+}
+
+.sdrd-form .sdrd-col {
+    display: flex;
+    flex: 1; /* equally wide */
+    justify-content: center; 
+    align-items: center;
+    height: 50px;
+    min-width: 50px;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+/* Optional Toggle Buttons: */
+.sdrd-toggle-box {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    box-shadow: none;
+}
+
+.sdrd-toggle-box i {
+    font-size: 26px;
+}
+
+.sdrd-field-set {
+    display: flex;
+    flex: 1; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sdrd-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.sdrd-toggle input[type="radio"] {
+    display: none;
+}
+
+.sdrd-toggle input[type="radio"]:checked + i {
+    color: rgb(200, 150, 253);
+}
+
+/* Common elements: */
+.sdrd-col:hover,
+.sdrd-toggle:hover {
+    color: rgb(159, 255, 159);
+    border: 1px solid red;
+    box-shadow: 0 0 10px rgb(255, 100, 0);
 }

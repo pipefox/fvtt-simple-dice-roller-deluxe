@@ -10,7 +10,7 @@ export class DiceForm extends FormApplication {
             height: 'auto',
             width: 'auto',
             top: 70,
-            left: 110,
+            left: 120,
             popOut: true,
             resizable: false,
             id: 'dice-form',
@@ -19,8 +19,6 @@ export class DiceForm extends FormApplication {
         });
     }
 
-    // TODO P2: inspect settings app for proper binding; check if Radio is in documentation
-    // TODO P2: inspect main control app for proper highlighting, status = active, esp. css
     getData() {
         this._resetDiceToggles();
         this._updateSettings();
@@ -55,8 +53,6 @@ export class DiceForm extends FormApplication {
         SDRD.IS_EXPLODING_ONCE = false;
     }
 
-
-
     _getDiceTypes(enableCoins, enableD100, enableFudge) {
         const diceTypes = [];
         if (enableCoins) diceTypes.push("dc");
@@ -89,18 +85,18 @@ export class DiceForm extends FormApplication {
 
     async _setGMRoll(event) {
         event.preventDefault();
-        let checkBox = event.currentTarget.querySelector('input[type="checkbox"]');
-        checkBox.checked = !checkBox.checked;
-        checkBox.checked = SDRD.IS_GM_ROLL;
+        let radioButton = event.currentTarget.querySelector('input[type="radio"]');
+        // TODO: add blind roll to GM ans self-roll
+        radioButton.checked = !radioButton.checked;
+        SDRD.IS_GM_ROLL= radioButton.checked;
     }
     
     async _toggleExplodingDice(event) {
         event.preventDefault();
+        const explodingType = event.currentTarget.dataset.explodingType;
         let radioButton = event.currentTarget.querySelector('input[type="radio"]');
         radioButton.checked = !radioButton.checked;
 
-        const explodingType = event.currentTarget.dataset.explodingType;
-        console.log(explodingType);
         if ( radioButton.checked )  {
             if (explodingType === SDRD.MENU_EXPL_DICE) {
                 SDRD.IS_EXPLODING = true;
@@ -117,7 +113,7 @@ export class DiceForm extends FormApplication {
     
     activateListeners(html) {
         super.activateListeners(html);
-        html.on('click', '.gm-roll', this._setGMRoll.bind(this));
+        html.on('click', '.toggle-hidden-roll', this._setGMRoll.bind(this));
         html.on('click', '.toggle-exploding-dice', this._toggleExplodingDice.bind(this));
         html.on('click', '.rollable', this._rollDie.bind(this));
     }

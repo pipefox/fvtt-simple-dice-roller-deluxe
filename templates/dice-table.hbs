@@ -1,19 +1,19 @@
 {{#if activateToggles}}
-<div class="app sdrd-controls gm-roll">
-    <fieldset class="sdrd-form">
-        <legend>Make private roll to GM:</legend>
-        <div class="sdrd-dice-col gm-roll" data-gm-roll="makeGMRoll">
-            <input type="checkbox" id="makeGMRoll" name="makeGMRoll"/>
+<div class="app sdrd-toggle-box">
+    <fieldset class="sdrd-field-set">
+        <legend>Hidden Rolls</legend>
+        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeGMRoll" title="Private Roll to GM">
+            <input type="radio" id="makeGMRoll" name="makeGMRoll"/>
             <i class="fa-duotone fa-user-secret"></i>
         </div>
     </fieldset>
-    <fieldset class="sdrd-form">
-        <legend>Select Exploding Dice variant:</legend>
-        <div class="sdrd-dice-col toggle-exploding-dice" data-exploding-type="explodingDice">
+    <fieldset class="sdrd-field-set">
+        <legend>Exploding Dice</legend>
+        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDice" title="Toggle Exploding Dice">
             <input type="radio" id="explodingDice" name="explodingDice"/>
             <i class="fa-duotone fa-bomb"></i>
         </div>
-        <div class="sdrd-dice-col toggle-exploding-dice" data-exploding-type="explodingDiceOnce">
+        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDiceOnce" title="Toggle Exploding Dice Once">
             <input type="radio" id="explodingDiceOnce" name="explodingDice" />
             <i class="fa-duotone fa-land-mine-on"></i>
         </div>
@@ -22,8 +22,8 @@
 {{/if}}
 <div class="app sdrd-form">
     {{#each diceTypes}}
-    <div class="sdrd-dice-rows">
-        <div class="sdrd-dice-col sdrd-dice-1stcol rollable" data-dice-type="{{diceType}}" data-dice-roll="1">
+    <div class="sdrd-rows">
+        <div class="sdrd-col sdrd-1stcol rollable" data-dice-type="{{diceType}}" data-dice-roll="1">
             {{#if (isCoin diceType)}}
             <i class="fa-duotone fa-coin"></i>&nbsp coin
             {{else if (isD100 diceType)}}
@@ -35,7 +35,7 @@
             {{/if}}
         </div>
         {{#each diceRolls}}
-        <div class="sdrd-dice-col rollable" data-dice-type="{{../diceType}}" data-dice-roll="{{this}}">{{this}}</div>
+        <div class="sdrd-col rollable" data-dice-type="{{../diceType}}" data-dice-roll="{{this}}">{{this}}</div>
         {{/each}}
     </div>
     {{/each}}
