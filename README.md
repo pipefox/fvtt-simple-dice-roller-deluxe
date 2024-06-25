@@ -5,7 +5,7 @@ Once the "Dice Roller" button is clicked, a clickable dice table renders in a se
 * The number of rollable dice can be adjusted from 1 to 25.
 * The module has options for coin flips and Fate/Fudge dice, including settings for adding additional button toggles for hidden rolls and exploding dice.
 
-![Screenshot_SimleDiceRollerDeluxe_v2 0 0](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/assets/15308352/3e6de073-a668-4354-8941-fcbdf4cc7e3b)
+![Screenshot_SimleDiceRollerDeluxe_v2 0 0](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/assets/15308352/5562e183-fe01-470d-b234-f26f7e785938)
 
 ## Installation Instructions
 1. Click "Install Module" in the "Add-on Modules" tab in the Foundry "Configuration and Setup" screen
@@ -33,3 +33,4 @@ Roughly in order of priority:
 
 ## Acknowledgements
 Inspired by the Dice Roller of Roll20. Used JoPeek's [module](https://github.com/jopeek/fvtt-simple-dice-roller/) as a starting point.
+
