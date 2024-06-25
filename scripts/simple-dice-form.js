@@ -26,15 +26,13 @@ export class DiceForm extends FormApplication {
         const indexOffset = this.enableFirstColumn ? 0 : 1;
         const diceTypes = this._getDiceTypes(this.enableCoins, this.enableD100, this.enableFudge);
 
-        const formData = {
+        return {
             activateToggles: this.enableSpecialToggles,
             diceTypes: diceTypes.map(diceType => ({
                 diceType,
                 diceRolls: Array.from({ length: this.maxDiceCount - indexOffset }, (_, i) => i + indexOffset + 1)
             }))
         };
-
-        return formData;
     }
 
     _updateSettings() {
