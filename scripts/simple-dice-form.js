@@ -44,7 +44,6 @@ export class DiceForm extends FormApplication {
             formData.explodingDiceTitle = game.i18n.localize(`navigation.${SDRD.MENU_EXPL_DICE}`);
             formData.explodingOnceDiceTitle = game.i18n.localize(`navigation.${SDRD.MENU_EXPL_DICE_ONCE}`);
         }
-        console.log("AAAAAAAAAAAA", game.i18n.localize(`navigation.${SDRD.MENU_GM_ROLL}`));
 
         return formData;
     }
