@@ -2,10 +2,10 @@
 
 Simple Dice Roller Deluxe is a system agnostic module for Foundry VTT that allows for quick rolls of common RPG dice from the main app controls.
 Once the "Dice Roller" button is clicked, a clickable dice table renders in a separate window that can be repositioned freely in Foundry.
+* The number of rollable dice can be adjusted from 1 to 25.
+* The module has options for coin flips and Fate/Fudge dice, including settings for adding additional button toggles for hidden rolls and exploding dice.
 
-The module provides options for coin flips and Fate/Fudge dice, including settings for adding additional button toggles for hidden rolls and exploding dice.
-
-![Screenshot_SimleDiceRoller_v1 4 1](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/assets/15308352/4303d7c9-f787-49c7-905f-1df3511a662a)
+![Screenshot_SimleDiceRollerDeluxe_v2 0 0](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/assets/15308352/3e6de073-a668-4354-8941-fcbdf4cc7e3b)
 
 ## Installation Instructions
 1. Click "Install Module" in the "Add-on Modules" tab in the Foundry "Configuration and Setup" screen
