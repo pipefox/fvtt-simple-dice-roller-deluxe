@@ -27,10 +27,9 @@ Roughly in order of priority:
 **Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!**
 
 ## Why "Simple Dice Roller Deluxe"?
-* This module covers a different use case where the Foudnry app is used for battle maps tracking while the players have physical character sheets (or digital ones on their phones/tablets). Having a simple roll table with no modifiers can be handy in such cases.
-* The module also helps users who want to make a roll in a click or two without having to type commands in the chat window.
-* Simple Dice Roller Deluxe is a complete rewrite of an existing module using the latest Foundry components / design patterns which should increase maintainability while keeping backwards compatibility (no ApplicationV2 as it's Foundry V12+ only).
+* This module is for GMs who use the Foudnry app for battle maps and tracking while the players have physical character sheets (or digital ones on their phones/tablets). Having a simple roll table with no character-sheet modifiers can be handy in such cases.
+* The module should also help users who want to make a quick roll in a click or two without having to type commands in the chat window.
 
 ## Acknowledgements
-Inspired by the Dice Roller of Roll20. Used JoPeek's [module](https://github.com/jopeek/fvtt-simple-dice-roller/) as a starting point.
+Inspired by the Dice Roller of Roll20. Used JoPeek's [module](https://github.com/jopeek/fvtt-simple-dice-roller/) as a starting point (though this module is a complete rewrite using Foundry components / design patterns).
 

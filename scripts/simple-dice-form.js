@@ -35,6 +35,14 @@ export class DiceForm extends FormApplication {
         };
     }
 
+    _resetDiceToggles() {
+        SDRD.IS_GM_ROLL = false;
+        SDRD.IS_BLIND_ROLL = false;
+        SDRD.IS_SELF_ROLL = false;
+        SDRD.IS_EXPLODING = false;
+        SDRD.IS_EXPLODING_ONCE = false;
+    }
+
     _updateSettings() {
         this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
         this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_COINS);
@@ -45,14 +53,6 @@ export class DiceForm extends FormApplication {
         this.closeOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL);
     }
 
-    _resetDiceToggles() {
-        SDRD.IS_GM_ROLL = false;
-        SDRD.IS_BLIND_ROLL = false;
-        SDRD.IS_SELF_ROLL = false;
-        SDRD.IS_EXPLODING = false;
-        SDRD.IS_EXPLODING_ONCE = false;
-    }
-
     _getDiceTypes(enableCoins, enableD100, enableFudge) {
         const diceTypes = [];
         if (enableCoins) diceTypes.push("dc");
@@ -60,32 +60,6 @@ export class DiceForm extends FormApplication {
         if (enableD100) diceTypes.push("d100");
         if (enableFudge) diceTypes.push("df");
         return diceTypes;
-    }
-
-    async _rollDie(event) {
-        event.preventDefault();
-        const diceRoll = event.currentTarget.dataset.diceRoll;
-        const diceType = event.currentTarget.dataset.diceType;
-
-        let formula = diceRoll.concat(diceType);
-        // configure exploding dice
-        if (diceType !== "dc" && diceType !== "df" && diceType !== "d100") {
-            if ( SDRD.IS_EXPLODING ) formula = formula.concat("x");
-            else if ( SDRD.IS_EXPLODING_ONCE ) formula = formula.concat("xo");
-        }
-       
-        let r = new Roll(formula);
-        r.toMessage(
-            { speaker: game.user._id },
-            // configure hidden rolls
-            { rollMode: SDRD.IS_GM_ROLL ? "gmroll" : 
-                        SDRD.IS_BLIND_ROLL ? "blindroll" : 
-                        SDRD.IS_SELF_ROLL ? "selfroll" : 
-                        "roll"
-            }
-        );
-
-        if ( this.closeOnRoll && this.rendered && !this.closing ) this.close();
     }
 
     async _setHiddenRoll(event) {
@@ -119,7 +93,33 @@ export class DiceForm extends FormApplication {
             else if (explodingType === SDRD.EXPLODING_DICE_ONCE) SDRD.IS_EXPLODING_ONCE = true;
         }
     }
-    
+
+    async _rollDie(event) {
+        event.preventDefault();
+        const diceRoll = event.currentTarget.dataset.diceRoll;
+        const diceType = event.currentTarget.dataset.diceType;
+
+        let formula = diceRoll.concat(diceType);
+        // configure exploding dice
+        if (diceType !== "dc" && diceType !== "df" && diceType !== "d100") {
+            if ( SDRD.IS_EXPLODING ) formula = formula.concat("x");
+            else if ( SDRD.IS_EXPLODING_ONCE ) formula = formula.concat("xo");
+        }
+       
+        let r = new Roll(formula);
+        r.toMessage(
+            { speaker: game.user._id },
+            // configure hidden rolls
+            { rollMode: SDRD.IS_GM_ROLL ? "gmroll" : 
+                        SDRD.IS_BLIND_ROLL ? "blindroll" : 
+                        SDRD.IS_SELF_ROLL ? "selfroll" : 
+                        "roll"
+            }
+        );
+
+        if ( this.closeOnRoll && this.rendered && !this.closing ) this.close();
+    }
+
     activateListeners(html) {
         super.activateListeners(html);
         html.on('click', '.toggle-hidden-roll', this._setHiddenRoll.bind(this));
