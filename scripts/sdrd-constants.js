@@ -2,11 +2,11 @@
  * 1] 'hook' to the event framework used by FoundryVTT
  * https://foundryvtt.com/api/classes/client.Hooks.html
  *    -> init to register module settings (see also 3]) + Handlebars helper functions,
- *       here loading Handlebars templates seems optional
- *    -> getSceneControls to hook new button
- *    -> renderSceneControls to prevent default focusing behavior & load the Dice Form
+ *       loading Handlebars templates seems optional
+ *    -> getSceneControls to hook new menu button
+ *    -> renderSceneControls to prevent default behavior & load the Dice Form
  * 
- * 2] build a Formapplication for the main Dice Form popup
+ * 2] build a FormApplication for main Dice Form popup
  * https://foundryvtt.com/api/classes/client.FormApplication.html 
  *    -> call super() in constructor
  *    -> extend defaultOptions using foundry.utils.mergeObject
@@ -16,8 +16,8 @@
  * 3] registering a separate settings menu
  * https://foundryvtt.com/api/classes/client.ClientSettings.html#registerMenu
  *    -> needs own FormApplication + Handlebars template
- *    -> *must* write own _updateObject(event, formData) to update game settings
- *    -> the full key to access a settings object is "<module-id>.<setting-id>" !
+ *    -> override _updateObject() to save updated game settings
+ *    -> the full key to access a settings object is "<module-id>.<setting-id>"
  ************************************************************************************ */
 
 export const SDRD = {

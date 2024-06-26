@@ -1,11 +1,23 @@
 # Simple Dice Roller Deluxe - FoundryVTT Module
 
 Simple Dice Roller Deluxe is a system agnostic module for Foundry VTT that allows for quick rolls of common RPG dice from the main app controls.
-Once the "Dice Roller" button is clicked, a clickable dice table renders in a separate window that can be repositioned freely in Foundry.
-* The number of rollable dice can be adjusted from 1 to 25.
-* The module has options for coin flips and Fate/Fudge dice, including settings for adding additional button toggles for hidden rolls and exploding dice.
+Once the "Dice Roller" button is pressed, a clickable dice table renders in a separate window that can be repositioned freely in Foundry.
 
 ![Screenshot_SimleDiceRollerDeluxe_v2 0 0](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/assets/15308352/5562e183-fe01-470d-b234-f26f7e785938)
+
+* The number of rollable dice can be adjusted from 1 to 25.
+* Coin flips and Fate/Fudge dice rows can be enabled in the settings as well.
+* There are advanced optional settings for the following additional roll toggles:
+  * Hidden Rolls:
+    * Private Roll to GM
+    * Blind Roll to GM
+    * Roll to Self
+  * Call of Cthulhu:
+    * Penalty 'tens' Roll for d100
+    * Bonus 'tens' Roll for d100
+  * Exploding DIce:
+    * Standadrd Exploding Dice
+    * Once Exploding Dice
 
 ## Installation Instructions
 1. Click "Install Module" in the "Add-on Modules" tab in the Foundry "Configuration and Setup" screen
@@ -15,15 +27,19 @@ Once the "Dice Roller" button is clicked, a clickable dice table renders in a se
 5. Enable the module in your game once it's started ("Settings" -> "Manage Module")
 6. Check various settings in "Configure Settings" -> "Simple Dice Roller Deluxe"
 
-## Planned Potential Features
-Roughly in order of priority:
-* Add DCC Style Dice - d3, d5, d7, d14, d24, d30 (in a secondary table).
-* Add compounding and penetrating dice (if there's interest).
-* Make dice-form CSS fancier: better tooltips, transparency effects, no outer border.
-
 ## Known Issues
-* Call of Cthulhu Bonus / Penalty toggles works but do not display a nicely formatted output, especially noticeable with "Dice so Nice!" module.
 **Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!**
+* Note that the Spanish and French localizations were done with machine translation.<br>
+I'm open to pull requests with corrected json texts!
+
+<hr/>
+
+## Potential new Features
+This module is complete, but I might add some options down the line if there's interest.
+* Better chat output for 'Call of Cthulhu' Bonus/Penalty rolls.<br>In the meantime, use the Cthulhu 7th Edition System for Foundry for better d100 integration.
+* Add DCC Style Dice - d3, d5, d7, d14, d24, d30 (in a secondary table).
+* Add compounding and penetrating dice to the Exploding Dice toggles.
+* Make dice-form CSS fancier: better tooltips, optional toggle button labels, transparency effects, no outer border.
 
 ## Why "Simple Dice Roller Deluxe"?
 * This module is for GMs who use the Foudnry app for battle maps and tracking while the players have physical character sheets (or digital ones on their phones/tablets). Having a simple roll table with no character-sheet modifiers can be handy in such cases.
@@ -31,4 +47,3 @@ Roughly in order of priority:
 
 ## Acknowledgements
 Inspired by the Dice Roller of Roll20. Used JoPeek's [module](https://github.com/jopeek/fvtt-simple-dice-roller/) as a starting point (though this module is a complete rewrite using Foundry components / design patterns).
-

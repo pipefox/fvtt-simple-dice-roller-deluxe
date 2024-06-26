@@ -2,43 +2,57 @@
     "title": "Würfelroller",
     "legend": {
         "hiddenRolls": "Versteckte Würfe",
-        "explodingDice": "Explosionswürfel"
+        "explodingDiceRolls": "Explosionswürfel",
+        "CthulhuD100Rolls": "Call of Cthulhu"
     },
     "tooltip": {
         "makeGMRoll": "Privater Wurf an DM",
         "makeBlindRoll": "Blinder Wurf an DM",
         "makeSelfRoll": "Wurf an sich selbst",
-        "explodingDice": "Explosionswürfel umschalten",
-        "explodingDiceOnce": "Einmal explodierende Würfel umschalten"
+        "penaltyCthulhuRoll": "Strafwurf (Zehner) für D100",
+        "bonusCthulhuRoll": "Bonuswurf (Zehner) für D100",
+        "explodingDice": "Standard-Explosionswürfel",
+        "explodingDiceOnce": "Einmal explodierende Würfel"
     },
     "settings": {
+        "advanced": {
+            "title": "Erweiterte 'Würfelroller'-Optionen",
+            "name": "Erweiterte Einstellungen",
+            "label": "Würfelroller konfigurieren",
+            "hint": "Das allgemeine Aussehen und Verhalten des Würfelrollers verfeinern.",
+            "save": "Einstellungen speichern"
+        },
+        "enableHiddenRolls": {
+            "name": "Schaltflächen für versteckte Würfe hinzufügen",
+            "hint": "Buttons für sich gegenseitig ausschließende versteckte Würfe (Blind, GM und Self Rolls) hinzufügen. Erfordert Neuladen!"
+        },
+        "enableCthulhuD100": {
+            "name": "Schaltflächen für d100 Straf- / Bonuswürfe hinzufügen",
+            "hint": "Buttons für 'Call of Cthulhu' d100-Würfe hinzufügen:: den Zehner-Würfel neu würfeln, wobei der höchste Wert als Strafe und der niedrigste als Bonus gilt. Erfordert Neuladen!"
+        },
+        "enableExplodingDice": {
+            "name": "Schaltflächen für Explosionswürfel hinzufügen",
+            "hint": "Buttons für gegenseitig ausschließende Exploding Dice-Schalter hinzufügen. NICHT anwendbar auf Münzwürfe, Fudge oder d100-Würfe! Erfordert Neuladen!"
+        },
+        "enableFirstColumn": {
+            "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
+            "hint": "Hinweis: Spalte mit den Würfelsymbolen ist immer anklickbar (und würfelt 1 Würfel), ähnlich wie bei anderen Online-Tabletop-Plattformen."
+        },
+        "closeFormOnRoll": {
+            "name": "Schließen des Würfelrollers bei erfolgreichem Wurf aktivieren",
+            "hint": "Wenn aktiviert, wird das Würfelroller-Fenster nach jedem Wurf geschlossen."
+        },
         "maxDiceCount": {
             "name": "Maximal geworfene Würfel",
-            "hint": "Maximale Anzahl von Würfeln, die mit dem Würfelroller geworfen werden können. Minimum: 1. Maximum: 25. Änderungen erfordernNeuladen."
+            "hint": "Maximale Anzahl von Würfeln (von 1 bis 25), die mit dem Würfelroller geworfen werden können. Erfordert Neuladen!"
         },
         "enableCoins": {
             "name": "Münzwürfe aktivieren",
-            "hint": "Zum Werfen von Münzen (ähnlich wie bei D2-Würfelwürfen)"
-        },
-        "enableD100": {
-            "name": "D100-Würfel aktivieren",
-            "hint": "Zum Würfeln von d100 Würfeln"
+            "hint": "Zum Werfen von Münzen (ähnlich wie bei d2-Würfelwürfen)."
         },
         "enableFudgeDice": {
             "name": "'Fudge-Würfel' aktivieren",
             "hint": "Zum Würfeln von 'Fudge-Würfeln' (auch bekannt als 'Fate-Würfel') für eure Fate- und Fudge-Spiele."
-        },
-        "enableSpecialDiceToggles": {
-            "name": "Spezielle Würfelknöpfe hinzufügen",
-            "hint": "Kontrollmöglichkeiten für versteckte Spielerwürf. Fügt gegenseitig ausschließende Explosionswürfel beim höchsten Wurf hinzu (nicht für Münzwürfe, Fudge- oder D100-Würfe). Änderungen erfordern Neuladen."
-        },
-        "enableFirstColumn": {
-            "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
-            "hint": "Hinweis: Spalte mit den Würfelsymbolen ist immer anklickbar, ähnlich wie bei anderen Online-Tabletop-Plattformen."
-        },
-        "closeFormOnRoll": {
-            "name": "'Würfelroller bei erfolgreichem Wurf schließen' aktivieren",
-            "hint": "Wenn aktiviert, wird das Würfelroller-Formular geschlossen und der Fokus kehrt zum Standardsteuerungsmenü zurück."
         }
     }
 }

@@ -2,24 +2,24 @@
     "title": "Dice Roller",
     "legend": {
         "hiddenRolls": "Hidden Rolls",
-        "explodingDice": "Exploding Dice",
-        "CthulhuD100": "Call of Cthulhu"
+        "explodingDiceRolls": "Exploding Dice",
+        "CthulhuD100Rolls": "Call of Cthulhu"
     },
     "tooltip": {
         "makeGMRoll": "Private Roll to GM",
         "makeBlindRoll": "Blind Roll to GM",
         "makeSelfRoll": "Roll to Self",
-        "explodingDice": "Toggle Exploding Dice",
-        "explodingDiceOnce": "Toggle Once Exploding Dice",
-        "bonusCthulhuRoll": "Toggle Bonus 'tens' Roll for d100",
-        "penaltyCthulhuRoll": "Toggle Penalty 'tens' Roll for d100"
+        "penaltyCthulhuRoll": "Penalty 'tens' Roll for d100",
+        "bonusCthulhuRoll": "Bonus 'tens' Roll for d100",
+        "explodingDice": "Standard Exploding Dice",
+        "explodingDiceOnce": "Once Exploding Dice"
     },
     "settings": {
         "advanced": {
-            "title": "Advanced 'Dice Form' Options",
+            "title": "Advanced 'Dice Roller' Options",
             "name": "Advanced Settings",
-            "label": "Configure Dice Form",
-            "hint": "Fine tune the general appearance and behavior of the Dice Form.",
+            "label": "Configure Dice Roller",
+            "hint": "Fine tune the general appearance and behavior of the Dice Roller.",
             "save": "Save Settings"
         },
         "enableHiddenRolls": {
@@ -28,7 +28,7 @@
         },
         "enableCthulhuD100": {
             "name": "Add 'Call of Cthulhu' d100 Penalty / Bonus Toggles",
-            "hint": "Add buttons for 'Call of Cthulhu' style d100 rolls: reroll the tens-die, taking the highest for Penalty / lowest for Bonus. Requires reload!"
+            "hint": "Add buttons for 'Call of Cthulhu' d100 rolls: reroll the tens-die, taking the highest for Penalty / lowest for Bonus. Requires reload!"
         },
         "enableExplodingDice": {
             "name": "Add Exploding Dice Toggles",
@@ -39,7 +39,7 @@
             "hint": "Note: the dice-icon column is always clickable (and rolls 1 die), similar to other online tabletop platfroms."
         },
         "closeFormOnRoll": {
-            "name": "Enable closing Dice Roller on successful roll",
+            "name": "Enable closing the Dice Roller on successful roll",
             "hint": "If enabled, the Dice Roller window will close after each roll."
         },
         "maxDiceCount": {

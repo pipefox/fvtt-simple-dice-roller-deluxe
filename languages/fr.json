@@ -2,35 +2,37 @@
     "title": "Lanceur de Dés",
     "legend": {
         "hiddenRolls": "Lancers cachés",
-        "explodingDice": "Dés explosifs"
+        "explodingDiceRolls": "Dés explosifs",
+        "CthulhuD100Rolls": "Call of Cthulhu"
     },
     "tooltip": {
         "makeGMRoll": "Jet privé au MJ",
         "makeBlindRoll": "Jet aveugle au MJ",
         "makeSelfRoll": "Jet pour soi-même",
+        "penaltyCthulhuRoll": "Basculer le lancer de pénalité (dizaines) pour d100",
+        "bonusCthulhuRoll": "Basculer le lancer de bonus (dizaines) pour d100",
         "explodingDice": "Basculer les dés explosifs",
         "explodingDiceOnce": "Basculer les dés explosifs une fois"
     },
     "settings": {
-        "maxDiceCount": {
-            "name": "Nombre maximum de dés lancés",
-            "hint": "Nombre maximum de dés que vous pouvez lancer avec le Lanceur de Dés. Minimum : 1. Maximum : 25. Changements nécessitent un rechargement."
+        "advanced": {
+            "title": "Options Avancées du 'Lanceur de Dés'",
+            "name": "Paramètres Avancés",
+            "label": "Configurer le Lanceur de Dés",
+            "hint": "Affiner l'apparence générale et le comportement du Lanceur de Dés.",
+            "save": "Enregistrer les Paramètres"
         },
-        "enableCoins": {
-            "name": "Activer les lancés de pièces",
-            "hint": "Pour effectuer des lancés de pièces (similaire aux lancers de dés d2)."
+        "enableHiddenRolls": {
+            "name": "Ajouter des Boutons de Lancers Cachés",
+            "hint": "Ajouter des boutons pour les lancers cachés mutuellement exclusifs (Aveugle, MJ et Soi-même). Changements nécessitent un rechargement."
         },
-        "enableD100": {
-            "name": "Activer les lancés de dés d100",
-            "hint": "Pour effectuer des lancés de dés d100."
+        "enableCthulhuD100": {
+            "name": "Ajouter des Boutons de Pénalité/Bonus pour 'Call of Cthulhu' d100",
+            "hint": "Ajouter des boutons pour les lancers d100 de style 'Call of Cthulhu' : relancez le dé des dizaines, en prenant le plus élevé pour la Pénalité/le plus bas pour le Bonus. Changements nécessitent un rechargement."
         },
-        "enableFudgeDice": {
-            "name": "Activer les 'Dés Fudge'",
-            "hint": "Pour lancer des 'Dés Fudge' (également appelés 'Dés Fate') pour vos jeux Fate et Fudge."
-        },
-        "enableSpecialDiceToggles": {
-            "name": "Ajouter les Boutons de Dés Spéciaux",
-            "hint": "Ajouter des options de contrôle pour les lancers cachés. Ajoute Dés Explosifs mutuellement exclusifs au plus haut lancer (pas pour les lancés de pièces, les Dés Fudge ou les dés d100). Changements nécessitent un rechargement."
+        "enableExplodingDice": {
+            "name": "Ajouter des Boutons de Dés Explosifs",
+            "hint": "Ajouter des boutons pour les dés explosifs mutuellement exclusifs. Non applicable aux lancés de pièces, Dés Fudge ou dés d100 ! Changements nécessitent un rechargement."
         },
         "enableFirstColumn": {
             "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",
@@ -38,7 +40,19 @@
         },
         "closeFormOnRoll": {
             "name": "Activer la fermeture du Lanceur de Dés après un lancer réussi",
-            "hint": "Si activé, le formulaire du Lanceur de Dés se fermera et le focus reviendra à l'option de menu des contrôles par défaut."
+            "hint": "Si activé, le formulaire du Lanceur de Dés se fermera après chaque lancer."
+        },
+        "maxDiceCount": {
+            "name": "Nombre maximum de dés lancés",
+            "hint": "Le nombre maximum de dés (de 1 à 25) que vous pouvez lancer avec le Lanceur de Dés. Changements nécessitent un rechargement."
+        },
+        "enableCoins": {
+            "name": "Activer les lancés de pièces",
+            "hint": "Pour effectuer des lancés de pièces (similaire aux lancers de dés d2)."
+        },
+        "enableFudgeDice": {
+            "name": "Activer les 'Dés Fudge'",
+            "hint": "Pour lancer des 'Dés Fudge' (également appelés 'Dés Fate') pour vos jeux Fate et Fudge."
         }
     }
 }

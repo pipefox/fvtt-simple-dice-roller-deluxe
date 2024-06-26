@@ -64,7 +64,6 @@ function _loadHandlebarTemplates() {
     loadTemplates([SDRD.ADVANCED_SETTINGS_PATH]);
 }
 
-// TODO P2: De, Es, Fr localization!
 function _registerGameSettings() {
     // register Advanced Settings Menu
     game.settings.registerMenu(SDRD.ID, SDRD.CONFIG_ADVANCED, {
@@ -83,7 +82,6 @@ function _registerGameSettings() {
         type: Boolean,
         requiresReload: true
     });
-    // TODO P1: second pass Cthulhu (and other) settings name, hint; variables etc.
     game.settings.register(SDRD.ID, SDRD.CONFIG_CTHULHU_D100, {
         name: game.i18n.localize("settings.enableCthulhuD100.name"),
         hint: game.i18n.localize("settings.enableCthulhuD100.hint"),
@@ -121,7 +119,7 @@ function _registerGameSettings() {
         onChange: (val) => _updateDiceForm(SDRD.CONFIG_CLOSE_FORM, val)
     });
 
-    // register individual settings
+    // register main config settings
     game.settings.register(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT, {
         name: game.i18n.localize("settings.maxDiceCount.name"),
         hint: game.i18n.localize("settings.maxDiceCount.hint"),

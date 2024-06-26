@@ -4,15 +4,14 @@ export class DiceForm extends FormApplication {
     static GM_ROLL = "makeGMRoll";
     static BLIND_ROLL = "makeBlindRoll";
     static SELF_ROLL = "makeSelfRoll";
-    static EXPLODING_DICE = "explodingDice";
-    static EXPLODING_DICE_ONCE = "explodingDiceOnce";
     static BONUS_ROLL = "makeBonusRoll";
     static PENALTY_ROLL = "makePenaltyRoll";
+    static EXPLODING_DICE = "explodingDice";
+    static EXPLODING_DICE_ONCE = "explodingDiceOnce";
     static STANDARD_DICE = ["d4", "d6", "d8", "d10", "d12", "d20", "d100"];
 
     constructor() {
         super();
-        // instantiate class variablies
         this._instantiateFormSettings();
         this._resetFormToggles();
     }
@@ -60,12 +59,12 @@ export class DiceForm extends FormApplication {
     }
 
     getData() {
-        this._resetFormToggles();  // reset on each render!
+        this._resetFormToggles();  // reset on each render
         const indexOffset = this.enableFirstColumn ? 0 : 1;
         const diceTypes = this._getDiceTypes(this.enableCoins, this.enableD100, this.enableFudgeDice);
 
         return {
-            displaySpecialToggles: (this.enableHiddenRolls || this.enableExplodingDice),
+            displaySpecialToggles: ( this.enableHiddenRolls || this.enableExplodingDice ),
             enableHiddenRolls: this.enableHiddenRolls,
             enableCthulhuD100: this.enableCthulhuD100,
             enableExplodingDice: this.enableExplodingDice,
@@ -103,7 +102,7 @@ export class DiceForm extends FormApplication {
     
     async _setCthulhuDiceRoll(event) {
         event.preventDefault();
-        const d100Type = event.currentTarget.dataset.d100Type;
+        const tensType = event.currentTarget.dataset.tensType;
         const radioButton = event.currentTarget.querySelector('input[type="radio"]');
 
         radioButton.checked = !radioButton.checked;
@@ -111,8 +110,8 @@ export class DiceForm extends FormApplication {
         this.isBonusRoll = false;
         this.isPenaltyRoll = false;
         if ( radioButton.checked )  {
-            if ( d100Type === DiceForm.BONUS_ROLL ) this.isBonusRoll = true;
-            else if ( d100Type === DiceForm.PENALTY_ROLL) this.isPenaltyRoll = true;
+            if ( tensType === DiceForm.BONUS_ROLL ) this.isBonusRoll = true;
+            else if ( tensType === DiceForm.PENALTY_ROLL) this.isPenaltyRoll = true;
         }
     }
 
