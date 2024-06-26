@@ -151,8 +151,6 @@ function _registerGameSettings() {
     });
 
     function _updateDiceForm(key, val) {
-        console.log("key updateDiceFrom", key);
-        console.log("val updateDiceFrom", val);
         if (globalDiceForm) {
             globalDiceForm.updateSetting(key, val);
             globalDiceForm.render(false);  // re-render only if already open
