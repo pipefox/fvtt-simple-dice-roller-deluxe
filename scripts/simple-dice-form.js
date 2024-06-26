@@ -14,7 +14,7 @@ export class DiceForm extends FormApplication {
             popOut: true,
             resizable: false,
             id: 'dice-form',
-            template: SDRD.TEMPLATE_PATH,
+            template: SDRD.DICE_FORM_PATH,
             title: game.i18n.localize('title'),
         });
     }
@@ -27,7 +27,9 @@ export class DiceForm extends FormApplication {
         const diceTypes = this._getDiceTypes(this.enableCoins, this.enableD100, this.enableFudge);
 
         return {
-            activateToggles: this.enableSpecialToggles,
+            displaySpecialToggles: (this.enableHiddenRolls || this.enableExplodingDice),
+            enableHiddenRolls: this.enableHiddenRolls,
+            enableExplodingDice: this.enableExplodingDice,
             diceTypes: diceTypes.map(diceType => ({
                 diceType,
                 diceRolls: Array.from({ length: this.maxDiceCount - indexOffset }, (_, i) => i + indexOffset + 1)
@@ -43,14 +45,16 @@ export class DiceForm extends FormApplication {
         SDRD.IS_EXPLODING_ONCE = false;
     }
 
+    // TODO P2: not the bestest design pattern at this point
     _updateSettings() {
+        this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN);
+        this.closeOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL);
         this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
         this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_COINS);
         this.enableD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_D100);
         this.enableFudge = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_FUDGE);
-        this.enableSpecialToggles = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_SPECIAL_DICE);
-        this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN);
-        this.closeOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL);
+        this.enableHiddenRolls = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_HIDDEN_ROLLS);
+        this.enableExplodingDice = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_EXPL_DICE);
     }
 
     _getDiceTypes(enableCoins, enableD100, enableFudge) {

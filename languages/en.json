@@ -14,23 +14,27 @@
     "settings": {
         "maxDiceCount": {
             "name": "Maximum dice thrown:",
-            "hint": "Maximum number of dice you can throw using the Dice Roller. Minimum: 1. Maximum: 25. Changes require reload."
-        },
-        "enableCoins": {
-            "name": "Enable coin tosses",
-            "hint": "For making coin flips (similar to D2 dice rolls)."
+            "hint": "The max number of dice (from 1 to 25) you can throw with the Dice Roller. Changes require reload."
         },
         "enableD100": {
             "name": "Enable D100 dice rolls",
             "hint": "For making d100 dice rolls."
         },
+        "enableCoins": {
+            "name": "Enable coin tosses",
+            "hint": "For making coin flips (similar to D2 dice rolls)."
+        },
         "enableFudgeDice": {
             "name": "Enable 'Fudge Dice'",
             "hint": "For rolling 'Fudge Dice' (also known as 'Fate Dice') for your Fate and Fudge games."
         },
-        "enableSpecialDiceToggles": {
-            "name": "Add Special Dice Toggles",
-            "hint": "Add control options for hidden rolls. Adds mutualy exclusive Exploding Dice on highest roll (not for coin flips, Fudge or d100 rolls). Changes require reload."
+        "enableExplodingDice": {
+            "name": "Add Exploding Dice Toggles",
+            "hint": "Adds mutualy exclusive Exploding Dice on highest roll (not for coin flips, Fudge or d100 rolls)."
+        },
+        "enableHiddenRolls": {
+            "name": "Add Hidden Roll Toggles",
+            "hint": "Adds buttons for mutually exclusive hidden rolls (Blind, GM and Self Rolls)."
         },
         "enableFirstColumn": {
             "name": "Add additional 1st column for 1 die rolls",
@@ -38,7 +42,10 @@
         },
         "closeFormOnRoll": {
             "name": "Enable closing Dice Roller on successful roll",
-            "hint": "If enabled, the Dice Roller form will close and focus will return to the default controls menu option."
+            "hint": "If enabled, the Dice Roller window will close after each roll."
         }
+    },
+    "advanced": {
+        "saveSettings": "Save Settings"
     }
 }

@@ -1,0 +1,31 @@
+<form autocomplete="off">
+
+    <div class="form-group">
+        <label>{{localize 'settings.enableHiddenRolls.name'}}</label>
+        <input type="checkbox" name="enableHiddenRolls" {{checked enableHiddenRolls}} data-dtype="Boolean"/>
+        <p class="notes">{{localize 'settings.enableHiddenRolls.hint'}}</p>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label>{{localize 'settings.enableExplodingDice.name'}}</label>
+        <input type="checkbox" name="enableExplodingDice" {{checked enableExplodingDice}} data-dtype="Boolean"/>
+        <p class="notes">{{localize 'settings.enableExplodingDice.hint'}}</p>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label>{{localize 'settings.enableFirstColumn.name'}}</label>
+        <input type="checkbox" name="enableFirstColumn" {{checked enableFirstColumn}} data-dtype="Boolean"/>
+        <p class="notes">{{localize 'settings.enableFirstColumn.hint'}}</p>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label>{{localize 'settings.closeFormOnRoll.name'}}</label>
+        <input type="checkbox" name="closeFormOnRoll" {{checked closeFormOnRoll}} data-dtype="Boolean"/>
+        <p class="notes">{{localize 'settings.closeFormOnRoll.hint'}}</p>
+    </div>
+
+    <button type="submit">
+        <i class="fas fa-save"></i> {{localize 'advanced.saveSettings'}}
+    </button>
+
+</form>
