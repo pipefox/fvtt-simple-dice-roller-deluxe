@@ -77,21 +77,19 @@ function _registerGameSettings() {
         name: game.i18n.localize("settings.enableHiddenRolls.name"),
         hint: game.i18n.localize("settings.enableHiddenRolls.hint"),
         scope: "client",
-        config: false,
+        config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
-        requiresReload: true,
-        onChange: () => _updateDiceForm()
+        requiresReload: true
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_EXPL_DICE, {
         name: game.i18n.localize("settings.enableExplodingDice.name"),
         hint: game.i18n.localize("settings.enableExplodingDice.hint"),
         scope: "client",
-        config: false,
+        config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
-        requiresReload: true,
-        onChange: () => _updateDiceForm()
+        requiresReload: true
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN, {
         name: game.i18n.localize("settings.enableFirstColumn.name"),
