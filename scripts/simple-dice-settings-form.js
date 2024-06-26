@@ -17,6 +17,7 @@ export class SettingsMenu extends FormApplication {
     getData() {
         return {
             enableHiddenRolls: game.settings.get(SDRD.ID, SDRD.CONFIG_HIDDEN_ROLLS),
+            enableCoCd100: game.settings.get(SDRD.ID, SDRD.CONFIG_COC_D100),
             enableExplodingDice: game.settings.get(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE),
             enableFirstColumn: game.settings.get(SDRD.ID, SDRD.CONFIG_1ST_COLUMN),
             closeFormOnRoll: game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM)

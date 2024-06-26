@@ -5,16 +5,30 @@
     <fieldset class="sdrd-field-set">
         <legend>{{localize 'legend.hiddenRolls'}}</legend>
         <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeGMRoll" title="{{localize 'tooltip.makeGMRoll'}}">
-            <input type="radio" id="makeGMRoll" name="makeHiddenRoll"/>
+            <input type="radio" id="makeGMRoll" name="hiddenRoll"/>
             <i class="fa-duotone fa-user-secret"></i>
         </div>
         <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeBlindRoll" title="{{localize 'tooltip.makeBlindRoll'}}">
-            <input type="radio" id="makeBlindRoll" name="makeHiddenRoll"/>
+            <input type="radio" id="makeBlindRoll" name="hiddenRoll"/>
             <i class="fa-duotone fa-question"></i>
         </div>
         <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeSelfRoll" title="{{localize 'tooltip.makeSelfRoll'}}">
-            <input type="radio" id="makeSelfRoll" name="makeHiddenRoll"/>
+            <input type="radio" id="makeSelfRoll" name="hiddenRoll"/>
             <i class="fa-duotone fa-user"></i>
+        </div>
+    </fieldset>
+    {{/if}}
+
+    {{#if enableCoCd100}}
+    <fieldset class="sdrd-field-set">
+        <legend>{{localize 'legend.CoCD100'}}</legend>
+        <div class="sdrd-toggle toggle-coc-dice" data-d100-type="makePenaltyRoll" title="{{localize 'tooltip.penaltyCoC'}}">
+            <input type="radio" id="penaltyCoC" name="CoCD100Roll" />
+            <i class="fa-duotone fa-skull"></i>
+        </div>
+        <div class="sdrd-toggle toggle-coc-dice" data-d100-type="makeBonusRoll" title="{{localize 'tooltip.bonusCoC'}}">
+            <input type="radio" id="bonusCoC" name="CoCD100Roll"/>
+            <i class="fa-duotone fa-stars"></i>
         </div>
     </fieldset>
     {{/if}}
@@ -23,11 +37,11 @@
     <fieldset class="sdrd-field-set">
         <legend>{{localize 'legend.explodingDice'}}</legend>
         <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDice" title="{{localize 'tooltip.explodingDice'}}">
-            <input type="radio" id="explodingDice" name="explodingDice"/>
+            <input type="radio" id="explodingDice" name="explodingDiceRoll"/>
             <i class="fa-duotone fa-bomb"></i>
         </div>
         <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDiceOnce" title="{{localize 'tooltip.explodingDiceOnce'}}">
-            <input type="radio" id="explodingDiceOnce" name="explodingDice" />
+            <input type="radio" id="explodingDiceOnce" name="explodingDiceRoll" />
             <i class="fa-duotone fa-land-mine-on"></i>
         </div>
     </fieldset>

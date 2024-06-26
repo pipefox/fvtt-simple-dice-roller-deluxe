@@ -13,6 +13,12 @@
     </div>
     <hr>
     <div class="form-group">
+        <label>{{localize 'settings.enableCoCd100.name'}}</label>
+        <input type="checkbox" name="enableCoCd100" {{checked enableExplodingDice}} data-dtype="Boolean"/>
+        <p class="notes">{{localize 'settings.enableCoCd100.hint'}}</p>
+    </div>
+    <hr>
+    <div class="form-group">
         <label>{{localize 'settings.enableFirstColumn.name'}}</label>
         <input type="checkbox" name="enableFirstColumn" {{checked enableFirstColumn}} data-dtype="Boolean"/>
         <p class="notes">{{localize 'settings.enableFirstColumn.hint'}}</p>

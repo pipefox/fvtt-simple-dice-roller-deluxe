@@ -15,9 +15,8 @@ Once the "Dice Roller" button is clicked, a clickable dice table renders in a se
 5. Enable the module in your game once it's started ("Settings" -> "Manage Module")
 6. Check various settings in "Configure Settings" -> "Simple Dice Roller Deluxe"
 
-## Planned Features
+## Planned Potential Features
 Roughly in order of priority:
-* Add option for Penalty / Bonus Dice (10s die reroll) for Call of Cthulhu games.
 * Add DCC Style Dice - d3, d5, d7, d14, d24, d30 (in a secondary table).
 * Add compounding and penetrating dice (if there's interest).
 * Make dice-form CSS fancier: better tooltips, transparency effects, no outer border.

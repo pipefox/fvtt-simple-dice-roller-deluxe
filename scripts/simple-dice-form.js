@@ -6,7 +6,9 @@ export class DiceForm extends FormApplication {
     static SELF_ROLL = "makeSelfRoll";
     static EXPLODING_DICE = "explodingDice";
     static EXPLODING_DICE_ONCE = "explodingDiceOnce";
-    static STANDARD_DICE = ["d4", "d6", "d8", "d10", "d12", "d20"];
+    static BONUS_ROLL = "makeBonusRoll";
+    static PENALTY_ROLL = "makePenaltyRoll";
+    static STANDARD_DICE = ["d4", "d6", "d8", "d10", "d12", "d20", "d100"];
 
     constructor() {
         super();
@@ -21,15 +23,20 @@ export class DiceForm extends FormApplication {
         this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_1ST_COLUMN);
         this.closeFormOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM);
         this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
-        this.enableD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_COINS);
-        this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_COC_D100);
+        this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_COINS);
+        this.enableCoCd100 = game.settings.get(SDRD.ID, SDRD.CONFIG_COC_D100);
         this.enableFudgeDice = game.settings.get(SDRD.ID, SDRD.CONFIG_FUDGE_DICE);
     }
 
     _resetFormToggles() {
+        // hidden rolls
         this.isGmRoll = false;
         this.isBlindRoll = false;
         this.isSelfRoll = false;
+        // Cthulhu rolls
+        this.isBonusRoll = false;
+        this.isPenaltyRoll = false;
+        // Exploding Dice rolls
         this.isExploding = false;
         this.isExplodingOnce = false;
     }
@@ -60,6 +67,7 @@ export class DiceForm extends FormApplication {
         return {
             displaySpecialToggles: (this.enableHiddenRolls || this.enableExplodingDice),
             enableHiddenRolls: this.enableHiddenRolls,
+            enableCoCd100: this.enableCoCd100,
             enableExplodingDice: this.enableExplodingDice,
             diceTypes: diceTypes.map(diceType => ({
                 diceType,
@@ -72,7 +80,6 @@ export class DiceForm extends FormApplication {
         const diceTypes = [];
         if (enableCoins) diceTypes.push("dc");
         diceTypes.push(...DiceForm.STANDARD_DICE);
-        if (enableD100) diceTypes.push("d100");
         if (enableFudge) diceTypes.push("df");
         return diceTypes;
     }
@@ -94,6 +101,21 @@ export class DiceForm extends FormApplication {
         }
     }
     
+    async _setCoCDiceRoll(event) {
+        event.preventDefault();
+        const d100Type = event.currentTarget.dataset.d100Type;
+        const radioButton = event.currentTarget.querySelector('input[type="radio"]');
+
+        radioButton.checked = !radioButton.checked;
+
+        this.isBonusRoll = false;
+        this.isPenaltyRoll = false;
+        if ( radioButton.checked )  {
+            if ( d100Type === DiceForm.BONUS_ROLL ) this.isBonusRoll = true;
+            else if ( d100Type === DiceForm.PENALTY_ROLL) this.isPenaltyRoll = true;
+        }
+    }
+
     async _setExplodingDiceRoll(event) {
         event.preventDefault();
         const explodingType = event.currentTarget.dataset.explodingType;
@@ -115,6 +137,12 @@ export class DiceForm extends FormApplication {
         const diceType = event.currentTarget.dataset.diceType;
 
         let formula = diceRoll.concat(diceType);
+        // TODO P1: configure Cthulhu formulas
+        if (diceType === "d100") {
+            if (this.isBonusRoll) console.log("yes");
+            if (this.isPenaltyRoll) console.log("neein");
+        }
+        
         // configure exploding dice
         if (diceType !== "dc" && diceType !== "df" && diceType !== "d100") {
             if ( this.isExploding ) formula = formula.concat("x");
@@ -138,6 +166,7 @@ export class DiceForm extends FormApplication {
     activateListeners(html) {
         super.activateListeners(html);
         html.on('click', '.toggle-hidden-roll', this._setHiddenRoll.bind(this));
+        html.on('click', '.toggle-coc-dice', this._setCoCDiceRoll.bind(this));
         html.on('click', '.toggle-exploding-dice', this._setExplodingDiceRoll.bind(this));
         html.on('click', '.rollable', this._rollDie.bind(this));
     }

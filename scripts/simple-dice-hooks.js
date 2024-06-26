@@ -82,6 +82,16 @@ function _registerGameSettings() {
         type: Boolean,
         requiresReload: true
     });
+    // TODO P2: second pass Cthulhu setting name, hint; variables etc.
+    game.settings.register(SDRD.ID, SDRD.CONFIG_COC_D100, {
+        name: game.i18n.localize("settings.enableCoCd100.name"),
+        hint: game.i18n.localize("settings.enableCoCd100.hint"),
+        scope: "client",
+        config: false,  // display in Advanced Settings
+        default: true,
+        type: Boolean,
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_COC_D100, val)
+    });
     game.settings.register(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE, {
         name: game.i18n.localize("settings.enableExplodingDice.name"),
         hint: game.i18n.localize("settings.enableExplodingDice.hint"),
@@ -129,16 +139,6 @@ function _registerGameSettings() {
         default: false,
         type: Boolean,
         onChange: (val) => _updateDiceForm(SDRD.CONFIG_COINS, val)
-    });
-    // TODO P2: update for Call of Cthulhu
-    game.settings.register(SDRD.ID, SDRD.CONFIG_COC_D100, {
-        name: game.i18n.localize("settings.enableCoCD100.name"),
-        hint: game.i18n.localize("settings.enableCoCD100.hint"),
-        scope: "client",
-        config: true,  // disabled while WIP
-        default: true,
-        type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_COC_D100, val)
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_FUDGE_DICE, {
         name: game.i18n.localize("settings.enableFudgeDice.name"),

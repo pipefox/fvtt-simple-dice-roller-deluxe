@@ -2,14 +2,17 @@
     "title": "Dice Roller",
     "legend": {
         "hiddenRolls": "Hidden Rolls",
-        "explodingDice": "Exploding Dice"
+        "explodingDice": "Exploding Dice",
+        "CoCD100": "Call of Cthulhu"
     },
     "tooltip": {
         "makeGMRoll": "Private Roll to GM",
         "makeBlindRoll": "Blind Roll to GM",
         "makeSelfRoll": "Roll to Self",
         "explodingDice": "Toggle Exploding Dice",
-        "explodingDiceOnce": "Toggle Once Exploding Dice"
+        "explodingDiceOnce": "Toggle Once Exploding Dice",
+        "bonusCoC": "Toggle Bonus 10s Rolls for d100",
+        "penaltyCoC": "Toggle Penalty 10s Rolls for d100"
     },
     "settings": {
         "advanced": {
@@ -43,8 +46,8 @@
             "name": "Enable coin tosses",
             "hint": "For making coin flips (similar to d2 dice rolls)."
         },
-        "enableCoCD100": {
-            "name": "Enable CoC Bonus / Penalty d100 toggle",
+        "enableCoCd100": {
+            "name": "Enable CoC d100 Bonus / Penalty ",
             "hint": "For making advanced 'Call of Cthulhu' style d100 dice rolls."
         },
         "enableFudgeDice": {
