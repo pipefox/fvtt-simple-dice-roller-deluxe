@@ -61,12 +61,13 @@ function _loadHandlebarTemplates() {
         return value === "df";
     });
     loadTemplates([SDRD.DICE_FORM_PATH]);
+    loadTemplates([SDRD.ADVANCED_SETTINGS_PATH]);
 }
 
+// TODO P2: De, Es, Fr localization!
 function _registerGameSettings() {
     // register Advanced Settings Menu
     game.settings.registerMenu(SDRD.ID, SDRD.CONFIG_ADVANCED, {
-        // TODO P3: De, Es, Fr localization!
         name: game.i18n.localize("settings.advanced.name"),
         label: game.i18n.localize("settings.advanced.label"),
         hint: game.i18n.localize("settings.advanced.hint"),
@@ -82,13 +83,13 @@ function _registerGameSettings() {
         type: Boolean,
         requiresReload: true
     });
-    // TODO P2: second pass Cthulhu (and other) settings name, hint; variables etc.
+    // TODO P1: second pass Cthulhu (and other) settings name, hint; variables etc.
     game.settings.register(SDRD.ID, SDRD.CONFIG_CTHULHU_D100, {
         name: game.i18n.localize("settings.enableCthulhuD100.name"),
         hint: game.i18n.localize("settings.enableCthulhuD100.hint"),
         scope: "client",
         config: false,  // display in Advanced Settings
-        default: true,
+        default: false,
         type: Boolean,
         requiresReload: true
     });

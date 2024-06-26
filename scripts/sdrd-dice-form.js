@@ -19,12 +19,12 @@ export class DiceForm extends FormApplication {
 
     _instantiateFormSettings() {
         this.enableHiddenRolls = game.settings.get(SDRD.ID, SDRD.CONFIG_HIDDEN_ROLLS);
+        this.enableCthulhuD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_CTHULHU_D100);
         this.enableExplodingDice = game.settings.get(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE);
         this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_1ST_COLUMN);
         this.closeFormOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM);
         this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
         this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_COINS);
-        this.enableCthulhuD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_CTHULHU_D100);
         this.enableFudgeDice = game.settings.get(SDRD.ID, SDRD.CONFIG_FUDGE_DICE);
     }
 
