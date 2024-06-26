@@ -36,10 +36,10 @@
     }
   ],
   "esmodules": [
-    "scripts/simple-dice-const.js",
-    "scripts/simple-dice-form.js",
-    "scripts/simple-dice-settings-form.js",
-    "scripts/simple-dice-hooks.js"
+    "scripts/sdrd-constants.js",
+    "scripts/sdrd-hooks.js",
+    "scripts/sdrd-dice-form.js",
+    "scripts/sdrd-adv-settings.js"
   ],
   "styles": [
     "css/simple-dice-roller.css"

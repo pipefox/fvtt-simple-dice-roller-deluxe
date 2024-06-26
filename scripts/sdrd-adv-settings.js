@@ -1,6 +1,6 @@
-import { SDRD } from "../scripts/simple-dice-const.js";
+import { SDRD } from "./sdrd-constants.js";
 
-export class SettingsMenu extends FormApplication {
+export class AdvancedSettings extends FormApplication {
     constructor() {
         super();
     }
@@ -17,7 +17,7 @@ export class SettingsMenu extends FormApplication {
     getData() {
         return {
             enableHiddenRolls: game.settings.get(SDRD.ID, SDRD.CONFIG_HIDDEN_ROLLS),
-            enableCoCd100: game.settings.get(SDRD.ID, SDRD.CONFIG_COC_D100),
+            enableCthulhuD100: game.settings.get(SDRD.ID, SDRD.CONFIG_CTHULHU_D100),
             enableExplodingDice: game.settings.get(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE),
             enableFirstColumn: game.settings.get(SDRD.ID, SDRD.CONFIG_1ST_COLUMN),
             closeFormOnRoll: game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM)
@@ -25,12 +25,6 @@ export class SettingsMenu extends FormApplication {
     }
 
     async _updateObject(event, formData) {
-        // TODO P2: A. figure out DOM rendering issue for:
-        // await Promise.all(
-        //     Object.entries(formData).map(([key, value]) => game.settings.set(SDRD.ID, key, value))
-        // );
-        // B. or find a native way to say "pls reload on changes" without this overkill
-        // on a first glance -> there's no native Foundry solution
         let requiresClientReload = false;
         for ( let [key, val] of Object.entries(foundry.utils.flattenObject(formData)) ) {
             const fullKey = SDRD.ID + "." + key;

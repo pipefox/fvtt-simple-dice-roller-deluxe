@@ -19,11 +19,11 @@ export const SDRD = {
 
     CONFIG_ADVANCED: "advancedSettings",
     CONFIG_HIDDEN_ROLLS: "enableHiddenRolls",
+    CONFIG_CTHULHU_D100: "enableCthulhuD100",  // Call of Cthulhu style Bonus / Penalty 
     CONFIG_EXPLODING_DICE: "enableExplodingDice",
     CONFIG_1ST_COLUMN: "enableFirstColumn",
     CONFIG_CLOSE_FORM: "closeFormOnRoll",
     CONFIG_MAXDICE_COUNT: "maxDiceCount",
-    CONFIG_COC_D100: "enableCoCd100",  // Call of Cthulhu style Bonus / Penalty 
     CONFIG_COINS: "enableCoins",
     CONFIG_FUDGE_DICE: "enableFudgeDice",  // a.k.a. Fate dice
     

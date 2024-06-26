@@ -22,6 +22,7 @@ Roughly in order of priority:
 * Make dice-form CSS fancier: better tooltips, transparency effects, no outer border.
 
 ## Known Issues
+* Call of Cthulhu Bonus / Penalty toggles works but do not display a nicely formatted output, especially noticeable with "Dice so Nice!" module.
 **Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!**
 
 ## Why "Simple Dice Roller Deluxe"?

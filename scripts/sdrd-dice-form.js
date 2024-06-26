@@ -1,4 +1,4 @@
-import { SDRD } from "../scripts/simple-dice-const.js";
+import { SDRD } from "./sdrd-constants.js";
 
 export class DiceForm extends FormApplication {
     static GM_ROLL = "makeGMRoll";
@@ -24,7 +24,7 @@ export class DiceForm extends FormApplication {
         this.closeFormOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM);
         this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
         this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_COINS);
-        this.enableCoCd100 = game.settings.get(SDRD.ID, SDRD.CONFIG_COC_D100);
+        this.enableCthulhuD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_CTHULHU_D100);
         this.enableFudgeDice = game.settings.get(SDRD.ID, SDRD.CONFIG_FUDGE_DICE);
     }
 
@@ -67,7 +67,7 @@ export class DiceForm extends FormApplication {
         return {
             displaySpecialToggles: (this.enableHiddenRolls || this.enableExplodingDice),
             enableHiddenRolls: this.enableHiddenRolls,
-            enableCoCd100: this.enableCoCd100,
+            enableCthulhuD100: this.enableCthulhuD100,
             enableExplodingDice: this.enableExplodingDice,
             diceTypes: diceTypes.map(diceType => ({
                 diceType,
@@ -101,7 +101,7 @@ export class DiceForm extends FormApplication {
         }
     }
     
-    async _setCoCDiceRoll(event) {
+    async _setCthulhuDiceRoll(event) {
         event.preventDefault();
         const d100Type = event.currentTarget.dataset.d100Type;
         const radioButton = event.currentTarget.querySelector('input[type="radio"]');
@@ -137,14 +137,15 @@ export class DiceForm extends FormApplication {
         const diceType = event.currentTarget.dataset.diceType;
 
         let formula = diceRoll.concat(diceType);
-        // configure'Call of Cthulhu' rows; lower is better!
-        if (diceType === "d100" && this.enableCoCd100) {
-            // generate 10s die in an ugly way, ex: (3d10kl-1)*10 + 1d10;
-            if (this.isPenaltyRoll) formula = "("+diceRoll+"d10kh-1)*10+1d10";  // kh->"keep highest"
-            if (this.isBonusRoll) formula = "("+diceRoll+"d10kl-1)*10+1d10";  // kl->"keep lowest";  
+
+        // configure'Call of Cthulhu' toggles, here lower is better (kl > kh)
+        if (diceType === "d100" && diceRoll !== "1" && this.enableCthulhuD100) {
+            // note: generating tens die is ugly, ex: '/r (3d10kl-1)*10 + 1d10'
+            if ( this.isPenaltyRoll ) formula = "("+diceRoll+"d10kh-1)*10+1d10";
+            else if ( this.isBonusRoll ) formula = "("+diceRoll+"d10kl-1)*10+1d10";
         }
-        
-        // configure exploding dice
+
+        // configure 'Exploding Dice' toggles, no overlap with 'Call of Cthulhu' toggles
         if (diceType !== "dc" && diceType !== "df" && diceType !== "d100") {
             if ( this.isExploding ) formula = formula.concat("x");
             else if ( this.isExplodingOnce ) formula = formula.concat("xo");
@@ -167,7 +168,7 @@ export class DiceForm extends FormApplication {
     activateListeners(html) {
         super.activateListeners(html);
         html.on('click', '.toggle-hidden-roll', this._setHiddenRoll.bind(this));
-        html.on('click', '.toggle-coc-dice', this._setCoCDiceRoll.bind(this));
+        html.on('click', '.toggle-cthulhu-dice', this._setCthulhuDiceRoll.bind(this));
         html.on('click', '.toggle-exploding-dice', this._setExplodingDiceRoll.bind(this));
         html.on('click', '.rollable', this._rollDie.bind(this));
     }

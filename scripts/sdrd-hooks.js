@@ -1,6 +1,6 @@
-import { SDRD } from "../scripts/simple-dice-const.js"
-import { DiceForm } from "../scripts/simple-dice-form.js";
-import { SettingsMenu } from "../scripts/simple-dice-settings-form.js";
+import { SDRD } from "./sdrd-constants.js"
+import { DiceForm } from "./sdrd-dice-form.js";
+import { AdvancedSettings } from "./sdrd-adv-settings.js";
 
 let globalDiceForm;
 
@@ -71,7 +71,7 @@ function _registerGameSettings() {
         label: game.i18n.localize("settings.advanced.label"),
         hint: game.i18n.localize("settings.advanced.hint"),
         icon: "fa-duotone fa-table",
-        type: SettingsMenu
+        type: AdvancedSettings
       });
     game.settings.register(SDRD.ID, SDRD.CONFIG_HIDDEN_ROLLS, {
         name: game.i18n.localize("settings.enableHiddenRolls.name"),
@@ -82,10 +82,10 @@ function _registerGameSettings() {
         type: Boolean,
         requiresReload: true
     });
-    // TODO P2: second pass Cthulhu setting name, hint; variables etc.
-    game.settings.register(SDRD.ID, SDRD.CONFIG_COC_D100, {
-        name: game.i18n.localize("settings.enableCoCd100.name"),
-        hint: game.i18n.localize("settings.enableCoCd100.hint"),
+    // TODO P2: second pass Cthulhu (and other) settings name, hint; variables etc.
+    game.settings.register(SDRD.ID, SDRD.CONFIG_CTHULHU_D100, {
+        name: game.i18n.localize("settings.enableCthulhuD100.name"),
+        hint: game.i18n.localize("settings.enableCthulhuD100.hint"),
         scope: "client",
         config: false,  // display in Advanced Settings
         default: true,

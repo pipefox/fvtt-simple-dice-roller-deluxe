@@ -3,7 +3,7 @@
     "legend": {
         "hiddenRolls": "Hidden Rolls",
         "explodingDice": "Exploding Dice",
-        "CoCD100": "Call of Cthulhu"
+        "CthulhuD100": "Call of Cthulhu"
     },
     "tooltip": {
         "makeGMRoll": "Private Roll to GM",
@@ -11,8 +11,8 @@
         "makeSelfRoll": "Roll to Self",
         "explodingDice": "Toggle Exploding Dice",
         "explodingDiceOnce": "Toggle Once Exploding Dice",
-        "bonusCoC": "Toggle Bonus 10s Rolls for d100",
-        "penaltyCoC": "Toggle Penalty 10s Rolls for d100"
+        "bonusCthulhuRoll": "Toggle Bonus 'tens' Roll for d100",
+        "penaltyCthulhuRoll": "Toggle Penalty 'tens' Roll for d100"
     },
     "settings": {
         "advanced": {
@@ -26,9 +26,9 @@
             "name": "Add Hidden Roll Toggles",
             "hint": "Add buttons for mutually exclusive hidden roll toggles (Blind, GM and Self Rolls). Requires reload!"
         },
-        "enableCoCd100": {
-            "name": "Add CoC d100 Penalty / Bonus Toggles",
-            "hint": "Add buttons for 'Call of Cthulhu' style d100 rolls: reroll 10s-dice and take highest for Penalty / lowest for Bonus. Requires reload!"
+        "enableCthulhuD100": {
+            "name": "Add 'Call of Cthulhu' d100 Penalty / Bonus Toggles",
+            "hint": "Add buttons for 'Call of Cthulhu' style d100 rolls: reroll the tens-die, taking the highest for Penalty / lowest for Bonus. Requires reload!"
         },
         "enableExplodingDice": {
             "name": "Add Exploding Dice Toggles",
