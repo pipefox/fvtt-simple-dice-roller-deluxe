@@ -36,16 +36,14 @@ function _loadCustomDiceControl() {
         title: game.i18n.localize("title"),
         icon: "fa-solid fa-dice-d20",
         layer: SDRD.MENU_CONTROL,
-        tools: [
-            {
+        tools: [{
                 // hidden button needed otherwise main menu control won't render
                 name: SDRD.MENU_CONTROL,
                 title: game.i18n.localize("title"),
                 icon: "fa-solid fa-dice-d20",
                 onClick: () => ui.notifications.info("Oops! This buton should not be visible!"),
                 button: true
-            },
-        ],
+            }],
         activeTool: ""
     };
 }

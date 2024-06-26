@@ -139,7 +139,7 @@ export class DiceForm extends FormApplication {
 
         // configure'Call of Cthulhu' toggles, here lower is better (kl > kh)
         if (diceType === "d100" && diceRoll !== "1" && this.enableCthulhuD100) {
-            // note: generating tens die is ugly, ex: '/r (3d10kl-1)*10 + 1d10'
+            // generating tens die is ugly, but works: ex: '/r (3d10kl-1)*10 + 1d10'
             if ( this.isPenaltyRoll ) formula = "("+diceRoll+"d10kh-1)*10+1d10";
             else if ( this.isBonusRoll ) formula = "("+diceRoll+"d10kl-1)*10+1d10";
         }
