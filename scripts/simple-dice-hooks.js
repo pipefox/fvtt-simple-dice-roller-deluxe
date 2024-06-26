@@ -90,7 +90,7 @@ function _registerGameSettings() {
         config: false,  // display in Advanced Settings
         default: true,
         type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_COC_D100, val)
+        requiresReload: true
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE, {
         name: game.i18n.localize("settings.enableExplodingDice.name"),

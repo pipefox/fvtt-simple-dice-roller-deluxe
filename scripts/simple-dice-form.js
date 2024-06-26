@@ -137,10 +137,11 @@ export class DiceForm extends FormApplication {
         const diceType = event.currentTarget.dataset.diceType;
 
         let formula = diceRoll.concat(diceType);
-        // TODO P1: configure Cthulhu formulas
-        if (diceType === "d100") {
-            if (this.isBonusRoll) console.log("yes");
-            if (this.isPenaltyRoll) console.log("neein");
+        // configure'Call of Cthulhu' rows; lower is better!
+        if (diceType === "d100" && this.enableCoCd100) {
+            // generate 10s die in an ugly way, ex: (3d10kl-1)*10 + 1d10;
+            if (this.isPenaltyRoll) formula = "("+diceRoll+"d10kh-1)*10+1d10";  // kh->"keep highest"
+            if (this.isBonusRoll) formula = "("+diceRoll+"d10kl-1)*10+1d10";  // kl->"keep lowest";  
         }
         
         // configure exploding dice

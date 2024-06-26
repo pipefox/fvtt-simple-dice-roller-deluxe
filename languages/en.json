@@ -26,13 +26,17 @@
             "name": "Add Hidden Roll Toggles",
             "hint": "Add buttons for mutually exclusive hidden roll toggles (Blind, GM and Self Rolls). Requires reload!"
         },
+        "enableCoCd100": {
+            "name": "Add CoC d100 Penalty / Bonus Toggles",
+            "hint": "Add buttons for 'Call of Cthulhu' style d100 rolls: reroll 10s-dice and take highest for Penalty / lowest for Bonus. Requires reload!"
+        },
         "enableExplodingDice": {
             "name": "Add Exploding Dice Toggles",
-            "hint": "Add buttons for mutualy exclusive Exploding Dice toggles (not for coin flips, Fudge or d100 rolls). Requires reload!"
+            "hint": "Add buttons for mutualy exclusive Exploding Dice toggles. NOT applicable to coin flips, Fudge or d100 rolls! Requires reload!"
         },
         "enableFirstColumn": {
-            "name": "Add additional 1st column for 1 die rolls",
-            "hint": "Note: the dice-icon column is always clickable, similar to other online tabletop platfroms."
+            "name": "Add additional 1st column for rolling only 1 die",
+            "hint": "Note: the dice-icon column is always clickable (and rolls 1 die), similar to other online tabletop platfroms."
         },
         "closeFormOnRoll": {
             "name": "Enable closing Dice Roller on successful roll",
@@ -45,10 +49,6 @@
         "enableCoins": {
             "name": "Enable coin tosses",
             "hint": "For making coin flips (similar to d2 dice rolls)."
-        },
-        "enableCoCd100": {
-            "name": "Enable CoC d100 Bonus / Penalty ",
-            "hint": "For making advanced 'Call of Cthulhu' style d100 dice rolls."
         },
         "enableFudgeDice": {
             "name": "Enable 'Fudge Dice'",
