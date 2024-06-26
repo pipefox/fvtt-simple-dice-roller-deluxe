@@ -1,18 +1,41 @@
 import { SDRD } from "../scripts/simple-dice-const.js";
 
 export class DiceForm extends FormApplication {
+    static GM_ROLL = "makeGMRoll";
+    static BLIND_ROLL = "makeBlindRoll";
+    static SELF_ROLL = "makeSelfRoll";
+    static EXPLODING_DICE = "explodingDice";
+    static EXPLODING_DICE_ONCE = "explodingDiceOnce";
+    static STANDARD_DICE = ["d4", "d6", "d8", "d10", "d12", "d20"];
+
     constructor() {
         super();
-        // register class variables and get their initial state
-        // TODO P2: consider using this[SDRD.CONFIG_..] =
-        this.enableHiddenRolls = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_HIDDEN_ROLLS);
-        this.enableExplodingDice = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_EXPL_DICE);
-        this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN);
-        this.closeFormOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL);
+        // instantiate class variablies
+        this._instantiateFormSettings();
+        this._resetFormToggles();
+    }
+
+    _instantiateFormSettings() {
+        this.enableHiddenRolls = game.settings.get(SDRD.ID, SDRD.CONFIG_HIDDEN_ROLLS);
+        this.enableExplodingDice = game.settings.get(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE);
+        this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_1ST_COLUMN);
+        this.closeFormOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM);
         this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
-        this.enableD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_COINS);
-        this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_D100);
-        this.enableFudgeDice = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_FUDGE);
+        this.enableD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_COINS);
+        this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_COC_D100);
+        this.enableFudgeDice = game.settings.get(SDRD.ID, SDRD.CONFIG_FUDGE_DICE);
+    }
+
+    _resetFormToggles() {
+        this.isGmRoll = false;
+        this.isBlindRoll = false;
+        this.isSelfRoll = false;
+        this.isExploding = false;
+        this.isExplodingOnce = false;
+    }
+
+    updateSetting(key, val) {
+        this[key] = val;
     }
 
     static get defaultOptions() {
@@ -30,8 +53,7 @@ export class DiceForm extends FormApplication {
     }
 
     getData() {
-        this._resetDiceToggles();  // everytime we render the form anew, reset the inner toggles
-
+        this._resetFormToggles();  // reset on each render!
         const indexOffset = this.enableFirstColumn ? 0 : 1;
         const diceTypes = this._getDiceTypes(this.enableCoins, this.enableD100, this.enableFudgeDice);
 
@@ -46,22 +68,10 @@ export class DiceForm extends FormApplication {
         };
     }
 
-    updateSetting(key, val) {
-        this[key] = val;
-    }
-
-    _resetDiceToggles() {
-        SDRD.IS_GM_ROLL = false;
-        SDRD.IS_BLIND_ROLL = false;
-        SDRD.IS_SELF_ROLL = false;
-        SDRD.IS_EXPLODING = false;
-        SDRD.IS_EXPLODING_ONCE = false;
-    }
-
     _getDiceTypes(enableCoins, enableD100, enableFudge) {
         const diceTypes = [];
         if (enableCoins) diceTypes.push("dc");
-        diceTypes.push(...SDRD.STANDARD_DICE_TYPES);
+        diceTypes.push(...DiceForm.STANDARD_DICE);
         if (enableD100) diceTypes.push("d100");
         if (enableFudge) diceTypes.push("df");
         return diceTypes;
@@ -74,13 +84,13 @@ export class DiceForm extends FormApplication {
 
         radioButton.checked = !radioButton.checked;
 
-        SDRD.IS_GM_ROLL = false;
-        SDRD.IS_BLIND_ROLL = false;
-        SDRD.IS_SELF_ROLL = false;
+        this.isGmRoll = false;
+        this.isBlindRoll = false;
+        this.isSelfRoll = false;
         if ( radioButton.checked )  {
-            if ( hiddenType === SDRD.GM_ROLL ) SDRD.IS_GM_ROLL = true;
-            else if ( hiddenType === SDRD.BLIND_ROLL ) SDRD.IS_BLIND_ROLL = true;
-            else if ( hiddenType === SDRD.SELF_ROLL ) SDRD.IS_SELF_ROLL = true;
+            if ( hiddenType === DiceForm.GM_ROLL) this.isGmRoll = true;
+            else if ( hiddenType === DiceForm.BLIND_ROLL ) this.isBlindRoll = true;
+            else if ( hiddenType === DiceForm.SELF_ROLL ) this.isSelfRoll = true;
         }
     }
     
@@ -91,11 +101,11 @@ export class DiceForm extends FormApplication {
 
         radioButton.checked = !radioButton.checked;
 
-        SDRD.IS_EXPLODING = false;
-        SDRD.IS_EXPLODING_ONCE = false;
+        this.isExploding = false;
+        this.isExplodingOnce = false;
         if ( radioButton.checked )  {
-            if ( explodingType === SDRD.EXPLODING_DICE ) SDRD.IS_EXPLODING = true;
-            else if (explodingType === SDRD.EXPLODING_DICE_ONCE) SDRD.IS_EXPLODING_ONCE = true;
+            if ( explodingType === DiceForm.EXPLODING_DICE ) this.isExploding = true;
+            else if (explodingType === DiceForm.EXPLODING_DICE_ONCE) this.isExplodingOnce = true;
         }
     }
 
@@ -107,17 +117,17 @@ export class DiceForm extends FormApplication {
         let formula = diceRoll.concat(diceType);
         // configure exploding dice
         if (diceType !== "dc" && diceType !== "df" && diceType !== "d100") {
-            if ( SDRD.IS_EXPLODING ) formula = formula.concat("x");
-            else if ( SDRD.IS_EXPLODING_ONCE ) formula = formula.concat("xo");
+            if ( this.isExploding ) formula = formula.concat("x");
+            else if ( this.isExplodingOnce ) formula = formula.concat("xo");
         }
        
         let r = new Roll(formula);
         r.toMessage(
             { speaker: game.user._id },
             // configure hidden rolls
-            { rollMode: SDRD.IS_GM_ROLL ? "gmroll" : 
-                        SDRD.IS_BLIND_ROLL ? "blindroll" : 
-                        SDRD.IS_SELF_ROLL ? "selfroll" : 
+            { rollMode: this.isGmRoll ? "gmroll" : 
+                        this.isBlindRoll ? "blindroll" : 
+                        this.isSelfRoll ? "selfroll" : 
                         "roll"
             }
         );

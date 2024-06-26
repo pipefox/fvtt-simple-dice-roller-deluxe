@@ -12,29 +12,20 @@
         "explodingDiceOnce": "Toggle Once Exploding Dice"
     },
     "settings": {
-        "maxDiceCount": {
-            "name": "Maximum dice thrown:",
-            "hint": "The max number of dice (from 1 to 25) you can throw with the Dice Roller. Changes require reload."
-        },
-        "enableD100": {
-            "name": "Enable D100 dice rolls",
-            "hint": "For making d100 dice rolls."
-        },
-        "enableCoins": {
-            "name": "Enable coin tosses",
-            "hint": "For making coin flips (similar to D2 dice rolls)."
-        },
-        "enableFudgeDice": {
-            "name": "Enable 'Fudge Dice'",
-            "hint": "For rolling 'Fudge Dice' (also known as 'Fate Dice') for your Fate and Fudge games."
-        },
-        "enableExplodingDice": {
-            "name": "Add Exploding Dice Toggles",
-            "hint": "Adds mutualy exclusive Exploding Dice toggles (not for coin flips, Fudge or d100 rolls)."
+        "advanced": {
+            "title": "Advanced 'Dice Form' Options",
+            "name": "Advanced Settings",
+            "label": "Configure Dice Form",
+            "hint": "Fine tune the general appearance and behavior of the Dice Form.",
+            "save": "Save Settings"
         },
         "enableHiddenRolls": {
             "name": "Add Hidden Roll Toggles",
-            "hint": "Adds buttons for mutually exclusive hidden roll toggles (Blind, GM and Self Rolls)."
+            "hint": "Add buttons for mutually exclusive hidden roll toggles (Blind, GM and Self Rolls). Requires reload!"
+        },
+        "enableExplodingDice": {
+            "name": "Add Exploding Dice Toggles",
+            "hint": "Add buttons for mutualy exclusive Exploding Dice toggles (not for coin flips, Fudge or d100 rolls). Requires reload!"
         },
         "enableFirstColumn": {
             "name": "Add additional 1st column for 1 die rolls",
@@ -43,9 +34,22 @@
         "closeFormOnRoll": {
             "name": "Enable closing Dice Roller on successful roll",
             "hint": "If enabled, the Dice Roller window will close after each roll."
+        },
+        "maxDiceCount": {
+            "name": "Maximum dice thrown",
+            "hint": "The max number of dice (from 1 to 25) you can throw with the Dice Roller. Requires reload!"
+        },
+        "enableCoins": {
+            "name": "Enable coin tosses",
+            "hint": "For making coin flips (similar to d2 dice rolls)."
+        },
+        "enableCoCD100": {
+            "name": "Enable CoC Bonus / Penalty d100 toggle",
+            "hint": "For making advanced 'Call of Cthulhu' style d100 dice rolls."
+        },
+        "enableFudgeDice": {
+            "name": "Enable 'Fudge Dice'",
+            "hint": "For rolling 'Fudge Dice' (also known as 'Fate Dice') for your Fate and Fudge games."
         }
-    },
-    "advanced": {
-        "saveSettings": "Save Settings"
     }
 }

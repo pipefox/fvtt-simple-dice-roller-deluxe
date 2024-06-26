@@ -18,29 +18,15 @@ export const SDRD = {
     MENU_CONTROL: "simpledice",
 
     CONFIG_ADVANCED: "advancedSettings",
-    
-    CONFIG_ENABLE_HIDDEN_ROLLS: "enableHiddenRolls",
-    CONFIG_ENABLE_EXPL_DICE: "enableExplodingDice",
-    CONFIG_ENABLE_1ST_COLUMN: "enableFirstColumn",
-    CONFIG_CLOSE_FORM_ON_ROLL: "closeFormOnRoll",
+    CONFIG_HIDDEN_ROLLS: "enableHiddenRolls",
+    CONFIG_EXPLODING_DICE: "enableExplodingDice",
+    CONFIG_1ST_COLUMN: "enableFirstColumn",
+    CONFIG_CLOSE_FORM: "closeFormOnRoll",
     CONFIG_MAXDICE_COUNT: "maxDiceCount",
-    CONFIG_ENABLE_D100: "enableD100",
-    CONFIG_ENABLE_COINS: "enableCoins",
-    CONFIG_ENABLE_FUDGE: "enableFudgeDice",
+    CONFIG_COC_D100: "enableCoCD100",  // Call of Cthulhu style Bonus / Penalty 
+    CONFIG_COINS: "enableCoins",
+    CONFIG_FUDGE_DICE: "enableFudgeDice",  // a.k.a. Fate dice
     
     DICE_FORM_PATH: "./modules/simple-dice-roller-deluxe/templates/dice-form.hbs",
-    ADVANCED_SETTINGS_PATH: "./modules/simple-dice-roller-deluxe/templates/dice-form.hbs",
-    STANDARD_DICE_TYPES: ["d4", "d6", "d8", "d10", "d12", "d20"],
-   
-    GM_ROLL: "makeGMRoll",
-    BLIND_ROLL: "makeBlindRoll",
-    SELF_ROLL: "makeSelfRoll",
-    EXPLODING_DICE: "explodingDice",
-    EXPLODING_DICE_ONCE: "explodingDiceOnce",
-
-    IS_GM_ROLL: false,
-    IS_BLIND_ROLL: false,
-    IS_SELF_ROLL: false,
-    IS_EXPLODING: false,
-    IS_EXPLODING_ONCE: false,
+    ADVANCED_SETTINGS_PATH: "./modules/simple-dice-roller-deluxe/templates/advanced-settings.hbs",
 }

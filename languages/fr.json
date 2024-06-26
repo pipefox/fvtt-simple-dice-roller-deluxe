@@ -13,7 +13,7 @@
     },
     "settings": {
         "maxDiceCount": {
-            "name": "Nombre maximum de dés lancés :",
+            "name": "Nombre maximum de dés lancés",
             "hint": "Nombre maximum de dés que vous pouvez lancer avec le Lanceur de Dés. Minimum : 1. Maximum : 25. Changements nécessitent un rechargement."
         },
         "enableCoins": {

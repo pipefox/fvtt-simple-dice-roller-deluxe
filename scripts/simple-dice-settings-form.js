@@ -8,23 +8,23 @@ export class SettingsMenu extends FormApplication {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             id: "advanced-settings",
-            title: "Dice Form Options", // game.i18n.localize("COMBAT.Settings"),
-            template: "./modules/simple-dice-roller-deluxe/templates/advanced-settings.hbs",
+            title: game.i18n.localize("settings.advanced.title"),
+            template: SDRD.ADVANCED_SETTINGS_PATH,
             width: 520
         });
     }
 
     getData() {
         return {
-            enableHiddenRolls: game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_HIDDEN_ROLLS),
-            enableExplodingDice: game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_EXPL_DICE),
-            enableFirstColumn: game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN),
-            closeFormOnRoll: game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL)
+            enableHiddenRolls: game.settings.get(SDRD.ID, SDRD.CONFIG_HIDDEN_ROLLS),
+            enableExplodingDice: game.settings.get(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE),
+            enableFirstColumn: game.settings.get(SDRD.ID, SDRD.CONFIG_1ST_COLUMN),
+            closeFormOnRoll: game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM)
           };
     }
 
     async _updateObject(event, formData) {
-        // TODO P2: A. figure out DOM rendering issue OR
+        // TODO P2: A. figure out DOM rendering issue for:
         // await Promise.all(
         //     Object.entries(formData).map(([key, value]) => game.settings.set(SDRD.ID, key, value))
         // );
