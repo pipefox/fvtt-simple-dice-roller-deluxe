@@ -39,7 +39,7 @@
             "hint": "Note: the dice-icon column is always clickable (and rolls 1 die), similar to other online tabletop platfroms."
         },
         "closeFormOnRoll": {
-            "name": "Enable closing the Dice Roller on successful roll",
+            "name": "Enable closing the Dice Roller on a successful roll",
             "hint": "If enabled, the Dice Roller window will close after each roll."
         },
         "maxDiceCount": {
