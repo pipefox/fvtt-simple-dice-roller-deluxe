@@ -16,7 +16,7 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
     * Penalty 'tens' Roll for d100
     * Bonus 'tens' Roll for d100
   * Exploding DIce:
-    * Standadrd Exploding Dice
+    * Standard Exploding Dice
     * Once Exploding Dice
 
 ## Installation Instructions
