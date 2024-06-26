@@ -98,7 +98,7 @@ function _registerGameSettings() {
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
-        onChange: () => _updateDiceForm()
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_ENABLE_1ST_COLUMN, val)
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL, {
         name: game.i18n.localize("settings.closeFormOnRoll.name"),
@@ -107,7 +107,7 @@ function _registerGameSettings() {
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
-        onChange: () => _updateDiceForm()
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_CLOSE_FORM_ON_ROLL, val)
     });
 
     // register individual settings
@@ -129,7 +129,7 @@ function _registerGameSettings() {
         config: false,
         default: true,
         type: Boolean,
-        onChange: () => _updateDiceForm()
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_ENABLE_D100, val)
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_COINS, {
         name: game.i18n.localize("settings.enableCoins.name"),
@@ -138,7 +138,7 @@ function _registerGameSettings() {
         config: true,
         default: false,
         type: Boolean,
-        onChange: () => _updateDiceForm()
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_ENABLE_COINS, val)
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_ENABLE_FUDGE, {
         name: game.i18n.localize("settings.enableFudgeDice.name"),
@@ -147,14 +147,15 @@ function _registerGameSettings() {
         config: true,
         default: false,
         type: Boolean,
-        onChange: () => _updateDiceForm()
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_ENABLE_FUDGE, val)
     });
 
-    function _updateDiceForm() {
+    function _updateDiceForm(key, val) {
+        console.log("key updateDiceFrom", key);
+        console.log("val updateDiceFrom", val);
         if (globalDiceForm) {
-            globalDiceForm._updateSettings();
-            globalDiceForm._resetDiceToggles();
-            globalDiceForm.render(false);
+            globalDiceForm.updateSetting(key, val);
+            globalDiceForm.render(false);  // re-render only if already open
         }
     }
 }

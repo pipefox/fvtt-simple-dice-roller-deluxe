@@ -3,6 +3,16 @@ import { SDRD } from "../scripts/simple-dice-const.js";
 export class DiceForm extends FormApplication {
     constructor() {
         super();
+        // register class variables and get their initial state
+        // TODO P2: consider using this[SDRD.CONFIG_..] =
+        this.enableHiddenRolls = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_HIDDEN_ROLLS);
+        this.enableExplodingDice = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_EXPL_DICE);
+        this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN);
+        this.closeFormOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL);
+        this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
+        this.enableD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_COINS);
+        this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_D100);
+        this.enableFudgeDice = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_FUDGE);
     }
 
     static get defaultOptions() {
@@ -20,11 +30,10 @@ export class DiceForm extends FormApplication {
     }
 
     getData() {
-        this._resetDiceToggles();
-        this._updateSettings();
+        this._resetDiceToggles();  // everytime we render the form anew, reset the inner toggles
 
         const indexOffset = this.enableFirstColumn ? 0 : 1;
-        const diceTypes = this._getDiceTypes(this.enableCoins, this.enableD100, this.enableFudge);
+        const diceTypes = this._getDiceTypes(this.enableCoins, this.enableD100, this.enableFudgeDice);
 
         return {
             displaySpecialToggles: (this.enableHiddenRolls || this.enableExplodingDice),
@@ -37,24 +46,16 @@ export class DiceForm extends FormApplication {
         };
     }
 
+    updateSetting(key, val) {
+        this[key] = val;
+    }
+
     _resetDiceToggles() {
         SDRD.IS_GM_ROLL = false;
         SDRD.IS_BLIND_ROLL = false;
         SDRD.IS_SELF_ROLL = false;
         SDRD.IS_EXPLODING = false;
         SDRD.IS_EXPLODING_ONCE = false;
-    }
-
-    // TODO P2: not the bestest design pattern at this point
-    _updateSettings() {
-        this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_1ST_COLUMN);
-        this.closeOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM_ON_ROLL);
-        this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
-        this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_COINS);
-        this.enableD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_D100);
-        this.enableFudge = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_FUDGE);
-        this.enableHiddenRolls = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_HIDDEN_ROLLS);
-        this.enableExplodingDice = game.settings.get(SDRD.ID, SDRD.CONFIG_ENABLE_EXPL_DICE);
     }
 
     _getDiceTypes(enableCoins, enableD100, enableFudge) {
@@ -121,7 +122,7 @@ export class DiceForm extends FormApplication {
             }
         );
 
-        if ( this.closeOnRoll && this.rendered && !this.closing ) this.close();
+        if ( this.closeFormOnRoll && this.rendered && !this.closing ) this.close();
     }
 
     activateListeners(html) {
