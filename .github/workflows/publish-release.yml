@@ -1,4 +1,4 @@
-name: Publish Package Release
+name: Publish to Foundry VTT
 
 on:
   release:
