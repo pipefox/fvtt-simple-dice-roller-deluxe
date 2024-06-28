@@ -35,7 +35,7 @@ jobs:
         omitBodyDuringUpdate: true
         omitDraftDuringUpdate: true
         omitPrereleaseDuringUpdate: true
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.RELEASE_TOKEN }}
         artifacts: './module.json, ./module.zip'
 
     - name: Publish Module to FoundryVTT Website
