@@ -24,7 +24,7 @@ Hooks.on('renderSceneControls', (controls, html) => {
         if (event.currentTarget.dataset.control === SDRD.MENU_CONTROL) {
             if ( !globalDiceForm ) globalDiceForm = new DiceForm(); 
             globalDiceForm.render(true);
-            return; // do not skip!
+            return;
         }
         cachedOnClickLayer(event, ...rest);
     };
@@ -78,7 +78,7 @@ function _registerGameSettings() {
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
-        requiresReload: true
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_HIDDEN_ROLLS, val)
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_CTHULHU_D100, {
         name: game.i18n.localize("settings.enableCthulhuD100.name"),
@@ -87,7 +87,7 @@ function _registerGameSettings() {
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
-        requiresReload: true
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_CTHULHU_D100, val)
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE, {
         name: game.i18n.localize("settings.enableExplodingDice.name"),
@@ -96,7 +96,7 @@ function _registerGameSettings() {
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
-        requiresReload: true
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_EXPLODING_DICE, val)
     });
     game.settings.register(SDRD.ID, SDRD.CONFIG_1ST_COLUMN, {
         name: game.i18n.localize("settings.enableFirstColumn.name"),
@@ -150,7 +150,6 @@ function _registerGameSettings() {
     function _updateDiceForm(key, val) {
         if (globalDiceForm) {
             globalDiceForm.updateSetting(key, val);
-            globalDiceForm.render(false);  // re-render only if already open
         }
     }
 }

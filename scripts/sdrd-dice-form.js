@@ -14,6 +14,8 @@ export class DiceForm extends FormApplication {
         super();
         this._instantiateFormSettings();
         this._resetFormToggles();
+        // delay render by 50ms (only on open form) to better handle mutliple settings changed at once
+        this.scheduleRender = foundry.utils.debounce(this.render.bind(this, false), 50);
     }
 
     _instantiateFormSettings() {
@@ -42,6 +44,7 @@ export class DiceForm extends FormApplication {
 
     updateSetting(key, val) {
         this[key] = val;
+        this.scheduleRender();
     }
 
     static get defaultOptions() {
@@ -61,7 +64,7 @@ export class DiceForm extends FormApplication {
     getData() {
         this._resetFormToggles();  // reset on each render
         const indexOffset = this.enableFirstColumn ? 0 : 1;
-        const diceTypes = this._getDiceTypes(this.enableCoins, this.enableD100, this.enableFudgeDice);
+        const diceTypes = this._getDiceTypes(this.enableCoins, this.enableFudgeDice);
 
         return {
             displaySpecialToggles: ( this.enableHiddenRolls || this.enableExplodingDice ),
@@ -75,11 +78,11 @@ export class DiceForm extends FormApplication {
         };
     }
 
-    _getDiceTypes(enableCoins, enableD100, enableFudge) {
+    _getDiceTypes(enableCoins, enableFudgeDice) {
         const diceTypes = [];
         if (enableCoins) diceTypes.push("dc");
         diceTypes.push(...DiceForm.STANDARD_DICE);
-        if (enableFudge) diceTypes.push("df");
+        if (enableFudgeDice) diceTypes.push("df");
         return diceTypes;
     }
 

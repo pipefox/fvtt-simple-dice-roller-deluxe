@@ -24,15 +24,15 @@
         },
         "enableHiddenRolls": {
             "name": "Agregar Alternadores de Tiradas Ocultas",
-            "hint": "Agregar botones para alternadores de tiradas ocultas mutuamente excluyentes (Ciegas, GM y propias). Cambios requieren recargar."
+            "hint": "Agregar botones para alternadores de tiradas ocultas mutuamente excluyentes (Ciegas, GM y propias)."
         },
         "enableCthulhuD100": {
             "name": "Agregar Alternadores de Penalización/Bonificación de 'Call of Cthulhu' d100",
-            "hint": "Agregar botones para tiradas d100 estilo 'Call of Cthulhu': vuelve a tirar el dado de decenas, tomando el más alto para Penalización/el más bajo para Bonificación. Cambios requieren recargar."
+            "hint": "Agregar botones para tiradas d100 estilo 'Call of Cthulhu': vuelve a tirar el dado de decenas, tomando el más alto para Penalización/el más bajo para Bonificación."
         },
         "enableExplodingDice": {
             "name": "Agregar Alternadores de Dados Explosivos",
-            "hint": "Agregar botones para alternadores de dados explosivos mutuamente excluyentes. ¡No aplicable a lanzamientos de monedas, Dados Fudge o dados d100! Cambios requieren recargar."
+            "hint": "Agregar botones para alternadores de dados explosivos mutuamente excluyentes. ¡No aplicable a lanzamientos de monedas, Dados Fudge o dados d100!"
         },
         "enableFirstColumn": {
             "name": "Agregar una columna adicional para lanzamientos de 1 dado",

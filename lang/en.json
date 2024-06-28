@@ -24,15 +24,15 @@
         },
         "enableHiddenRolls": {
             "name": "Add Hidden Roll Toggles",
-            "hint": "Add buttons for mutually exclusive hidden roll toggles (Blind, GM and Self Rolls). Requires reload!"
+            "hint": "Add buttons for mutually exclusive hidden roll toggles (Blind, GM and Self Rolls)."
         },
         "enableCthulhuD100": {
             "name": "Add 'Call of Cthulhu' d100 Penalty / Bonus Toggles",
-            "hint": "Add buttons for 'Call of Cthulhu' d100 rolls: reroll the tens-die, taking the highest for Penalty / lowest for Bonus. Requires reload!"
+            "hint": "Add buttons for 'Call of Cthulhu' d100 rolls: reroll the tens-die, taking the highest for Penalty / lowest for Bonus."
         },
         "enableExplodingDice": {
             "name": "Add Exploding Dice Toggles",
-            "hint": "Add buttons for mutualy exclusive Exploding Dice toggles. NOT applicable to coin flips, Fudge or d100 rolls! Requires reload!"
+            "hint": "Add buttons for mutualy exclusive Exploding Dice toggles. NOT applicable to coin flips, Fudge or d100 rolls!"
         },
         "enableFirstColumn": {
             "name": "Add additional 1st column for rolling only 1 die",

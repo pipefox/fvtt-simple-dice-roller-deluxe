@@ -24,15 +24,15 @@
         },
         "enableHiddenRolls": {
             "name": "Ajouter des Boutons de Lancers Cachés",
-            "hint": "Ajouter des boutons pour les lancers cachés mutuellement exclusifs (Aveugle, MJ et Soi-même). Changements nécessitent un rechargement."
+            "hint": "Ajouter des boutons pour les lancers cachés mutuellement exclusifs (Aveugle, MJ et Soi-même)."
         },
         "enableCthulhuD100": {
             "name": "Ajouter des Boutons de Pénalité/Bonus pour 'Call of Cthulhu' d100",
-            "hint": "Ajouter des boutons pour les lancers d100 de style 'Call of Cthulhu' : relancez le dé des dizaines, en prenant le plus élevé pour la Pénalité/le plus bas pour le Bonus. Changements nécessitent un rechargement."
+            "hint": "Ajouter des boutons pour les lancers d100 de style 'Call of Cthulhu' : relancez le dé des dizaines, en prenant le plus élevé pour la Pénalité/le plus bas pour le Bonus."
         },
         "enableExplodingDice": {
             "name": "Ajouter des Boutons de Dés Explosifs",
-            "hint": "Ajouter des boutons pour les dés explosifs mutuellement exclusifs. Non applicable aux lancés de pièces, Dés Fudge ou dés d100 ! Changements nécessitent un rechargement."
+            "hint": "Ajouter des boutons pour les dés explosifs mutuellement exclusifs. Non applicable aux lancés de pièces, Dés Fudge ou dés d100 !"
         },
         "enableFirstColumn": {
             "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",

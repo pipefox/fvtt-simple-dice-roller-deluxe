@@ -24,15 +24,15 @@
         },
         "enableHiddenRolls": {
             "name": "Schaltflächen für versteckte Würfe hinzufügen",
-            "hint": "Buttons für sich gegenseitig ausschließende versteckte Würfe (Blind, GM und Self Rolls) hinzufügen. Erfordert Neuladen!"
+            "hint": "Buttons für sich gegenseitig ausschließende versteckte Würfe (Blind, GM und Self Rolls) hinzufügen."
         },
         "enableCthulhuD100": {
             "name": "Schaltflächen für d100 Straf- / Bonuswürfe hinzufügen",
-            "hint": "Buttons für 'Call of Cthulhu' d100-Würfe hinzufügen:: den Zehner-Würfel neu würfeln, wobei der höchste Wert als Strafe und der niedrigste als Bonus gilt. Erfordert Neuladen!"
+            "hint": "Buttons für 'Call of Cthulhu' d100-Würfe hinzufügen:: den Zehner-Würfel neu würfeln, wobei der höchste Wert als Strafe und der niedrigste als Bonus gilt."
         },
         "enableExplodingDice": {
             "name": "Schaltflächen für Explosionswürfel hinzufügen",
-            "hint": "Buttons für gegenseitig ausschließende Exploding Dice-Schalter hinzufügen. NICHT anwendbar auf Münzwürfe, Fudge oder d100-Würfe! Erfordert Neuladen!"
+            "hint": "Buttons für gegenseitig ausschließende Exploding Dice-Schalter hinzufügen. NICHT anwendbar auf Münzwürfe, Fudge oder d100-Würfe!"
         },
         "enableFirstColumn": {
             "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
