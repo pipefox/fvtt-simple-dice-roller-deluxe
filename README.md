@@ -35,7 +35,7 @@ I'm open to pull requests with corrected json texts!
 <hr/>
 
 ## Potential new Features
-This module is complete, but I might add some options down the line if there's interest.
+This module is complete, but I might add some options down the line if there's interest and I have time. :)
 * Better chat output for 'Call of Cthulhu' Bonus/Penalty rolls.<br>In the meantime, use the Cthulhu 7th Edition System for Foundry for better d100 integration.
 * Add DCC Style Dice - d3, d5, d7, d14, d24, d30 (in a secondary table).
 * Add compounding and penetrating dice to the Exploding Dice toggles.
