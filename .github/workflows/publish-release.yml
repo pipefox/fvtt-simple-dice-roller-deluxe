@@ -27,7 +27,7 @@ jobs:
 
     - name: Update Release with module.json and module.zip
       id: create_version_release
-      uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@v1.16.0
       with:
         allowUpdates: true # Set this to false if you want to prevent updating existing releases
         omitNameDuringUpdate: true
