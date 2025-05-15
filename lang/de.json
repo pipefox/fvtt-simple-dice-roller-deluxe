@@ -34,6 +34,18 @@
             "name": "Schaltflächen für Explosionswürfel hinzufügen",
             "hint": "Buttons für gegenseitig ausschließende Exploding Dice-Schalter hinzufügen. NICHT anwendbar auf Münzwürfe, Fudge oder d100-Würfe!"
         },
+        "enableFudgeDice": {
+            "name": "'Fudge-Würfel' aktivieren",
+            "hint": "Zum Würfeln von 'Fudge-Würfeln' (auch bekannt als 'Fate-Würfel') für eure Fate- und Fudge-Spiele."
+        },
+        "enableCoins": {
+            "name": "Münzwürfe aktivieren",
+            "hint": "Zum Werfen von Münzen (ähnlich wie bei d2-Würfelwürfen)."
+        },
+        "maxDiceCount": {
+            "name": "Maximal geworfene Würfel",
+            "hint": "Maximale Anzahl von Würfeln (von 1 bis 25), die mit dem Würfelroller geworfen werden können. Erfordert Neuladen!"
+        },
         "enableFirstColumn": {
             "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
             "hint": "Hinweis: Spalte mit den Würfelsymbolen ist immer anklickbar (und würfelt 1 Würfel), ähnlich wie bei anderen Online-Tabletop-Plattformen."
@@ -41,18 +53,6 @@
         "closeFormOnRoll": {
             "name": "Schließen des Würfelrollers bei erfolgreichem Wurf aktivieren",
             "hint": "Wenn aktiviert, wird das Würfelroller-Fenster nach jedem Wurf geschlossen."
-        },
-        "maxDiceCount": {
-            "name": "Maximal geworfene Würfel",
-            "hint": "Maximale Anzahl von Würfeln (von 1 bis 25), die mit dem Würfelroller geworfen werden können. Erfordert Neuladen!"
-        },
-        "enableCoins": {
-            "name": "Münzwürfe aktivieren",
-            "hint": "Zum Werfen von Münzen (ähnlich wie bei d2-Würfelwürfen)."
-        },
-        "enableFudgeDice": {
-            "name": "'Fudge-Würfel' aktivieren",
-            "hint": "Zum Würfeln von 'Fudge-Würfeln' (auch bekannt als 'Fate-Würfel') für eure Fate- und Fudge-Spiele."
         }
     }
 }

@@ -34,6 +34,18 @@
             "name": "Agregar Alternadores de Dados Explosivos",
             "hint": "Agregar botones para alternadores de dados explosivos mutuamente excluyentes. ¡No aplicable a lanzamientos de monedas, Dados Fudge o dados d100!"
         },
+        "enableFudgeDice": {
+            "name": "Habilitar 'Dados Fudge'",
+            "hint": "Para lanzar 'Dados Fudge' (también conocidos como 'Dados Fate') para tus juegos de Fate y Fudge."
+        },
+        "enableCoins": {
+            "name": "Habilitar lanzamientos de monedas",
+            "hint": "Para hacer lanzamientos de monedas (similar a lanzamientos de dados d2)."
+        },
+        "maxDiceCount": {
+            "name": "Número máximo de dados lanzados",
+            "hint": "El número máximo de dados (de 1 a 25) que puedes lanzar con el Lanzador de Dados. Cambios requieren recargar."
+        },
         "enableFirstColumn": {
             "name": "Agregar una columna adicional para lanzamientos de 1 dado",
             "hint": "Nota: la columna de iconos de dados siempre es clickeable, similar a otras plataformas de juego de rol en línea."
@@ -41,18 +53,6 @@
         "closeFormOnRoll": {
             "name": "Habilitar el cierre del Lanzador de Dados en lanzamiento exitoso",
             "hint": "Si está habilitado, el formulario del Lanzador de Dados se cerrará después de cada lanzamiento."
-        },
-        "maxDiceCount": {
-            "name": "Número máximo de dados lanzados",
-            "hint": "El número máximo de dados (de 1 a 25) que puedes lanzar con el Lanzador de Dados. Cambios requieren recargar."
-        },
-        "enableCoins": {
-            "name": "Habilitar lanzamientos de monedas",
-            "hint": "Para hacer lanzamientos de monedas (similar a lanzamientos de dados d2)."
-        },
-        "enableFudgeDice": {
-            "name": "Habilitar 'Dados Fudge'",
-            "hint": "Para lanzar 'Dados Fudge' (también conocidos como 'Dados Fate') para tus juegos de Fate y Fudge."
         }
     }
 }

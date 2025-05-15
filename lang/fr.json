@@ -34,6 +34,18 @@
             "name": "Ajouter des Boutons de Dés Explosifs",
             "hint": "Ajouter des boutons pour les dés explosifs mutuellement exclusifs. Non applicable aux lancés de pièces, Dés Fudge ou dés d100 !"
         },
+        "enableFudgeDice": {
+            "name": "Activer les 'Dés Fudge'",
+            "hint": "Pour lancer des 'Dés Fudge' (également appelés 'Dés Fate') pour vos jeux Fate et Fudge."
+        },
+        "enableCoins": {
+            "name": "Activer les lancés de pièces",
+            "hint": "Pour effectuer des lancés de pièces (similaire aux lancers de dés d2)."
+        },
+        "maxDiceCount": {
+            "name": "Nombre maximum de dés lancés",
+            "hint": "Le nombre maximum de dés (de 1 à 25) que vous pouvez lancer avec le Lanceur de Dés. Changements nécessitent un rechargement."
+        },
         "enableFirstColumn": {
             "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",
             "hint": "Remarque : la colonne des icônes de dés est toujours cliquable, similaire à d'autres plateformes de jeu de rôle en ligne."
@@ -41,18 +53,6 @@
         "closeFormOnRoll": {
             "name": "Activer la fermeture du Lanceur de Dés après un lancer réussi",
             "hint": "Si activé, le formulaire du Lanceur de Dés se fermera après chaque lancer."
-        },
-        "maxDiceCount": {
-            "name": "Nombre maximum de dés lancés",
-            "hint": "Le nombre maximum de dés (de 1 à 25) que vous pouvez lancer avec le Lanceur de Dés. Changements nécessitent un rechargement."
-        },
-        "enableCoins": {
-            "name": "Activer les lancés de pièces",
-            "hint": "Pour effectuer des lancés de pièces (similaire aux lancers de dés d2)."
-        },
-        "enableFudgeDice": {
-            "name": "Activer les 'Dés Fudge'",
-            "hint": "Pour lancer des 'Dés Fudge' (également appelés 'Dés Fate') pour vos jeux Fate et Fudge."
         }
     }
 }

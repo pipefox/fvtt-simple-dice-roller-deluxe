@@ -69,12 +69,13 @@ function _registerGameSettings() {
         label: game.i18n.localize("settings.advanced.label"),
         hint: game.i18n.localize("settings.advanced.hint"),
         icon: "fa-duotone fa-table",
-        type: AdvancedSettings
+        type: AdvancedSettings,
+        restricted: true // only settable by GM
       });
     game.settings.register(SDRD.ID, SDRD.CONFIG_HIDDEN_ROLLS, {
         name: game.i18n.localize("settings.enableHiddenRolls.name"),
         hint: game.i18n.localize("settings.enableHiddenRolls.hint"),
-        scope: "client",
+        scope: "world",
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
@@ -83,7 +84,7 @@ function _registerGameSettings() {
     game.settings.register(SDRD.ID, SDRD.CONFIG_CTHULHU_D100, {
         name: game.i18n.localize("settings.enableCthulhuD100.name"),
         hint: game.i18n.localize("settings.enableCthulhuD100.hint"),
-        scope: "client",
+        scope: "world",
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
@@ -92,29 +93,29 @@ function _registerGameSettings() {
     game.settings.register(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE, {
         name: game.i18n.localize("settings.enableExplodingDice.name"),
         hint: game.i18n.localize("settings.enableExplodingDice.hint"),
-        scope: "client",
+        scope: "world",
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
         onChange: (val) => _updateDiceForm(SDRD.CONFIG_EXPLODING_DICE, val)
     });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_1ST_COLUMN, {
-        name: game.i18n.localize("settings.enableFirstColumn.name"),
-        hint: game.i18n.localize("settings.enableFirstColumn.hint"),
+    game.settings.register(SDRD.ID, SDRD.CONFIG_FUDGE_DICE, {
+        name: game.i18n.localize("settings.enableFudgeDice.name"),
+        hint: game.i18n.localize("settings.enableFudgeDice.hint"),
         scope: "client",
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_1ST_COLUMN, val)
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_FUDGE_DICE, val)
     });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_CLOSE_FORM, {
-        name: game.i18n.localize("settings.closeFormOnRoll.name"),
-        hint: game.i18n.localize("settings.closeFormOnRoll.hint"),
-        scope: "client",
+    game.settings.register(SDRD.ID, SDRD.CONFIG_COINS, {
+        name: game.i18n.localize("settings.enableCoins.name"),
+        hint: game.i18n.localize("settings.enableCoins.hint"),
+        scope: "world",
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_CLOSE_FORM, val)
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_COINS, val)
     });
 
     // register main config settings
@@ -128,23 +129,23 @@ function _registerGameSettings() {
         type: Number,
         requiresReload: true
     });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_COINS, {
-        name: game.i18n.localize("settings.enableCoins.name"),
-        hint: game.i18n.localize("settings.enableCoins.hint"),
+        game.settings.register(SDRD.ID, SDRD.CONFIG_1ST_COLUMN, {
+        name: game.i18n.localize("settings.enableFirstColumn.name"),
+        hint: game.i18n.localize("settings.enableFirstColumn.hint"),
         scope: "client",
         config: true,
         default: false,
         type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_COINS, val)
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_1ST_COLUMN, val)
     });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_FUDGE_DICE, {
-        name: game.i18n.localize("settings.enableFudgeDice.name"),
-        hint: game.i18n.localize("settings.enableFudgeDice.hint"),
+    game.settings.register(SDRD.ID, SDRD.CONFIG_CLOSE_FORM, {
+        name: game.i18n.localize("settings.closeFormOnRoll.name"),
+        hint: game.i18n.localize("settings.closeFormOnRoll.hint"),
         scope: "client",
         config: true,
         default: false,
         type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_FUDGE_DICE, val)
+        onChange: (val) => _updateDiceForm(SDRD.CONFIG_CLOSE_FORM, val)
     });
 
     function _updateDiceForm(key, val) {

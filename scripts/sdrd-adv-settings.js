@@ -19,8 +19,8 @@ export class AdvancedSettings extends FormApplication {
             enableHiddenRolls: game.settings.get(SDRD.ID, SDRD.CONFIG_HIDDEN_ROLLS),
             enableCthulhuD100: game.settings.get(SDRD.ID, SDRD.CONFIG_CTHULHU_D100),
             enableExplodingDice: game.settings.get(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE),
-            enableFirstColumn: game.settings.get(SDRD.ID, SDRD.CONFIG_1ST_COLUMN),
-            closeFormOnRoll: game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM)
+            enableFudgeDice: game.settings.get(SDRD.ID, SDRD.CONFIG_FUDGE_DICE),
+            enableCoins: game.settings.get(SDRD.ID, SDRD.CONFIG_COINS)
           };
     }
 

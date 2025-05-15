@@ -6,8 +6,7 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
 ![Screenshot_SimleDiceRollerDeluxe_v2 0 0](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/assets/15308352/5562e183-fe01-470d-b234-f26f7e785938)
 
 * The number of rollable dice can be adjusted from 1 to 25.
-* Coin flips and Fate/Fudge dice rows can be enabled in the settings as well.
-* There are advanced optional settings for the following additional roll toggles:
+* Advanced global settings settable by the Game Mster for more roll options:
   * Hidden Rolls:
     * Private Roll to GM
     * Blind Roll to GM
@@ -18,6 +17,8 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
   * Exploding DIce:
     * Standard Exploding Dice
     * Once Exploding Dice
+  * Fate/Fudge dice
+  * Coin flips
 
 ## Installation Instructions
 1. Click "Install Module" in the "Add-on Modules" tab in the Foundry "Configuration and Setup" screen
