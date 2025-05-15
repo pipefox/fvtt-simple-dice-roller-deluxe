@@ -12,27 +12,27 @@
         "penaltyCthulhuRoll": "Penalty 'tens' Roll for d100",
         "bonusCthulhuRoll": "Bonus 'tens' Roll for d100",
         "explodingDice": "Standard Exploding Dice",
-        "explodingDiceOnce": "Once Exploding Dice"
+        "explodingDiceOnce": "Single Exploding Dice"
     },
     "settings": {
         "advanced": {
-            "title": "Advanced 'Dice Roller' Options",
-            "name": "Advanced Settings",
+            "title": "Advanced Settings for Dice Roller",
+            "name": "Advanced Global Settings:",
             "label": "Configure Dice Roller",
-            "hint": "Fine tune the general appearance and behavior of the Dice Roller.",
+            "hint": "Only settable by the Game Master.",
             "save": "Save Settings"
         },
         "enableHiddenRolls": {
             "name": "Add Hidden Roll Toggles",
-            "hint": "Add buttons for mutually exclusive hidden roll toggles (Blind, GM and Self Rolls)."
+            "hint": "Buttons for mutually exclusive hidden rolls (Blind, GM and Self Rolls)."
         },
         "enableCthulhuD100": {
             "name": "Add 'Call of Cthulhu' d100 Penalty / Bonus Toggles",
-            "hint": "Add buttons for 'Call of Cthulhu' d100 rolls: reroll the tens-die, taking the highest for Penalty / lowest for Bonus."
+            "hint": "Buttons for 'Call of Cthulhu' d100 rolls: reroll the tens-die, taking highest for Penalty / lowest for Bonus."
         },
         "enableExplodingDice": {
             "name": "Add Exploding Dice Toggles",
-            "hint": "Add buttons for mutualy exclusive Exploding Dice toggles. NOT applicable to coin flips, Fudge or d100 rolls!"
+            "hint": "Buttons for mutually exclusive Exploding Dice rolls. NOT applicable to coin flips, Fudge or d100 rolls!"
         },
         "enableFudgeDice": {
             "name": "Enable 'Fudge Dice'",
@@ -48,11 +48,11 @@
         },
         "enableFirstColumn": {
             "name": "Add additional 1st column for rolling only 1 die",
-            "hint": "Note: the dice-icon column is always clickable (and rolls 1 die), similar to other online tabletop platfroms."
+            "hint": "Note: the dice-icon column is always clickable and rolls a single die!"
         },
         "closeFormOnRoll": {
-            "name": "Enable closing the Dice Roller on a successful roll",
-            "hint": "If enabled, the Dice Roller window will close after each roll."
+            "name": "Close the Dice Roller on a successful roll",
+            "hint": "If enabled, Dice Roller window will close on making a roll."
         }
     }
 }

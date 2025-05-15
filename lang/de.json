@@ -6,8 +6,8 @@
         "CthulhuD100Rolls": "Call of Cthulhu"
     },
     "tooltip": {
-        "makeGMRoll": "Privater Wurf an DM",
-        "makeBlindRoll": "Blinder Wurf an DM",
+        "makeGMRoll": "Privater Wurf an Spielleiter",
+        "makeBlindRoll": "Blinder Wurf an Spielleiter",
         "makeSelfRoll": "Wurf an sich selbst",
         "penaltyCthulhuRoll": "Strafwurf (Zehner) für D100",
         "bonusCthulhuRoll": "Bonuswurf (Zehner) für D100",
@@ -16,23 +16,23 @@
     },
     "settings": {
         "advanced": {
-            "title": "Erweiterte 'Würfelroller'-Optionen",
-            "name": "Erweiterte Einstellungen",
+            "title": "Erweiterte Einstellungen für den Würfelroller",
+            "name": "Erweiterte Globale Einstellungen:",
             "label": "Würfelroller konfigurieren",
-            "hint": "Das allgemeine Aussehen und Verhalten des Würfelrollers verfeinern.",
+            "hint": "Nur vom Spielleiter einstellbar.",
             "save": "Einstellungen speichern"
         },
         "enableHiddenRolls": {
             "name": "Schaltflächen für versteckte Würfe hinzufügen",
-            "hint": "Buttons für sich gegenseitig ausschließende versteckte Würfe (Blind, GM und Self Rolls) hinzufügen."
+            "hint": "Schaltflächen für sich ausschließende geheime Würfe (Blindwurf, Spielleiter- und Eigenwurf)."
         },
         "enableCthulhuD100": {
             "name": "Schaltflächen für d100 Straf- / Bonuswürfe hinzufügen",
-            "hint": "Buttons für 'Call of Cthulhu' d100-Würfe hinzufügen:: den Zehner-Würfel neu würfeln, wobei der höchste Wert als Strafe und der niedrigste als Bonus gilt."
+            "hint": "Schaltflächen für 'Call of Cthulhu'-d100-Würfe: Zehnerstelle erneut würfeln, höchsten Wert für Malus / niedrigsten für Bonus nehmen."
         },
         "enableExplodingDice": {
             "name": "Schaltflächen für Explosionswürfel hinzufügen",
-            "hint": "Buttons für gegenseitig ausschließende Exploding Dice-Schalter hinzufügen. NICHT anwendbar auf Münzwürfe, Fudge oder d100-Würfe!"
+            "hint": "Schaltflächen für sich ausschließende Explodierende Würfe. NICHT anwendbar auf Münzwürfe, Fudge oder d100!"
         },
         "enableFudgeDice": {
             "name": "'Fudge-Würfel' aktivieren",
@@ -48,11 +48,11 @@
         },
         "enableFirstColumn": {
             "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
-            "hint": "Hinweis: Spalte mit den Würfelsymbolen ist immer anklickbar (und würfelt 1 Würfel), ähnlich wie bei anderen Online-Tabletop-Plattformen."
+            "hint": "Hinweis: die Würfelsymbol-Spalte ist immer anklickbar und würfelt einen einzelnen Würfel!"
         },
         "closeFormOnRoll": {
-            "name": "Schließen des Würfelrollers bei erfolgreichem Wurf aktivieren",
-            "hint": "Wenn aktiviert, wird das Würfelroller-Fenster nach jedem Wurf geschlossen."
+            "name": "Würfelroller nach erfolgreichem Wurf schließen",
+            "hint": "Wenn aktiviert, schließt sich das Würfelfenster nach dem Wurf."
         }
     }
 }

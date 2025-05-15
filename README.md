@@ -6,7 +6,7 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
 ![Screenshot_SimleDiceRollerDeluxe_v2 0 0](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/assets/15308352/5562e183-fe01-470d-b234-f26f7e785938)
 
 * The number of rollable dice can be adjusted from 1 to 25.
-* Advanced global settings settable by the Game Mster for more roll options:
+* Advanced global settings (settable by the Game Mster) for more roll options:
   * Hidden Rolls:
     * Private Roll to GM
     * Blind Roll to GM
@@ -16,7 +16,7 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
     * Bonus 'tens' Roll for d100
   * Exploding DIce:
     * Standard Exploding Dice
-    * Once Exploding Dice
+    * Single Exploding Dice (explode only once)
   * Fate/Fudge dice
   * Coin flips
 
@@ -31,7 +31,7 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
 ## Known Issues
 **Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!**
 * Note that the Spanish and French localizations were done with machine translation.<br>
-I'm open to pull requests with corrected json texts!
+Feel free to make pull requests with corrected json texts!
 
 <hr/>
 

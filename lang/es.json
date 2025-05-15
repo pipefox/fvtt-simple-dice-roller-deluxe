@@ -6,8 +6,8 @@
         "CthulhuD100Rolls": "Call of Cthulhu"
     },
     "tooltip": {
-        "makeGMRoll": "Tirada privada al GM",
-        "makeBlindRoll": "Tirada ciega al GM",
+        "makeGMRoll": "Tirada privada al DJ",
+        "makeBlindRoll": "Tirada ciega al DJ",
         "makeSelfRoll": "Tirada a uno mismo",
         "penaltyCthulhuRoll": "Alternar tirada de penalización (decenas) para d100",
         "bonusCthulhuRoll": "Alternar tirada de bonificación (decenas) para d100",
@@ -16,23 +16,23 @@
     },
     "settings": {
         "advanced": {
-            "title": "Opciones Avanzadas del 'Lanzador de Dados'",
-            "name": "Configuración Avanzada",
+            "title": "Configuración Avanzada del Lanzador de Dados",
+            "name": "Configuración Global Avanzada:",
             "label": "Configurar Lanzador de Dados",
-            "hint": "Ajuste fino de la apariencia general y el comportamiento del Lanzador de Dados.",
+            "hint": "Solo configurable por el Director de Juego.",
             "save": "Guardar Configuración"
         },
         "enableHiddenRolls": {
             "name": "Agregar Alternadores de Tiradas Ocultas",
-            "hint": "Agregar botones para alternadores de tiradas ocultas mutuamente excluyentes (Ciegas, GM y propias)."
+            "hint": "Botones para alternadores de tiradas ocultas mutuamente excluyentes (Ciegas, DJ y propias)."
         },
         "enableCthulhuD100": {
             "name": "Agregar Alternadores de Penalización/Bonificación de 'Call of Cthulhu' d100",
-            "hint": "Agregar botones para tiradas d100 estilo 'Call of Cthulhu': vuelve a tirar el dado de decenas, tomando el más alto para Penalización/el más bajo para Bonificación."
+            "hint": "Botones para tiradas d100 de 'Call of Cthulhu': vuelve a tirar el dado de decenas, usar el mayor para Penalización / menor para Bonificación."
         },
         "enableExplodingDice": {
             "name": "Agregar Alternadores de Dados Explosivos",
-            "hint": "Agregar botones para alternadores de dados explosivos mutuamente excluyentes. ¡No aplicable a lanzamientos de monedas, Dados Fudge o dados d100!"
+            "hint": "Botones para tiradas de Dados Explosivos mutuamente excluyentes. ¡NO aplicable a lanzamientos de moneda, Fudge o d100!"
         },
         "enableFudgeDice": {
             "name": "Habilitar 'Dados Fudge'",
@@ -48,11 +48,11 @@
         },
         "enableFirstColumn": {
             "name": "Agregar una columna adicional para lanzamientos de 1 dado",
-            "hint": "Nota: la columna de iconos de dados siempre es clickeable, similar a otras plataformas de juego de rol en línea."
+            "hint": "Nota: la columna del icono de dado siempre se puede pulsar y lanza un solo dado."
         },
         "closeFormOnRoll": {
-            "name": "Habilitar el cierre del Lanzador de Dados en lanzamiento exitoso",
-            "hint": "Si está habilitado, el formulario del Lanzador de Dados se cerrará después de cada lanzamiento."
+            "name": "Cerrar el Lanzador de Dados tras una tirada exitosa",
+            "hint": "Si está activado, la ventana del Lanzador de Dados se cerrará al lanzar."
         }
     }
 }
