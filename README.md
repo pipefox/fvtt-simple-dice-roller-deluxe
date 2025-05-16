@@ -6,7 +6,7 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
 ![Screenshot_SimleDiceRollerDeluxe_v2 0 0](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/assets/15308352/5562e183-fe01-470d-b234-f26f7e785938)
 
 * The number of rollable dice can be adjusted from 1 to 25.
-* Advanced global settings (settable **only** by the Game Mster) for more roll options:
+* Advanced global settings (settable **only** by the Game Master) for more roll options:
   * Hidden Rolls:
     * Private Roll to GM
     * Blind Roll to GM
@@ -14,7 +14,7 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
   * Call of Cthulhu:
     * Penalty 'tens' Roll for d100
     * Bonus 'tens' Roll for d100
-  * Exploding DIce:
+  * Exploding Dice:
     * Standard Exploding Dice
     * Single Exploding Dice (explode only once)
   * Fate/Fudge dice
@@ -43,7 +43,7 @@ This module is complete, but I might add some options down the line if there's i
 * Make dice-form CSS fancier: better tooltips, optional toggle button labels, transparency effects, no outer border.
 
 ## Why "Simple Dice Roller Deluxe"?
-* This module is for GMs who use the Foudnry app for battle maps and tracking while the players have physical character sheets (or digital ones on their phones/tablets). Having a simple roll table with no character-sheet modifiers can be handy in such cases.
+* This module is for GMs who use the Foundry app for battle maps and tracking while the players have physical character sheets (or digital ones on their phones/tablets). Having a simple roll table with no character-sheet modifiers can be handy in such cases.
 * The module should also help users who want to make a quick roll in a click or two without having to type commands in the chat window.
 
 ## Acknowledgements
