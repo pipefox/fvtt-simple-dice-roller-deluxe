@@ -2,7 +2,7 @@
   "id": "simple-dice-roller-deluxe",
   "title": "Simple Dice Roller Deluxe",
   "description": "A system agnostic module that allows for quick rolling of common dice.",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "authors": [
     {
       "name": "Antony Sotirov (pipefox)", 
@@ -45,8 +45,8 @@
     "styles/simple-dice-roller.css"
   ],
   "url": "https://github.com/pipefox/fvtt-simple-dice-roller-deluxe",
-  "manifest": "https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/releases/latest/download/module.json",
-  "download": "https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/archive/main.zip",
+  "manifest": "https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/releases/download/2.3.0/module.json",
+  "download": "https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/releases/download/2.3.0/module.zip",
   "compatibility": {
     "minimum": "10",
     "verified": "12.343"
