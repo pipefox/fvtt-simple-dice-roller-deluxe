@@ -172,8 +172,6 @@ export class DiceTable extends HandlebarsApplicationMixin(ApplicationV2) {
         return "roll";
     }
 
-    // TODO P2: use AppV2 DEFAULT_OPTION actions instead
-    // https://foundryvtt.wiki/en/development/guides/converting-to-appv2
     async _onRender(context, options) {
         await super._onRender?.(context, options);
         const html = $(this.element);

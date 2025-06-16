@@ -15,7 +15,6 @@
  * 3] registering a separate (Advanced) settings menu
  * https://foundryvtt.com/api/classes/foundry.helpers.ClientSettings.html#registermenu
  *    -> needs own ApplicationV2 + Handlebars template
- *    // TODO: update after switchig to AppV2
  *    -> override _updateObject() to save updated game settings 
  *    -> the full key to access a settings object is "<module-id>.<setting-id>"
  ************************************************************************************ */
