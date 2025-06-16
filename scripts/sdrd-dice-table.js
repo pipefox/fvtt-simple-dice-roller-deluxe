@@ -14,7 +14,6 @@ export class DiceTable extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static DEFAULT_OPTIONS = {
         id: "dice-table",
-        tag: "aside",
         classes: ["simple-dice-roller"],
         window: { title: "title" },
         position: { width: "auto", height: "auto", left: 120, top: 70 }
