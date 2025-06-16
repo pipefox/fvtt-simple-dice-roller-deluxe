@@ -67,7 +67,7 @@ export class DiceForm extends FormApplication {
         const diceTypes = this._getDiceTypes(this.enableCoins, this.enableFudgeDice);
 
         return {
-            displaySpecialToggles: ( this.enableHiddenRolls || this.enableExplodingDice ),
+            displaySpecialToggles: ( this.enableHiddenRolls || this.enableCthulhuD100 || this.enableExplodingDice ),
             enableHiddenRolls: this.enableHiddenRolls,
             enableCthulhuD100: this.enableCthulhuD100,
             enableExplodingDice: this.enableExplodingDice,

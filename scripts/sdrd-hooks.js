@@ -41,7 +41,7 @@ function _loadCustomDiceControl() {
                 name: SDRD.MENU_CONTROL,
                 title: game.i18n.localize("title"),
                 icon: "fa-solid fa-dice-d20",
-                onClick: () => ui.notifications.info("Oops! This buton should not be visible!"),
+                onClick: () => ui.notifications.info("Oops! This button should not be visible!"),
                 button: true
             }],
         activeTool: ""
@@ -102,7 +102,7 @@ function _registerGameSettings() {
     game.settings.register(SDRD.ID, SDRD.CONFIG_FUDGE_DICE, {
         name: game.i18n.localize("settings.enableFudgeDice.name"),
         hint: game.i18n.localize("settings.enableFudgeDice.hint"),
-        scope: "client",
+        scope: "world",
         config: false,  // display in Advanced Settings
         default: false,
         type: Boolean,
