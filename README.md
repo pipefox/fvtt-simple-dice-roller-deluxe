@@ -21,7 +21,7 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
   * Fate/Fudge dice
   * Coin flips  
 
-Note that if any "Hidden Rolls" toggles are selected in the Dice Roller table, they supersede/override the default chat window hidden toggles!<br>
+Note that if any "Hidden Rolls" toggles are selected in the Dice Roller table, they supersede/override the default chat window hidden toggles!
 If they are NOT enabled, then the default chat window hidden toggles work as normal. :)
 
 ## Installation Instructions
