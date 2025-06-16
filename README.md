@@ -36,7 +36,8 @@ If they are NOT enabled, then the default chat window hidden toggles work as nor
 **Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!**
 * Note that the Spanish and French localizations were done with machine translation.<br>
 Feel free to make pull requests with corrected json texts!
-* 'Call of Cthulhu' Bonus/Penalty rolls work correctly, but the detailed chat output does not look nice. For better integration, use the Cthulhu 7th Edition System for Foundry.
+* 'Call of Cthulhu' Bonus/Penalty rolls work correctly, but the detailed chat output does not look nice.<br>
+For better integration, use the Cthulhu 7th Edition System for Foundry.
 
 <hr/>
 
