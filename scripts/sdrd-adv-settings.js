@@ -8,7 +8,7 @@ export class AdvancedSettings extends FormApplication {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             id: "advanced-settings",
-            title: game.i18n.localize("settings.advanced.title"),
+            title: game.i18n.localize(`settings.${SDRD.CONFIG_ADVANCED}.title`),
             template: SDRD.ADVANCED_SETTINGS_PATH,
             width: 520
         });

@@ -1,21 +1,35 @@
-/* Main Dice Form: */
-.sdrd-form .sdrd-rows {
+/* Main Dice Table: */
+.sdrd-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;     
+}
+
+.simple-dice-roller .window-content {
+  padding: 10px !important;
+}
+
+.sdrd-table {
+  padding: 0.5em;
+}
+
+.sdrd-table .sdrd-rows {
     display: flex;
     min-width: 270px;
 }
 
-.sdrd-form i {
+.sdrd-table i {
     font-size: 25px;
     vertical-align: middle;
 }
 
-.sdrd-form .sdrd-1stcol {
+.sdrd-table .sdrd-1stcol {
     min-width: 110px !important;
     padding-left: 10px !important;
     justify-content: left !important;
 }
 
-.sdrd-form .sdrd-col {
+.sdrd-table .sdrd-col {
     display: flex;
     flex: 1; /* equally wide */
     justify-content: center; 
@@ -30,9 +44,10 @@
 .sdrd-toggle-box {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 8px;
     width: 100%;
     box-shadow: none;
+    padding: 0.5em;   
 }
 
 .sdrd-toggle-box i {

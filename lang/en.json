@@ -15,7 +15,7 @@
         "explodingDiceOnce": "Single Exploding Dice"
     },
     "settings": {
-        "advanced": {
+        "advancedSettings": {
             "title": "Advanced Settings for Dice Roller",
             "name": "Advanced Global Settings:",
             "label": "Configure Dice Roller",
@@ -44,13 +44,13 @@
         },
         "maxDiceCount": {
             "name": "Maximum dice thrown",
-            "hint": "The max number of dice (from 1 to 25) you can throw with the Dice Roller. Requires reload!"
+            "hint": "The max number of dice (from 1 to 25) you can throw with the Dice Roller."
         },
         "enableFirstColumn": {
             "name": "Add additional 1st column for rolling only 1 die",
             "hint": "Note: the dice-icon column is always clickable and rolls a single die!"
         },
-        "closeFormOnRoll": {
+        "closeRollerAfterRoll": {
             "name": "Close the Dice Roller on a successful roll",
             "hint": "If enabled, Dice Roller window will close on making a roll."
         }

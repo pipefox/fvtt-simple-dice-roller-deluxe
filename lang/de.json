@@ -15,7 +15,7 @@
         "explodingDiceOnce": "Einmal explodierende Würfel"
     },
     "settings": {
-        "advanced": {
+        "advancedSettings": {
             "title": "Erweiterte Einstellungen für den Würfelroller",
             "name": "Erweiterte Globale Einstellungen:",
             "label": "Würfelroller konfigurieren",
@@ -44,13 +44,13 @@
         },
         "maxDiceCount": {
             "name": "Maximal geworfene Würfel",
-            "hint": "Maximale Anzahl von Würfeln (von 1 bis 25), die mit dem Würfelroller geworfen werden können. Erfordert Neuladen!"
+            "hint": "Maximale Anzahl von Würfeln (von 1 bis 25), die mit dem Würfelroller geworfen werden können."
         },
         "enableFirstColumn": {
             "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
             "hint": "Hinweis: die Würfelsymbol-Spalte ist immer anklickbar und würfelt einen einzelnen Würfel!"
         },
-        "closeFormOnRoll": {
+        "closeRollerAfterRoll": {
             "name": "Würfelroller nach erfolgreichem Wurf schließen",
             "hint": "Wenn aktiviert, schließt sich das Würfelfenster nach dem Wurf."
         }
