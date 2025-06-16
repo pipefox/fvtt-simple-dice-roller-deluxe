@@ -1,25 +1,23 @@
 /* ************************************************************************************
  * 1] 'hook' to the event framework used by FoundryVTT
- * https://foundryvtt.com/api/classes/client.Hooks.html
- *    -> init to register module settings (see also 3]) + Handlebars helper functions,
- *       loading Handlebars templates seems optional
- *    -> getSceneControls to hook new menu button
- *    -> renderSceneControls to prevent default behavior & load the Dice Form
+ * https://foundryvtt.com/api/classes/foundry.helpers.Hooks.html
+ *    -> init to register module settings (see also 3]) + Handlebars helper functions
+ *    -> getSceneControlButtons to hook new menu button
+ *    -> renderSceneControls to prevent default behavior & load the Dice Table
  * 
- * 2] build a FormApplication for main Dice Form popup
- * https://foundryvtt.com/api/classes/client.FormApplication.html 
- *    -> call super() in constructor
- *    -> extend defaultOptions using foundry.utils.mergeObject
- *    -> write getData() to link to Handlebars template :3
- *    -> extend activateListeners to bind new html elements to diceRolling, etc.
+ * 2] build a ApplicationV2 for main Dice Table pop-up
+ * https://foundryvtt.com/api/classes/foundry.applications.api.ApplicationV2.html
+ *    -> call super(options) in constructor
+ *    -> set static DEFAULT_OPTIONS + PARTS (for Handlebar templates)
+ *    -> _prepareContext(options)) to map to Handlebars template :3
+ *    -> _onRende(context, options)r to bind new html elements to diceRolling, etc.
  * 
  * 3] registering a separate settings menu
- * https://foundryvtt.com/api/classes/client.ClientSettings.html#registerMenu
- *    -> needs own FormApplication + Handlebars template
+ * https://foundryvtt.com/api/classes/foundry.helpers.ClientSettings.html#registermenu
+ *    -> needs own ApplicationV2 + Handlebars template  // TODO: update
  *    -> override _updateObject() to save updated game settings
  *    -> the full key to access a settings object is "<module-id>.<setting-id>"
  ************************************************************************************ */
-// TODO: update obsolete description, lol
 
 export const SDRD = {
     ID: "simple-dice-roller-deluxe",

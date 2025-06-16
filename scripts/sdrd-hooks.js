@@ -85,9 +85,9 @@ function _registerGameSettings() {
 
     // register Advanced Settings Menu
     game.settings.registerMenu(SDRD.ID, SDRD.CONFIG_ADVANCED, {
-        name: game.i18n.localize("settings.advanced.name"),
-        label: game.i18n.localize("settings.advanced.label"),
-        hint: game.i18n.localize("settings.advanced.hint"),
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_ADVANCED}.name`),
+        label: game.i18n.localize(`settings.${SDRD.CONFIG_ADVANCED}.label`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_ADVANCED}hint`),
         icon: "fa-duotone fa-table",
         type: AdvancedSettings,
         restricted: true  // only settable by GM
@@ -100,8 +100,8 @@ function _registerGameSettings() {
 
     // register Main Settings options
     game.settings.register(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT, {
-        name: game.i18n.localize("settings.maxDiceCount.name"),
-        hint: game.i18n.localize("settings.maxDiceCount.hint"),
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_MAXDICE_COUNT}.name`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_MAXDICE_COUNT}.hint`),
         scope: "client",
         config: true,
         default: 8,

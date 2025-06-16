@@ -15,7 +15,7 @@
         "explodingDiceOnce": "Alternar dados que explotan una vez"
     },
     "settings": {
-        "advanced": {
+        "advancedSettings": {
             "title": "Configuración Avanzada del Lanzador de Dados",
             "name": "Configuración Global Avanzada:",
             "label": "Configurar Lanzador de Dados",

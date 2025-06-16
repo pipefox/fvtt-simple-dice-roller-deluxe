@@ -15,7 +15,7 @@
         "explodingDiceOnce": "Single Exploding Dice"
     },
     "settings": {
-        "advanced": {
+        "advancedSettings": {
             "title": "Advanced Settings for Dice Roller",
             "name": "Advanced Global Settings:",
             "label": "Configure Dice Roller",

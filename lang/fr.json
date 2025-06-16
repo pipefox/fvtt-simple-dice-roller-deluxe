@@ -15,7 +15,7 @@
         "explodingDiceOnce": "Basculer les dés explosifs une fois"
     },
     "settings": {
-        "advanced": {
+        "advancedSettings": {
             "title": "Paramètres Avancés du Lanceur de Dés",
             "name": "Paramètres Globaux Avancés:",
             "label": "Configurer le Lanceur de Dés",

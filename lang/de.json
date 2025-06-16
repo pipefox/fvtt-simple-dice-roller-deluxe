@@ -15,7 +15,7 @@
         "explodingDiceOnce": "Einmal explodierende Würfel"
     },
     "settings": {
-        "advanced": {
+        "advancedSettings": {
             "title": "Erweiterte Einstellungen für den Würfelroller",
             "name": "Erweiterte Globale Einstellungen:",
             "label": "Würfelroller konfigurieren",
