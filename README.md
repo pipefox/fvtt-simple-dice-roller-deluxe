@@ -21,7 +21,7 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
   * Fate/Fudge dice
   * Coin flips  
 
-Note that if any "Hidden Rolls" toggles are selected in the Dice Roller table, they supersede/override the default chat window hidden toggles!
+Note that if any "Hidden Rolls" toggles are selected in the Dice Roller table, they supersede/override the default chat window hidden toggles!<br>
 If they are NOT enabled, then the default chat window hidden toggles work as normal. :)
 
 ## Installation Instructions
@@ -34,9 +34,9 @@ If they are NOT enabled, then the default chat window hidden toggles work as nor
 
 ## Known Issues
 **Click [HERE](https://github.com/pipefox/fvtt-simple-dice-roller-deluxe/issues/new/choose) to submit an issue!**
-* Note that the Spanish and French localizations were done with machine translation.
-* 'Call of Cthulhu' Bonus/Penalty rolls work correctly, but the detailed chat output does not look nice. For better integration, use the Cthulhu 7th Edition System for Foundry.<br>
+* Note that the Spanish and French localizations were done with machine translation.<br>
 Feel free to make pull requests with corrected json texts!
+* 'Call of Cthulhu' Bonus/Penalty rolls work correctly, but the detailed chat output does not look nice. For better integration, use the Cthulhu 7th Edition System for Foundry.
 
 <hr/>
 
