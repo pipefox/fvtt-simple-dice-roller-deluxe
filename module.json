@@ -38,7 +38,7 @@
   "esmodules": [
     "scripts/sdrd-constants.js",
     "scripts/sdrd-hooks.js",
-    "scripts/sdrd-dice-form.js",
+    "scripts/sdrd-dice-table.js",
     "scripts/sdrd-adv-settings.js"
   ],
   "styles": [

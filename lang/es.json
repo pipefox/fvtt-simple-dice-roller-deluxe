@@ -50,7 +50,7 @@
             "name": "Agregar una columna adicional para lanzamientos de 1 dado",
             "hint": "Nota: la columna del icono de dado siempre se puede pulsar y lanza un solo dado."
         },
-        "closeFormOnRoll": {
+        "closeRollerAfterRoll": {
             "name": "Cerrar el Lanzador de Dados tras una tirada exitosa",
             "hint": "Si está activado, la ventana del Lanzador de Dados se cerrará al lanzar."
         }

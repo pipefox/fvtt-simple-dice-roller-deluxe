@@ -1,8 +1,8 @@
 import { SDRD } from "./sdrd-constants.js"
-import { DiceForm } from "./sdrd-dice-form.js";
+import { DiceTable } from "./sdrd-dice-table.js";
 import { AdvancedSettings } from "./sdrd-adv-settings.js";
 
-let globalDiceForm;
+let globalDiceTable;
 
 Hooks.once('init', async () => {
     await _loadHandlebarTemplates();
@@ -12,25 +12,20 @@ Hooks.once('init', async () => {
 
 Hooks.on("getSceneControlButtons", controls => {
     const controlKey = SDRD.MENU_CONTROL;
-    const toolName = "buttonTool";
+    const toolName = "xbutton";  // for stub SceneControlTool
 
     controls[controlKey] = {
         name: controlKey,
         title: game.i18n.localize("title"),
-        icon: "fas fa-dice-d20",
+        icon: "fa-solid fa-dice-d20",
         order: 99,  // place last
-        // we must have a SceneControlTool, otherwise won't render:
+        // must have a SceneControlTool, otherwise won't render:
         tools: {
-            toolName: {
+            [toolName]: {
+                icon: "fas fa-times",
                 name: toolName,
-                title: "XXXX",
-                icon: "fas fa-dice-d20",
-                // TODO P3: fix to work, but also change icon to be an X :) !
-                button: true,
-                onChange(event, active) {
-                    // TODO: typo in legacy branch !
-                    ui.notifications.info("Oops! This button should not be visible!")
-                }
+                order: 1,
+                title: "SHOULD NOT BE VISIBLE"
             }
         },
         activeTool: toolName
@@ -38,14 +33,14 @@ Hooks.on("getSceneControlButtons", controls => {
 });
 
 Hooks.on("renderSceneControls", (app, html) => {
-    const btn = html.querySelector('button[data-control="simpledice"]');
+    const btn = html.querySelector('button[data-control="sdrd-menu"]');
     if (!btn) return;
 
     btn.addEventListener("click", event => {
         event.preventDefault();
         event.stopImmediatePropagation();
-        globalDiceForm = globalDiceForm || new DiceForm();
-        globalDiceForm.render(true);
+        globalDiceTable = globalDiceTable || new DiceTable();
+        globalDiceTable.render(true);
     });
 });
 
@@ -60,15 +55,15 @@ function _loadHandlebarTemplates() {
         return value === "df";
     });
     return foundry.applications.handlebars.loadTemplates([
-        SDRD.DICE_FORM_PATH,
+        SDRD.DICE_TABLE_PATH,
         SDRD.ADVANCED_SETTINGS_PATH
     ]);
 }
 
 function _registerGameSettings() {
-    function updateDiceForm(key, val) {
-        if (globalDiceForm) {
-            globalDiceForm.updateSetting(key, val);
+    function updateDiceTable(key, val) {
+        if (globalDiceTable) {
+            globalDiceTable.updateSetting(key, val);
         }
     }
     function registerToggle(key, scope = "world", config = false) {
@@ -79,24 +74,9 @@ function _registerGameSettings() {
             config,
             default: false,
             type: Boolean,
-            onChange: val => updateDiceForm(key, val)
+            onChange: val => updateDiceTable(key, val)
         });
     }
-
-    // register Advanced Settings Menu
-    game.settings.registerMenu(SDRD.ID, SDRD.CONFIG_ADVANCED, {
-        name: game.i18n.localize(`settings.${SDRD.CONFIG_ADVANCED}.name`),
-        label: game.i18n.localize(`settings.${SDRD.CONFIG_ADVANCED}.label`),
-        hint: game.i18n.localize(`settings.${SDRD.CONFIG_ADVANCED}hint`),
-        icon: "fa-duotone fa-table",
-        type: AdvancedSettings,
-        restricted: true  // only settable by GM
-    });
-    registerToggle(SDRD.CONFIG_HIDDEN_ROLLS);
-    registerToggle(SDRD.CONFIG_CTHULHU_D100);
-    registerToggle(SDRD.CONFIG_EXPLODING_DICE);
-    registerToggle(SDRD.CONFIG_FUDGE_DICE);
-    registerToggle(SDRD.CONFIG_COINS);
 
     // register Main Settings options
     game.settings.register(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT, {
@@ -107,8 +87,23 @@ function _registerGameSettings() {
         default: 8,
         range: { min: 1, step: 1, max: 25 },
         type: Number,
-        onChange: val => updateDiceForm(SDRD.CONFIG_MAXDICE_COUNT, val)
+        onChange: val => updateDiceTable(SDRD.CONFIG_MAXDICE_COUNT, val)
     });
     registerToggle(SDRD.CONFIG_1ST_COLUMN, "client", true);
-    registerToggle(SDRD.CONFIG_CLOSE_FORM, "client", true);
+    registerToggle(SDRD.CONFIG_CLOSE_ROLLER, "client", true);
+
+    // register Advanced Settings Menu
+    game.settings.registerMenu(SDRD.ID, SDRD.CONFIG_ADVANCED, {
+        name: game.i18n.localize(`settings.${SDRD.CONFIG_ADVANCED}.name`),
+        label: game.i18n.localize(`settings.${SDRD.CONFIG_ADVANCED}.label`),
+        hint: game.i18n.localize(`settings.${SDRD.CONFIG_ADVANCED}.hint`),
+        icon: "fa-duotone fa-table",
+        type: AdvancedSettings,
+        restricted: true  // only settable by GM
+    });
+    registerToggle(SDRD.CONFIG_HIDDEN_ROLLS);
+    registerToggle(SDRD.CONFIG_CTHULHU_D100);
+    registerToggle(SDRD.CONFIG_EXPLODING_DICE);
+    registerToggle(SDRD.CONFIG_FUDGE_DICE);
+    registerToggle(SDRD.CONFIG_COINS);
 }

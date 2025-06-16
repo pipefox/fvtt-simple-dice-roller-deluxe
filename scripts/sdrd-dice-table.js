@@ -2,7 +2,7 @@ import { SDRD } from "./sdrd-constants.js";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
-export class DiceForm extends HandlebarsApplicationMixin(ApplicationV2) {
+export class DiceTable extends HandlebarsApplicationMixin(ApplicationV2) {
     static GM_ROLL = "makeGMRoll";
     static BLIND_ROLL = "makeBlindRoll";
     static SELF_ROLL = "makeSelfRoll";
@@ -26,19 +26,19 @@ export class DiceForm extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static PARTS = {
         diceTable: {
-            template: SDRD.DICE_FORM_PATH
+            template: SDRD.DICE_TABLE_PATH
         }
     }
 
     constructor(options = {}) {
         super(options);
-        this._instantiateFormSettings();
-        this._resetFormToggles();
-        // delay render by 50ms (only on open form) to better handle mutliple settings changed at once
+        this._instantiateRollerSettings();
+        this._resetRollerToggles();
+        // delay render by 50ms (only when Dice Table is open) to better handle mutliple settings changed at once
         this.scheduleRender = foundry.utils.debounce(this.render.bind(this, {}), 50);
     }
 
-    _instantiateFormSettings() {
+    _instantiateRollerSettings() {
         this.enableHiddenRolls = game.settings.get(SDRD.ID, SDRD.CONFIG_HIDDEN_ROLLS);
         this.enableCthulhuD100 = game.settings.get(SDRD.ID, SDRD.CONFIG_CTHULHU_D100);
         this.enableExplodingDice = game.settings.get(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE);
@@ -46,10 +46,10 @@ export class DiceForm extends HandlebarsApplicationMixin(ApplicationV2) {
         this.enableCoins = game.settings.get(SDRD.ID, SDRD.CONFIG_COINS);
         this.maxDiceCount = game.settings.get(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT);
         this.enableFirstColumn = game.settings.get(SDRD.ID, SDRD.CONFIG_1ST_COLUMN);
-        this.closeFormOnRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_FORM);
+        this.closeRollerAfterRoll = game.settings.get(SDRD.ID, SDRD.CONFIG_CLOSE_ROLLER);
     }
 
-    _resetFormToggles() {
+    _resetRollerToggles() {
         // hidden rolls
         this.isGmRoll = false;
         this.isBlindRoll = false;
@@ -68,7 +68,7 @@ export class DiceForm extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     _prepareContext(options) {
-        this._resetFormToggles();  // reset on each render
+        this._resetRollerToggles();  // reset on each render
         const indexOffset = this.enableFirstColumn ? 0 : 1;
         const diceTypes = this._getDiceTypes(this.enableCoins, this.enableFudgeDice);
 
@@ -87,7 +87,7 @@ export class DiceForm extends HandlebarsApplicationMixin(ApplicationV2) {
     _getDiceTypes(enableCoins, enableFudgeDice) {
         const diceTypes = [];
         if (enableCoins) diceTypes.push("dc");
-        diceTypes.push(...DiceForm.STANDARD_DICE);
+        diceTypes.push(...DiceTable.STANDARD_DICE);
         if (enableFudgeDice) diceTypes.push("df");
         return diceTypes;
     }
@@ -103,9 +103,9 @@ export class DiceForm extends HandlebarsApplicationMixin(ApplicationV2) {
         this.isBlindRoll = false;
         this.isSelfRoll = false;
         if (radioButton.checked) {
-            this.isGmRoll = hiddenType === DiceForm.GM_ROLL;
-            this.isBlindRoll = hiddenType === DiceForm.BLIND_ROLL;
-            this.isSelfRoll = hiddenType === DiceForm.SELF_ROLL;
+            this.isGmRoll = hiddenType === DiceTable.GM_ROLL;
+            this.isBlindRoll = hiddenType === DiceTable.BLIND_ROLL;
+            this.isSelfRoll = hiddenType === DiceTable.SELF_ROLL;
         }
     }
 
@@ -119,8 +119,8 @@ export class DiceForm extends HandlebarsApplicationMixin(ApplicationV2) {
         this.isBonusRoll = false;
         this.isPenaltyRoll = false;
         if (radioButton.checked) {
-            this.isBonusRoll = tensType === DiceForm.BONUS_ROLL;
-            this.isPenaltyRoll = tensType === DiceForm.PENALTY_ROLL;
+            this.isBonusRoll = tensType === DiceTable.BONUS_ROLL;
+            this.isPenaltyRoll = tensType === DiceTable.PENALTY_ROLL;
         }
     }
 
@@ -134,8 +134,8 @@ export class DiceForm extends HandlebarsApplicationMixin(ApplicationV2) {
         this.isExploding = false;
         this.isExplodingOnce = false;
         if (radioButton.checked) {
-            this.isExploding = explodingType === DiceForm.EXPLODING_DICE;
-            this.isExplodingOnce = explodingType === DiceForm.EXPLODING_DICE_ONCE;
+            this.isExploding = explodingType === DiceTable.EXPLODING_DICE;
+            this.isExplodingOnce = explodingType === DiceTable.EXPLODING_DICE_ONCE;
         }
     }
 
@@ -163,7 +163,7 @@ export class DiceForm extends HandlebarsApplicationMixin(ApplicationV2) {
         let r = new Roll(formula);
         r.toMessage({ speaker: game.user._id }, { rollMode: this._getRollMode() });
 
-        if (this.closeFormOnRoll && this.rendered && !this.closing) this.close();
+        if (this.closeRollerAfterRoll && this.rendered && !this.closing) this.close();
     }
 
     _getRollMode() {

@@ -1,5 +1,5 @@
-/* Main Dice Form: */
-.sdrd-form-wrapper {
+/* Main Dice Table: */
+.sdrd-table-wrapper {
   display: flex;
   flex-direction: column;
   gap: 8px;     
@@ -9,27 +9,27 @@
   padding: 10px !important;
 }
 
-.sdrd-form {
+.sdrd-table {
   padding: 0.5em;
 }
 
-.sdrd-form .sdrd-rows {
+.sdrd-table .sdrd-rows {
     display: flex;
     min-width: 270px;
 }
 
-.sdrd-form i {
+.sdrd-table i {
     font-size: 25px;
     vertical-align: middle;
 }
 
-.sdrd-form .sdrd-1stcol {
+.sdrd-table .sdrd-1stcol {
     min-width: 110px !important;
     padding-left: 10px !important;
     justify-content: left !important;
 }
 
-.sdrd-form .sdrd-col {
+.sdrd-table .sdrd-col {
     display: flex;
     flex: 1; /* equally wide */
     justify-content: center; 

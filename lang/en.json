@@ -50,7 +50,7 @@
             "name": "Add additional 1st column for rolling only 1 die",
             "hint": "Note: the dice-icon column is always clickable and rolls a single die!"
         },
-        "closeFormOnRoll": {
+        "closeRollerAfterRoll": {
             "name": "Close the Dice Roller on a successful roll",
             "hint": "If enabled, Dice Roller window will close on making a roll."
         }

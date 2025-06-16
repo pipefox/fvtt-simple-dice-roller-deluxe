@@ -50,7 +50,7 @@
             "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",
             "hint": "Remarque : la colonne avec l’icône de dé est toujours cliquable et lance un seul dé !"
         },
-        "closeFormOnRoll": {
+        "closeRollerAfterRoll": {
             "name": "Fermer le Lanceur de Dés après un lancer réussi",
             "hint": "Si activé, la fenêtre du Lanceur de Dés se ferme après un lancer."
         }

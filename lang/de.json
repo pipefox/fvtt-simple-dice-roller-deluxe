@@ -50,7 +50,7 @@
             "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",
             "hint": "Hinweis: die Würfelsymbol-Spalte ist immer anklickbar und würfelt einen einzelnen Würfel!"
         },
-        "closeFormOnRoll": {
+        "closeRollerAfterRoll": {
             "name": "Würfelroller nach erfolgreichem Wurf schließen",
             "hint": "Wenn aktiviert, schließt sich das Würfelfenster nach dem Wurf."
         }
