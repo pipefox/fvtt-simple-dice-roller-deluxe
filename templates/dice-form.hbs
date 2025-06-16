@@ -1,72 +1,81 @@
-{{#if displaySpecialToggles}}
-<div class="app sdrd-toggle-box">
-    
-    {{#if enableHiddenRolls}}
-    <fieldset class="sdrd-field-set">
-        <legend>{{localize 'legend.hiddenRolls'}}</legend>
-        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeGMRoll" title="{{localize 'tooltip.makeGMRoll'}}">
-            <input type="radio" id="makeGMRoll" name="hiddenRoll"/>
-            <i class="fa-duotone fa-user-secret"></i>
-        </div>
-        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeBlindRoll" title="{{localize 'tooltip.makeBlindRoll'}}">
-            <input type="radio" id="makeBlindRoll" name="hiddenRoll"/>
-            <i class="fa-duotone fa-question"></i>
-        </div>
-        <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeSelfRoll" title="{{localize 'tooltip.makeSelfRoll'}}">
-            <input type="radio" id="makeSelfRoll" name="hiddenRoll"/>
-            <i class="fa-duotone fa-user"></i>
-        </div>
-    </fieldset>
+<div class="sdrd-form-wrapper">
+    {{#if displaySpecialToggles}}
+    <div class="app sdrd-toggle-box">
+
+        {{#if enableHiddenRolls}}
+        <fieldset class="sdrd-field-set">
+            <legend>{{localize 'legend.hiddenRolls'}}</legend>
+            <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeGMRoll"
+                title="{{localize 'tooltip.makeGMRoll'}}">
+                <input type="radio" id="makeGMRoll" name="hiddenRoll" />
+                <i class="fa-duotone fa-user-secret"></i>
+            </div>
+            <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeBlindRoll"
+                title="{{localize 'tooltip.makeBlindRoll'}}">
+                <input type="radio" id="makeBlindRoll" name="hiddenRoll" />
+                <i class="fa-duotone fa-question"></i>
+            </div>
+            <div class="sdrd-toggle toggle-hidden-roll" data-hidden-type="makeSelfRoll"
+                title="{{localize 'tooltip.makeSelfRoll'}}">
+                <input type="radio" id="makeSelfRoll" name="hiddenRoll" />
+                <i class="fa-duotone fa-user"></i>
+            </div>
+        </fieldset>
+        {{/if}}
+
+        {{#if enableCthulhuD100}}
+        <fieldset class="sdrd-field-set">
+            <legend>{{localize 'legend.CthulhuD100Rolls'}}</legend>
+            <div class="sdrd-toggle toggle-cthulhu-dice" data-tens-type="makePenaltyRoll"
+                title="{{localize 'tooltip.penaltyCthulhuRoll'}}">
+                <input type="radio" id="makePenaltyRoll" name="CthulhuD100Roll" />
+                <i class="fa-duotone fa-skull"></i>
+            </div>
+            <div class="sdrd-toggle toggle-cthulhu-dice" data-tens-type="makeBonusRoll"
+                title="{{localize 'tooltip.bonusCthulhuRoll'}}">
+                <input type="radio" id="makeBonusRoll" name="CthulhuD100Roll" />
+                <i class="fa-duotone fa-stars"></i>
+            </div>
+        </fieldset>
+        {{/if}}
+
+        {{#if enableExplodingDice}}
+        <fieldset class="sdrd-field-set">
+            <legend>{{localize 'legend.explodingDiceRolls'}}</legend>
+            <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDice"
+                title="{{localize 'tooltip.explodingDice'}}">
+                <input type="radio" id="explodingDice" name="explodingDiceRoll" />
+                <i class="fa-duotone fa-bomb"></i>
+            </div>
+            <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDiceOnce"
+                title="{{localize 'tooltip.explodingDiceOnce'}}">
+                <input type="radio" id="explodingDiceOnce" name="explodingDiceRoll" />
+                <i class="fa-duotone fa-land-mine-on"></i>
+            </div>
+        </fieldset>
+        {{/if}}
+
+    </div>
     {{/if}}
 
-    {{#if enableCthulhuD100}}
-    <fieldset class="sdrd-field-set">
-        <legend>{{localize 'legend.CthulhuD100Rolls'}}</legend>
-        <div class="sdrd-toggle toggle-cthulhu-dice" data-tens-type="makePenaltyRoll" title="{{localize 'tooltip.penaltyCthulhuRoll'}}">
-            <input type="radio" id="makePenaltyRoll" name="CthulhuD100Roll" />
-            <i class="fa-duotone fa-skull"></i>
+    <div class="app sdrd-form">
+        {{#each diceTypes}}
+        <div class="sdrd-rows">
+            <div class="sdrd-col sdrd-1stcol rollable" data-dice-type="{{diceType}}" data-dice-roll="1">
+                {{#if (isCoin diceType)}}
+                <i class="fa-duotone fa-coin"></i>&nbsp coin
+                {{else if (isD100 diceType)}}
+                <i class="fa-duotone fa-dice-d10"></i>&nbsp<i class="fa-duotone fa-dice-d10"></i>&nbsp d100
+                {{else if (isFate diceType)}}
+                <i class="fa-duotone fa-plus-square"></i>&nbsp fudge
+                {{else}}
+                <i class="fa-duotone fa-dice-{{diceType}}"></i>&nbsp {{diceType}}
+                {{/if}}
+            </div>
+            {{#each diceRolls}}
+            <div class="sdrd-col rollable" data-dice-type="{{../diceType}}" data-dice-roll="{{this}}">{{this}}</div>
+            {{/each}}
         </div>
-        <div class="sdrd-toggle toggle-cthulhu-dice" data-tens-type="makeBonusRoll" title="{{localize 'tooltip.bonusCthulhuRoll'}}">
-            <input type="radio" id="makeBonusRoll" name="CthulhuD100Roll"/>
-            <i class="fa-duotone fa-stars"></i>
-        </div>
-    </fieldset>
-    {{/if}}
-
-    {{#if enableExplodingDice}}
-    <fieldset class="sdrd-field-set">
-        <legend>{{localize 'legend.explodingDiceRolls'}}</legend>
-        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDice" title="{{localize 'tooltip.explodingDice'}}">
-            <input type="radio" id="explodingDice" name="explodingDiceRoll"/>
-            <i class="fa-duotone fa-bomb"></i>
-        </div>
-        <div class="sdrd-toggle toggle-exploding-dice" data-exploding-type="explodingDiceOnce" title="{{localize 'tooltip.explodingDiceOnce'}}">
-            <input type="radio" id="explodingDiceOnce" name="explodingDiceRoll" />
-            <i class="fa-duotone fa-land-mine-on"></i>
-        </div>
-    </fieldset>
-    {{/if}}
-
-</div>
-{{/if}}
-
-<div class="app sdrd-form">
-    {{#each diceTypes}}
-    <div class="sdrd-rows">
-        <div class="sdrd-col sdrd-1stcol rollable" data-dice-type="{{diceType}}" data-dice-roll="1">
-            {{#if (isCoin diceType)}}
-            <i class="fa-duotone fa-coin"></i>&nbsp coin
-            {{else if (isD100 diceType)}}
-            <i class="fa-duotone fa-dice-d10"></i>&nbsp<i class="fa-duotone fa-dice-d10"></i>&nbsp d100
-            {{else if (isFate diceType)}}
-            <i class="fa-duotone fa-plus-square"></i>&nbsp fudge
-            {{else}}
-            <i class="fa-duotone fa-dice-{{diceType}}"></i>&nbsp {{diceType}}
-            {{/if}}
-        </div>
-        {{#each diceRolls}}
-        <div class="sdrd-col rollable" data-dice-type="{{../diceType}}" data-dice-roll="{{this}}">{{this}}</div>
         {{/each}}
     </div>
-    {{/each}}
 </div>

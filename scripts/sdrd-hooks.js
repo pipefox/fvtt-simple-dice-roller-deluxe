@@ -4,49 +4,50 @@ import { AdvancedSettings } from "./sdrd-adv-settings.js";
 
 let globalDiceForm;
 
-Hooks.once('init', () => {
-    _loadHandlebarTemplates();
+Hooks.once('init', async () => {
+    await _loadHandlebarTemplates();
     _registerGameSettings();
     console.log("'Simple Dice Roller Deluxe' module has loaded");
 });
 
 Hooks.on("getSceneControlButtons", controls => {
-    if (!controls.find(c => c.name === SDRD.MENU_CONTROL)) {
-        CONFIG.Canvas.layers.simpledice = { layerClass: InteractionLayer, group: 'interface' }
-        controls.push(_loadCustomDiceControl());
-    }
-});
+    const controlKey = SDRD.MENU_CONTROL;
+    const toolName = "buttonTool";
 
-Hooks.on('renderSceneControls', (controls, html) => {
-    // very hacky: cache private Foundry _onClickLayer method to execute after our custom control injection
-    const cachedOnClickLayer = ui.controls._onClickLayer.bind(ui.controls);
-    ui.controls._onClickLayer = function (event, ...rest) {
-        if (event.currentTarget.dataset.control === SDRD.MENU_CONTROL) {
-            if ( !globalDiceForm ) globalDiceForm = new DiceForm(); 
-            globalDiceForm.render(true);
-            return;
-        }
-        cachedOnClickLayer(event, ...rest);
-    };
-});
-
-function _loadCustomDiceControl() {
-    return {
-        name: SDRD.MENU_CONTROL,
+    controls[controlKey] = {
+        name: controlKey,
         title: game.i18n.localize("title"),
-        icon: "fa-solid fa-dice-d20",
-        layer: SDRD.MENU_CONTROL,
-        tools: [{
-                // hidden button needed otherwise main menu control won't render
-                name: SDRD.MENU_CONTROL,
-                title: game.i18n.localize("title"),
-                icon: "fa-solid fa-dice-d20",
-                onClick: () => ui.notifications.info("Oops! This buton should not be visible!"),
-                button: true
-            }],
-        activeTool: ""
+        icon: "fas fa-dice-d20",
+        order: 99,  // place last
+        // we must have a tool SceneControlTool, otherwise won't render:
+        activeTool: "",
+        tools: {
+            toolName: {
+                name: toolName,
+                title: "XXXX",
+                icon: "fas fa-dice-d20",
+                // TODO P3: fix to work, but also change icon to be an X :) !
+                button: true,
+                onChange(event, active) {
+                    // TODO: typo in legacy branch !
+                    ui.notifications.info("Oops! This button should not be visible!")
+                }
+            }
+        }
     };
-}
+});
+
+Hooks.on("renderSceneControls", (app, html) => {
+    const btn = html.querySelector('button[data-control="simpledice"]');
+    if (!btn) return;
+    
+    btn.addEventListener("click", event => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        globalDiceForm = globalDiceForm || new DiceForm();
+        globalDiceForm.render(true);
+    });
+});
 
 function _loadHandlebarTemplates() {
     Handlebars.registerHelper("isCoin", function (value) {
@@ -58,11 +59,31 @@ function _loadHandlebarTemplates() {
     Handlebars.registerHelper("isFate", function (value) {
         return value === "df";
     });
-    loadTemplates([SDRD.DICE_FORM_PATH]);
-    loadTemplates([SDRD.ADVANCED_SETTINGS_PATH]);
+    return foundry.applications.handlebars.loadTemplates([
+        SDRD.DICE_FORM_PATH,
+        SDRD.ADVANCED_SETTINGS_PATH
+    ]);
 }
 
 function _registerGameSettings() {
+    // helper functions
+    function updateDiceForm(key, val) {
+        if (globalDiceForm) {
+            globalDiceForm.updateSetting(key, val);
+        }
+    }
+    function registerToggle(key, i18nBase, scope = "world", config = false) {
+        game.settings.register(SDRD.ID, key, {
+            name: game.i18n.localize(`settings.${i18nBase}.name`),
+            hint: game.i18n.localize(`settings.${i18nBase}.hint`),
+            scope,
+            config,
+            default: false,
+            type: Boolean,
+            onChange: val => updateDiceForm(key, val)
+        });
+    }
+
     // register Advanced Settings Menu
     game.settings.registerMenu(SDRD.ID, SDRD.CONFIG_ADVANCED, {
         name: game.i18n.localize("settings.advanced.name"),
@@ -70,55 +91,15 @@ function _registerGameSettings() {
         hint: game.i18n.localize("settings.advanced.hint"),
         icon: "fa-duotone fa-table",
         type: AdvancedSettings,
-        restricted: true // only settable by GM
-      });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_HIDDEN_ROLLS, {
-        name: game.i18n.localize("settings.enableHiddenRolls.name"),
-        hint: game.i18n.localize("settings.enableHiddenRolls.hint"),
-        scope: "world",
-        config: false,  // display in Advanced Settings
-        default: false,
-        type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_HIDDEN_ROLLS, val)
+        restricted: true  // only settable by GM
     });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_CTHULHU_D100, {
-        name: game.i18n.localize("settings.enableCthulhuD100.name"),
-        hint: game.i18n.localize("settings.enableCthulhuD100.hint"),
-        scope: "world",
-        config: false,  // display in Advanced Settings
-        default: false,
-        type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_CTHULHU_D100, val)
-    });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_EXPLODING_DICE, {
-        name: game.i18n.localize("settings.enableExplodingDice.name"),
-        hint: game.i18n.localize("settings.enableExplodingDice.hint"),
-        scope: "world",
-        config: false,  // display in Advanced Settings
-        default: false,
-        type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_EXPLODING_DICE, val)
-    });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_FUDGE_DICE, {
-        name: game.i18n.localize("settings.enableFudgeDice.name"),
-        hint: game.i18n.localize("settings.enableFudgeDice.hint"),
-        scope: "client",
-        config: false,  // display in Advanced Settings
-        default: false,
-        type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_FUDGE_DICE, val)
-    });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_COINS, {
-        name: game.i18n.localize("settings.enableCoins.name"),
-        hint: game.i18n.localize("settings.enableCoins.hint"),
-        scope: "world",
-        config: false,  // display in Advanced Settings
-        default: false,
-        type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_COINS, val)
-    });
+    registerToggle(SDRD.CONFIG_HIDDEN_ROLLS, "enableHiddenRolls");
+    registerToggle(SDRD.CONFIG_CTHULHU_D100, "enableCthulhuD100");
+    registerToggle(SDRD.CONFIG_EXPLODING_DICE, "enableExplodingDice");
+    registerToggle(SDRD.CONFIG_FUDGE_DICE, "enableFudgeDice");
+    registerToggle(SDRD.CONFIG_COINS, "enableCoins");
 
-    // register main config settings
+    // register Main Settings options
     game.settings.register(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT, {
         name: game.i18n.localize("settings.maxDiceCount.name"),
         hint: game.i18n.localize("settings.maxDiceCount.hint"),
@@ -127,30 +108,8 @@ function _registerGameSettings() {
         default: 8,
         range: { min: 1, step: 1, max: 25 },
         type: Number,
-        requiresReload: true
+        onChange: val => updateDiceForm(SDRD.CONFIG_MAXDICE_COUNT, val)
     });
-        game.settings.register(SDRD.ID, SDRD.CONFIG_1ST_COLUMN, {
-        name: game.i18n.localize("settings.enableFirstColumn.name"),
-        hint: game.i18n.localize("settings.enableFirstColumn.hint"),
-        scope: "client",
-        config: true,
-        default: false,
-        type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_1ST_COLUMN, val)
-    });
-    game.settings.register(SDRD.ID, SDRD.CONFIG_CLOSE_FORM, {
-        name: game.i18n.localize("settings.closeFormOnRoll.name"),
-        hint: game.i18n.localize("settings.closeFormOnRoll.hint"),
-        scope: "client",
-        config: true,
-        default: false,
-        type: Boolean,
-        onChange: (val) => _updateDiceForm(SDRD.CONFIG_CLOSE_FORM, val)
-    });
-
-    function _updateDiceForm(key, val) {
-        if (globalDiceForm) {
-            globalDiceForm.updateSetting(key, val);
-        }
-    }
+    registerToggle(SDRD.CONFIG_1ST_COLUMN, "enableFirstColumn", "client", true);
+    registerToggle(SDRD.CONFIG_CLOSE_FORM, "closeFormOnRoll", "client", true);
 }

@@ -1,4 +1,18 @@
 /* Main Dice Form: */
+.sdrd-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;     
+}
+
+.simple-dice-roller .window-content {
+  padding: 10px !important;
+}
+
+.sdrd-form {
+  padding: 0.5em;
+}
+
 .sdrd-form .sdrd-rows {
     display: flex;
     min-width: 270px;
@@ -30,9 +44,10 @@
 .sdrd-toggle-box {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 8px;
     width: 100%;
     box-shadow: none;
+    padding: 0.5em;   
 }
 
 .sdrd-toggle-box i {

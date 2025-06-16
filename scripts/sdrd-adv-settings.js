@@ -1,5 +1,6 @@
 import { SDRD } from "./sdrd-constants.js";
 
+// TODO: update to use AppV2
 export class AdvancedSettings extends FormApplication {
     constructor() {
         super();

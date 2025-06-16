@@ -19,10 +19,11 @@
  *    -> override _updateObject() to save updated game settings
  *    -> the full key to access a settings object is "<module-id>.<setting-id>"
  ************************************************************************************ */
+// TODO: update obsolete description, lol
 
 export const SDRD = {
     ID: "simple-dice-roller-deluxe",
-    MENU_CONTROL: "simpledice",
+    MENU_CONTROL: "simpledice",  // TODO: make name more unique?
 
     CONFIG_ADVANCED: "advancedSettings",
     CONFIG_HIDDEN_ROLLS: "enableHiddenRolls",
