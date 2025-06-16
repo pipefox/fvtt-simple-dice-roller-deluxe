@@ -19,7 +19,8 @@ Once the "Dice Roller" button is pressed, a clickable dice table renders in a se
     * Standard Exploding Dice
     * Single Exploding Dice (explode only once)
   * Fate/Fudge dice
-  * Coin flips
+  * Coin flips  
+
 Note that if any "Hidden Rolls" toggles are selected in the Dice Roller table, they supersede/override the default chat window hidden toggles!
 If they are NOT enabled, then the default chat window hidden toggles work as normal. :)
 
