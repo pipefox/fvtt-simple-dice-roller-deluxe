@@ -19,8 +19,7 @@ Hooks.on("getSceneControlButtons", controls => {
         title: game.i18n.localize("title"),
         icon: "fas fa-dice-d20",
         order: 99,  // place last
-        // we must have a tool SceneControlTool, otherwise won't render:
-        activeTool: "",
+        // we must have a SceneControlTool, otherwise won't render:
         tools: {
             toolName: {
                 name: toolName,
@@ -33,14 +32,15 @@ Hooks.on("getSceneControlButtons", controls => {
                     ui.notifications.info("Oops! This button should not be visible!")
                 }
             }
-        }
+        },
+        activeTool: toolName
     };
 });
 
 Hooks.on("renderSceneControls", (app, html) => {
     const btn = html.querySelector('button[data-control="simpledice"]');
     if (!btn) return;
-    
+
     btn.addEventListener("click", event => {
         event.preventDefault();
         event.stopImmediatePropagation();
@@ -66,16 +66,15 @@ function _loadHandlebarTemplates() {
 }
 
 function _registerGameSettings() {
-    // helper functions
     function updateDiceForm(key, val) {
         if (globalDiceForm) {
             globalDiceForm.updateSetting(key, val);
         }
     }
-    function registerToggle(key, i18nBase, scope = "world", config = false) {
+    function registerToggle(key, scope = "world", config = false) {
         game.settings.register(SDRD.ID, key, {
-            name: game.i18n.localize(`settings.${i18nBase}.name`),
-            hint: game.i18n.localize(`settings.${i18nBase}.hint`),
+            name: game.i18n.localize(`settings.${key}.name`),
+            hint: game.i18n.localize(`settings.${key}.hint`),
             scope,
             config,
             default: false,
@@ -93,11 +92,11 @@ function _registerGameSettings() {
         type: AdvancedSettings,
         restricted: true  // only settable by GM
     });
-    registerToggle(SDRD.CONFIG_HIDDEN_ROLLS, "enableHiddenRolls");
-    registerToggle(SDRD.CONFIG_CTHULHU_D100, "enableCthulhuD100");
-    registerToggle(SDRD.CONFIG_EXPLODING_DICE, "enableExplodingDice");
-    registerToggle(SDRD.CONFIG_FUDGE_DICE, "enableFudgeDice");
-    registerToggle(SDRD.CONFIG_COINS, "enableCoins");
+    registerToggle(SDRD.CONFIG_HIDDEN_ROLLS);
+    registerToggle(SDRD.CONFIG_CTHULHU_D100);
+    registerToggle(SDRD.CONFIG_EXPLODING_DICE);
+    registerToggle(SDRD.CONFIG_FUDGE_DICE);
+    registerToggle(SDRD.CONFIG_COINS);
 
     // register Main Settings options
     game.settings.register(SDRD.ID, SDRD.CONFIG_MAXDICE_COUNT, {
@@ -110,6 +109,6 @@ function _registerGameSettings() {
         type: Number,
         onChange: val => updateDiceForm(SDRD.CONFIG_MAXDICE_COUNT, val)
     });
-    registerToggle(SDRD.CONFIG_1ST_COLUMN, "enableFirstColumn", "client", true);
-    registerToggle(SDRD.CONFIG_CLOSE_FORM, "closeFormOnRoll", "client", true);
+    registerToggle(SDRD.CONFIG_1ST_COLUMN, "client", true);
+    registerToggle(SDRD.CONFIG_CLOSE_FORM, "client", true);
 }
