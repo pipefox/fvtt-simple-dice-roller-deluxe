@@ -44,7 +44,7 @@
         },
         "maxDiceCount": {
             "name": "Nombre maximum de dés lancés",
-            "hint": "Le nombre maximum de dés (de 1 à 25) que vous pouvez lancer avec le Lanceur de Dés. Changements nécessitent un rechargement."
+            "hint": "Le nombre maximum de dés (de 1 à 25) que vous pouvez lancer avec le Lanceur de Dés."
         },
         "enableFirstColumn": {
             "name": "Ajouter une 1ère colonne supplémentaire pour les lancers d'un dé",

@@ -44,7 +44,7 @@
         },
         "maxDiceCount": {
             "name": "Maximum dice thrown",
-            "hint": "The max number of dice (from 1 to 25) you can throw with the Dice Roller. Requires reload!"
+            "hint": "The max number of dice (from 1 to 25) you can throw with the Dice Roller."
         },
         "enableFirstColumn": {
             "name": "Add additional 1st column for rolling only 1 die",

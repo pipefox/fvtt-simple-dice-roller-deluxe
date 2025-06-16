@@ -44,7 +44,7 @@
         },
         "maxDiceCount": {
             "name": "Maximal geworfene Würfel",
-            "hint": "Maximale Anzahl von Würfeln (von 1 bis 25), die mit dem Würfelroller geworfen werden können. Erfordert Neuladen!"
+            "hint": "Maximale Anzahl von Würfeln (von 1 bis 25), die mit dem Würfelroller geworfen werden können."
         },
         "enableFirstColumn": {
             "name": "Zusätzliche 1. Spalte für 1 Würfelwurf hinzufügen",

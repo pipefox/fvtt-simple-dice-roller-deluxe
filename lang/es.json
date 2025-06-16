@@ -44,7 +44,7 @@
         },
         "maxDiceCount": {
             "name": "Número máximo de dados lanzados",
-            "hint": "El número máximo de dados (de 1 a 25) que puedes lanzar con el Lanzador de Dados. Cambios requieren recargar."
+            "hint": "El número máximo de dados (de 1 a 25) que puedes lanzar con el Lanzador de Dados."
         },
         "enableFirstColumn": {
             "name": "Agregar una columna adicional para lanzamientos de 1 dado",
